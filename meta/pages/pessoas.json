@@ -1,0 +1,212 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Pessoas"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "name": "grid0",
+                  "allowDelete": true,
+                  "confirmDelete": true,
+                  "allowAdd": true,
+                  "allowFiltering": true,
+                  "allowMultiSorting": false,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "count": "${getPessoasCount}",
+                  "data": "${getPessoasResult}",
+                  "events": {
+                    "loadData": [
+                      {
+                        "name": "ProjetoNew.getPessoas",
+                        "parameters": [
+                          {
+                            "name": "$top",
+                            "value": "event.top"
+                          },
+                          {
+                            "name": "$skip",
+                            "value": "event.skip"
+                          },
+                          {
+                            "name": "$count",
+                            "value": "event.top != null && event.skip != null"
+                          },
+                          {
+                            "name": "$filter",
+                            "value": "${event.filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${event.orderby}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": "Servico,Instituicao,Gt"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "name": "getPessoasResult",
+                            "type": "set",
+                            "value": "${result.value}"
+                          },
+                          {
+                            "name": "getPessoasCount",
+                            "type": "set",
+                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
+                          }
+                        ],
+                        "type": "invoke",
+                        "error": [
+                          {
+                            "detail": "Unable to load Pessoas",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ]
+                      }
+                    ],
+                    "delete": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to delete Pessoa",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.deletePessoa",
+                        "parameters": [
+                          {
+                            "name": "id_Pessoa",
+                            "value": "${event.id_Pessoa}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "detail": "Pessoa deleted!",
+                            "severity": "success",
+                            "summary": "Success",
+                            "type": "notify"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ],
+                    "add": [
+                      {
+                        "path": "add-pessoa",
+                        "type": "popup"
+                      }
+                    ],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "id_Pessoa",
+                            "value": "${event.id_Pessoa}"
+                          }
+                        ],
+                        "path": "edit-pessoa",
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "email_pessoa",
+                      "title": "Email Pessoa",
+                      "type": "string"
+                    },
+                    {
+                      "property": "nome_pessoa",
+                      "title": "Nome Pessoa",
+                      "type": "string"
+                    },
+                    {
+                      "property": "responsavel",
+                      "title": "Responsavel",
+                      "type": "string"
+                    },
+                    {
+                      "property": "password",
+                      "title": "Password",
+                      "type": "string"
+                    },
+                    {
+                      "property": "membro",
+                      "title": "Membro",
+                      "type": "string"
+                    },
+                    {
+                      "property": "id_Pessoa",
+                      "title": "Id Pessoa",
+                      "type": "integer"
+                    },
+                    {
+                      "property": "index_servicos",
+                      "sortProperty": "Servico.designa_pt_servicos",
+                      "filterProperty": "Servico.designa_pt_servicos",
+                      "template": "${data.Servico?.designa_pt_servicos}",
+                      "title": "Servico",
+                      "type": "string"
+                    },
+                    {
+                      "property": "Num_Inst",
+                      "sortProperty": "Instituicao.Tipo_Inst",
+                      "filterProperty": "Instituicao.Tipo_Inst",
+                      "template": "${data.Instituicao?.Tipo_Inst}",
+                      "title": "Instituicao",
+                      "type": "string"
+                    },
+                    {
+                      "property": "id_GT",
+                      "sortProperty": "Gt.sigla",
+                      "filterProperty": "Gt.sigla",
+                      "template": "${data.Gt?.sigla}",
+                      "title": "Gt",
+                      "type": "string"
+                    },
+                    {
+                      "property": "id",
+                      "title": "Id",
+                      "type": "string"
+                    }
+                  ],
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "type": "execute",
+        "code": "this.grid0.load();"
+      }
+    ]
+  },
+  "name": "Pessoas",
+  "layout": "Main"
+}

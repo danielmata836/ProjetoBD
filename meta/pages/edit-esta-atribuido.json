@@ -1,0 +1,141 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "${estaatribuido}",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update EstaAtribuido",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.updateEstaAtribuido",
+                        "parameters": [
+                          {
+                            "name": "index_Recurso",
+                            "value": "${parameters.index_Recurso}"
+                          },
+                          {
+                            "name": "index_servicos",
+                            "value": "${parameters.index_servicos}"
+                          },
+                          {
+                            "name": "EstaAtribuido",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "data": "${getRecursosResult}",
+                      "property": "index_Recurso",
+                      "required": true,
+                      "textProperty": "obs",
+                      "title": "Recurso",
+                      "type": "lookup",
+                      "valueProperty": "index_Recurso",
+                      "placeholder": "Choose Recurso"
+                    },
+                    {
+                      "data": "${getServicosResult}",
+                      "property": "index_servicos",
+                      "required": true,
+                      "textProperty": "designa_pt_servicos",
+                      "title": "Servico",
+                      "type": "lookup",
+                      "valueProperty": "index_servicos",
+                      "placeholder": "Choose Servico"
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form",
+                  "visible": "estaatribuido"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ProjetoNew.getEstaAtribuidoByIndex_RecursoAndIndex_servicos",
+        "parameters": [
+          {
+            "name": "index_Recurso",
+            "value": "${parameters.index_Recurso}"
+          },
+          {
+            "name": "index_servicos",
+            "value": "${parameters.index_servicos}"
+          }
+        ],
+        "then": [
+          {
+            "name": "estaatribuido",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getRecursos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getRecursosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getServicos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getServicosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Esta Atribuido",
+  "layout": "Main"
+}

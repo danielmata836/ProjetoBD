@@ -1,0 +1,12 @@
+<rz-content #content1 container="main">
+  <div class="row">
+    <div class="col-md-12">
+      <rz-form #form0 (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+        <rz-lookup-form-field [data]="getRecursosResult" property="index_Recurso" [required]="true" textProperty="obs" title="Recurso" valueProperty="index_Recurso" placeholder="Choose Recurso" requiredText="is required" type="lookup">
+        </rz-lookup-form-field>
+        <rz-lookup-form-field [data]="getServicosResult" property="index_servicos" [required]="true" textProperty="designa_pt_servicos" title="Servico" valueProperty="index_servicos" placeholder="Choose Servico" requiredText="is required" type="lookup">
+        </rz-lookup-form-field>
+      </rz-form>
+    </div>
+  </div>
+</rz-content>

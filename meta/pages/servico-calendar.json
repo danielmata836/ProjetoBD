@@ -1,0 +1,107 @@
+{
+  "name": "Servico Calendar",
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Servico Calendar"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "name": "scheduler0",
+                  "type": "scheduler",
+                  "idProperty": "index_servicos",
+                  "startProperty": "data_inicio",
+                  "endProperty": "data_fim",
+                  "titleProperty": "designa_pt_servicos",
+                  "data": "${getServicosResult}",
+                  "events": {
+                    "eventSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "index_servicos",
+                            "value": "${event.index_servicos}"
+                          }
+                        ],
+                        "path": "edit-servico",
+                        "type": "popup"
+                      }
+                    ],
+                    "eventAdd": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "start",
+                            "value": "${event.start}"
+                          },
+                          {
+                            "name": "end",
+                            "value": "${event.end}"
+                          }
+                        ],
+                        "path": "add-servico",
+                        "type": "popup"
+                      }
+                    ],
+                    "eventUpdate": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Servico",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.updateServico",
+                        "parameters": [
+                          {
+                            "name": "index_servicos",
+                            "value": "${event.index_servicos}"
+                          },
+                          {
+                            "name": "Servico",
+                            "value": "${event}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "type": "invoke",
+        "name": "ProjetoNew.getServicos",
+        "then": [
+          {
+            "type": "set",
+            "name": "getServicosResult",
+            "value": "${result.value}"
+          }
+        ]
+      }
+    ]
+  },
+  "layout": "Main"
+}

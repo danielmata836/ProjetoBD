@@ -1,0 +1,169 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Uis"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "name": "grid0",
+                  "allowDelete": true,
+                  "confirmDelete": true,
+                  "allowAdd": true,
+                  "allowFiltering": true,
+                  "allowMultiSorting": false,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "count": "${getUisCount}",
+                  "data": "${getUisResult}",
+                  "events": {
+                    "loadData": [
+                      {
+                        "name": "ProjetoNew.getUis",
+                        "parameters": [
+                          {
+                            "name": "$top",
+                            "value": "event.top"
+                          },
+                          {
+                            "name": "$skip",
+                            "value": "event.skip"
+                          },
+                          {
+                            "name": "$count",
+                            "value": "event.top != null && event.skip != null"
+                          },
+                          {
+                            "name": "$filter",
+                            "value": "${event.filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${event.orderby}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "name": "getUisResult",
+                            "type": "set",
+                            "value": "${result.value}"
+                          },
+                          {
+                            "name": "getUisCount",
+                            "type": "set",
+                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
+                          }
+                        ],
+                        "type": "invoke",
+                        "error": [
+                          {
+                            "detail": "Unable to load Uis",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ]
+                      }
+                    ],
+                    "delete": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to delete Ui",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.deleteUi",
+                        "parameters": [
+                          {
+                            "name": "id_UI",
+                            "value": "${event.id_UI}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "detail": "Ui deleted!",
+                            "severity": "success",
+                            "summary": "Success",
+                            "type": "notify"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ],
+                    "add": [
+                      {
+                        "path": "add-ui",
+                        "type": "popup"
+                      }
+                    ],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "id_UI",
+                            "value": "${event.id_UI}"
+                          }
+                        ],
+                        "path": "edit-ui",
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "nome_UI",
+                      "title": "Nome UI",
+                      "type": "string"
+                    },
+                    {
+                      "property": "acronimo_UI",
+                      "title": "Acronimo UI",
+                      "type": "string"
+                    },
+                    {
+                      "property": "morada_UI",
+                      "title": "Morada UI",
+                      "type": "string"
+                    },
+                    {
+                      "property": "id_UI",
+                      "title": "Id UI",
+                      "type": "integer"
+                    }
+                  ],
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "type": "execute",
+        "code": "this.grid0.load();"
+      }
+    ]
+  },
+  "name": "Uis",
+  "layout": "Main"
+}

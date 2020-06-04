@@ -1,0 +1,14 @@
+<rz-content #content1 container="main">
+  <div class="row">
+    <div class="col-md-12">
+      <rz-form #form0 [data]="gt" *ngIf="gt" (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+        <rz-string-form-field property="sigla" [required]="true" title="Sigla" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-integer-form-field property="id_GT" [required]="true" title="Id Gt" requiredText="is required" minText="cannot be less than" maxText="cannot be more than" type="integer">
+        </rz-integer-form-field>
+        <rz-string-form-field property="nome_GT" [required]="true" title="Nome Gt" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+      </rz-form>
+    </div>
+  </div>
+</rz-content>

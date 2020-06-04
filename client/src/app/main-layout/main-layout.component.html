@@ -1,0 +1,53 @@
+<rz-header #header0>
+  <div class="row justify-content-start align-items-center">
+    <div class="col-md-6 d-flex align-items-center">
+      <rz-sidebar-toggle #sidebarToggle0>
+      </rz-sidebar-toggle>
+      <rz-label #label0 text="ProjetoNew">
+      </rz-label>
+    </div>
+    <div class="col-md-6 text-lg-right">
+    </div>
+  </div>
+</rz-header>
+<rz-body #body0>
+  <rz-content-container #main name="main">
+  </rz-content-container>
+</rz-body>
+<rz-sidebar #sidebar0>
+  <rz-panelmenu #panelmenu0 [style]="{'height': '100%'}">
+    <rz-panelmenu-item text="Equipamentos" path="equipamentos">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Esta Atribuidos" path="esta-atribuidos">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Formacaos" path="formacaos">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Gts" path="gts">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Instituicaos" path="instituicaos">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Pedes" path="pedes">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Pertence Uis" path="pertence-uis">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Pertencers" path="pertencers">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Pessoas" path="pessoas">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Produtos" path="produtos">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Recursos" path="recursos">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Servicos" path="servicos">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Uis" path="uis">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Servico Calendar" path="servico-calendar">
+    </rz-panelmenu-item>
+  </rz-panelmenu>
+</rz-sidebar>
+<rz-footer #footer0>
+  <rz-label #footerText text="ProjetoNew, Copyright &copy; 2020">
+  </rz-label>
+</rz-footer>
+<router-outlet></router-outlet>

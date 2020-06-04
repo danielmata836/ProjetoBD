@@ -1,0 +1,24 @@
+<rz-content #content1 container="main">
+  <div class="row">
+    <div class="col-md-12">
+      <rz-form #form0 (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+        <rz-string-form-field property="obs" [required]="true" title="Obs" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="Designacao_EN" [required]="true" title="Designacao En" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="Designacao_PT" [required]="true" title="Designacao Pt" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="res" [required]="true" title="Res" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="web" [required]="true" title="Web" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-number-form-field property="custo" [required]="true" title="Custo" requiredText="is required" minText="cannot be less than" maxText="cannot be more than" type="number">
+        </rz-number-form-field>
+        <rz-integer-form-field property="index_Recurso" [required]="true" title="Index Recurso" requiredText="is required" minText="cannot be less than" maxText="cannot be more than" type="integer">
+        </rz-integer-form-field>
+        <rz-string-form-field property="Dado" [required]="true" title="Dado" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+      </rz-form>
+    </div>
+  </div>
+</rz-content>

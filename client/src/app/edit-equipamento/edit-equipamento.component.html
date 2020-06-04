@@ -1,0 +1,20 @@
+<rz-content #content1 container="main">
+  <div class="row">
+    <div class="col-md-12">
+      <rz-form #form0 [data]="equipamento" *ngIf="equipamento" (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+        <rz-integer-form-field property="no_regis_produto" [required]="true" title="No Regis Produto" requiredText="is required" minText="cannot be less than" maxText="cannot be more than" type="integer">
+        </rz-integer-form-field>
+        <rz-string-form-field property="nome_equi" [required]="true" title="Nome Equi" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-lookup-form-field [data]="getRecursosResult" property="index_Recurso" [required]="true" textProperty="obs" title="Recurso" valueProperty="index_Recurso" placeholder="Choose Recurso" requiredText="is required" type="lookup">
+        </rz-lookup-form-field>
+        <rz-date-form-field property="garantia" [required]="false" title="Garantia" requiredText="is required" type="date">
+        </rz-date-form-field>
+        <rz-string-form-field property="categoria" [required]="false" title="Categoria" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="Equi_obs" [required]="false" title="Equi Obs" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+      </rz-form>
+    </div>
+  </div>
+</rz-content>

@@ -1,0 +1,16 @@
+<rz-content #content1 container="main">
+  <div class="row">
+    <div class="col-md-12">
+      <rz-form #form0 [data]="ui" *ngIf="ui" (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+        <rz-string-form-field property="nome_UI" [required]="true" title="Nome Ui" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="acronimo_UI" [required]="true" title="Acronimo Ui" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="morada_UI" [required]="true" title="Morada Ui" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-integer-form-field property="id_UI" [required]="true" title="Id Ui" requiredText="is required" minText="cannot be less than" maxText="cannot be more than" type="integer">
+        </rz-integer-form-field>
+      </rz-form>
+    </div>
+  </div>
+</rz-content>

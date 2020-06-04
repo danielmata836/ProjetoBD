@@ -1,0 +1,92 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new Ui!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.createUi",
+                        "parameters": [
+                          {
+                            "name": "Ui",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "property": "nome_UI",
+                      "required": true,
+                      "title": "Nome Ui",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "acronimo_UI",
+                      "required": true,
+                      "title": "Acronimo Ui",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "morada_UI",
+                      "required": true,
+                      "title": "Morada Ui",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "id_UI",
+                      "required": true,
+                      "title": "Id Ui",
+                      "type": "integer"
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": []
+  },
+  "name": "Add Ui",
+  "layout": "Main"
+}

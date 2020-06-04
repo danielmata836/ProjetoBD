@@ -1,0 +1,22 @@
+<rz-content #content1 container="main">
+  <div class="row">
+    <div class="col-md-12">
+      <rz-form #form0 [data]="instituicao" *ngIf="instituicao" (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+        <rz-string-form-field property="Tipo_Inst" [required]="true" title="Tipo Inst" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="Nome_Inst" [required]="true" title="Nome Inst" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-integer-form-field property="Num_Inst" [required]="true" title="Num Inst" requiredText="is required" minText="cannot be less than" maxText="cannot be more than" type="integer">
+        </rz-integer-form-field>
+        <rz-string-form-field property="Morada_Inst" [required]="true" title="Morada Inst" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="Parceiro" [required]="true" title="Parceiro" [maxLength]="10" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="acronimo" [required]="true" title="Acronimo" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="Formacao" [required]="true" title="Formacao" [maxLength]="10" requiredText="is required" type="string">
+        </rz-string-form-field>
+      </rz-form>
+    </div>
+  </div>
+</rz-content>

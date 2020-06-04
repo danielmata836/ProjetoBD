@@ -1,0 +1,141 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "${pede}",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Pede",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.updatePede",
+                        "parameters": [
+                          {
+                            "name": "id_Pessoa",
+                            "value": "${parameters.id_Pessoa}"
+                          },
+                          {
+                            "name": "index_servicos",
+                            "value": "${parameters.index_servicos}"
+                          },
+                          {
+                            "name": "Pede",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "data": "${getPessoasResult}",
+                      "property": "id_Pessoa",
+                      "required": true,
+                      "textProperty": "email_pessoa",
+                      "title": "Pessoa",
+                      "type": "lookup",
+                      "valueProperty": "id_Pessoa",
+                      "placeholder": "Choose Pessoa"
+                    },
+                    {
+                      "data": "${getServicosResult}",
+                      "property": "index_servicos",
+                      "required": true,
+                      "textProperty": "designa_pt_servicos",
+                      "title": "Servico",
+                      "type": "lookup",
+                      "valueProperty": "index_servicos",
+                      "placeholder": "Choose Servico"
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form",
+                  "visible": "pede"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ProjetoNew.getPedeById_PessoaAndIndex_servicos",
+        "parameters": [
+          {
+            "name": "id_Pessoa",
+            "value": "${parameters.id_Pessoa}"
+          },
+          {
+            "name": "index_servicos",
+            "value": "${parameters.index_servicos}"
+          }
+        ],
+        "then": [
+          {
+            "name": "pede",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getPessoas",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPessoasResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getServicos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getServicosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Pede",
+  "layout": "Main"
+}

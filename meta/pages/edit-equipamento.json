@@ -1,0 +1,144 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "${equipamento}",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Equipamento",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.updateEquipamento",
+                        "parameters": [
+                          {
+                            "name": "no_regis_produto",
+                            "value": "${parameters.no_regis_produto}"
+                          },
+                          {
+                            "name": "Equipamento",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "property": "no_regis_produto",
+                      "required": true,
+                      "title": "No Regis Produto",
+                      "type": "integer"
+                    },
+                    {
+                      "property": "nome_equi",
+                      "required": true,
+                      "title": "Nome Equi",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "data": "${getRecursosResult}",
+                      "property": "index_Recurso",
+                      "required": true,
+                      "textProperty": "obs",
+                      "title": "Recurso",
+                      "type": "lookup",
+                      "valueProperty": "index_Recurso",
+                      "placeholder": "Choose Recurso"
+                    },
+                    {
+                      "property": "garantia",
+                      "required": false,
+                      "title": "Garantia",
+                      "type": "date"
+                    },
+                    {
+                      "property": "categoria",
+                      "required": false,
+                      "title": "Categoria",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "Equi_obs",
+                      "required": false,
+                      "title": "Equi Obs",
+                      "type": "string",
+                      "maxLength": 100
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form",
+                  "visible": "equipamento"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ProjetoNew.getEquipamentoByno_regis_produto",
+        "parameters": [
+          {
+            "name": "no_regis_produto",
+            "value": "${parameters.no_regis_produto}"
+          }
+        ],
+        "then": [
+          {
+            "name": "equipamento",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getRecursos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getRecursosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Equipamento",
+  "layout": "Main"
+}

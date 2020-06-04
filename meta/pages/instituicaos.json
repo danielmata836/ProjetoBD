@@ -1,0 +1,184 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Instituicaos"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "name": "grid0",
+                  "allowDelete": true,
+                  "confirmDelete": true,
+                  "allowAdd": true,
+                  "allowFiltering": true,
+                  "allowMultiSorting": false,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "count": "${getInstituicaosCount}",
+                  "data": "${getInstituicaosResult}",
+                  "events": {
+                    "loadData": [
+                      {
+                        "name": "ProjetoNew.getInstituicaos",
+                        "parameters": [
+                          {
+                            "name": "$top",
+                            "value": "event.top"
+                          },
+                          {
+                            "name": "$skip",
+                            "value": "event.skip"
+                          },
+                          {
+                            "name": "$count",
+                            "value": "event.top != null && event.skip != null"
+                          },
+                          {
+                            "name": "$filter",
+                            "value": "${event.filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${event.orderby}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "name": "getInstituicaosResult",
+                            "type": "set",
+                            "value": "${result.value}"
+                          },
+                          {
+                            "name": "getInstituicaosCount",
+                            "type": "set",
+                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
+                          }
+                        ],
+                        "type": "invoke",
+                        "error": [
+                          {
+                            "detail": "Unable to load Instituicaos",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ]
+                      }
+                    ],
+                    "delete": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to delete Instituicao",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.deleteInstituicao",
+                        "parameters": [
+                          {
+                            "name": "Num_Inst",
+                            "value": "${event.Num_Inst}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "detail": "Instituicao deleted!",
+                            "severity": "success",
+                            "summary": "Success",
+                            "type": "notify"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ],
+                    "add": [
+                      {
+                        "path": "add-instituicao",
+                        "type": "popup"
+                      }
+                    ],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "Num_Inst",
+                            "value": "${event.Num_Inst}"
+                          }
+                        ],
+                        "path": "edit-instituicao",
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "Tipo_Inst",
+                      "title": "Tipo Inst",
+                      "type": "string"
+                    },
+                    {
+                      "property": "Nome_Inst",
+                      "title": "Nome Inst",
+                      "type": "string"
+                    },
+                    {
+                      "property": "Num_Inst",
+                      "title": "Num Inst",
+                      "type": "integer"
+                    },
+                    {
+                      "property": "Morada_Inst",
+                      "title": "Morada Inst",
+                      "type": "string"
+                    },
+                    {
+                      "property": "Parceiro",
+                      "title": "Parceiro",
+                      "type": "string"
+                    },
+                    {
+                      "property": "acronimo",
+                      "title": "Acronimo",
+                      "type": "string"
+                    },
+                    {
+                      "property": "Formacao",
+                      "title": "Formacao",
+                      "type": "string"
+                    }
+                  ],
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "type": "execute",
+        "code": "this.grid0.load();"
+      }
+    ]
+  },
+  "name": "Instituicaos",
+  "layout": "Main"
+}

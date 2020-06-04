@@ -1,0 +1,28 @@
+<rz-content #content1 container="main">
+  <div class="row">
+    <div class="col-md-12">
+      <rz-form #form0 (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+        <rz-string-form-field property="email_pessoa" [required]="true" title="Email Pessoa" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="nome_pessoa" [required]="true" title="Nome Pessoa" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="responsavel" [required]="true" title="Responsavel" [maxLength]="10" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="password" [required]="true" title="Password" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="membro" [required]="true" title="Membro" [maxLength]="1" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-integer-form-field property="id_Pessoa" [required]="true" title="Id Pessoa" requiredText="is required" minText="cannot be less than" maxText="cannot be more than" type="integer">
+        </rz-integer-form-field>
+        <rz-lookup-form-field [data]="getServicosResult" property="index_servicos" [required]="true" textProperty="designa_pt_servicos" title="Servico" valueProperty="index_servicos" placeholder="Choose Servico" requiredText="is required" type="lookup">
+        </rz-lookup-form-field>
+        <rz-lookup-form-field [data]="getInstituicaosResult" property="Num_Inst" [required]="true" textProperty="Tipo_Inst" title="Instituicao" valueProperty="Num_Inst" placeholder="Choose Instituicao" requiredText="is required" type="lookup">
+        </rz-lookup-form-field>
+        <rz-lookup-form-field [data]="getGtsResult" property="id_GT" [required]="true" textProperty="sigla" title="Gt" valueProperty="id_GT" placeholder="Choose Gt" requiredText="is required" type="lookup">
+        </rz-lookup-form-field>
+        <rz-string-form-field property="id" [required]="true" title="Id" [maxLength]="450" requiredText="is required" type="string">
+        </rz-string-form-field>
+      </rz-form>
+    </div>
+  </div>
+</rz-content>

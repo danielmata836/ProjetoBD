@@ -1,0 +1,10 @@
+<rz-content #content1 container="main">
+  <rz-heading #pageTitle size="H1" text="Servico Calendar">
+  </rz-heading>
+  <div class="row">
+    <div class="col-md-12">
+      <rz-scheduler #scheduler0 idProperty="index_servicos" startProperty="data_inicio" endProperty="data_fim" titleProperty="designa_pt_servicos" [data]="getServicosResult" (eventSelect)="scheduler0EventSelect($event)" (eventAdd)="scheduler0EventAdd($event)" (eventUpdate)="scheduler0EventUpdate($event)">
+      </rz-scheduler>
+    </div>
+  </div>
+</rz-content>

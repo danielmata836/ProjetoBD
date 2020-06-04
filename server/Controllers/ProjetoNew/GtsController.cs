@@ -1,0 +1,194 @@
+using System;
+using System.Net;
+using System.Data;
+using System.Linq;
+using Microsoft.Data.SqlClient;
+using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNet.OData;
+using Microsoft.AspNet.OData.Routing;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.AspNet.OData.Query;
+
+
+
+namespace ProjetoNew.Controllers.ProjetoNew
+{
+  using Models;
+  using Data;
+  using Models.ProjetoNew;
+
+  [ODataRoutePrefix("odata/ProjetoNew/Gts")]
+  [Route("mvc/odata/ProjetoNew/Gts")]
+  public partial class GtsController : ODataController
+  {
+    private Data.ProjetoNewContext context;
+
+    public GtsController(Data.ProjetoNewContext context)
+    {
+      this.context = context;
+    }
+    // GET /odata/ProjetoNew/Gts
+    [EnableQuery(MaxExpansionDepth=10,MaxAnyAllExpressionDepth=10,MaxNodeCount=1000)]
+    [HttpGet]
+    public IEnumerable<Models.ProjetoNew.Gt> GetGts()
+    {
+      var items = this.context.Gts.AsQueryable<Models.ProjetoNew.Gt>();
+      this.OnGtsRead(ref items);
+
+      return items;
+    }
+
+    partial void OnGtsRead(ref IQueryable<Models.ProjetoNew.Gt> items);
+
+    [EnableQuery(MaxExpansionDepth=10,MaxAnyAllExpressionDepth=10,MaxNodeCount=1000)]
+    [HttpGet("{id_GT}")]
+    public SingleResult<Gt> GetGt(int key)
+    {
+        var items = this.context.Gts.Where(i=>i.id_GT == key);
+        this.OnGtsGet(ref items);
+
+        return SingleResult.Create(items);
+    }
+
+    partial void OnGtsGet(ref IQueryable<Models.ProjetoNew.Gt> items);
+
+    partial void OnGtDeleted(Models.ProjetoNew.Gt item);
+
+    [HttpDelete("{id_GT}")]
+    public IActionResult DeleteGt(int key)
+    {
+        try
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+            var item = this.context.Gts
+                .Where(i => i.id_GT == key)
+                .Include(i => i.Servicos)
+                .Include(i => i.Pessoas)
+                .FirstOrDefault();
+
+            if (item == null)
+            {
+                ModelState.AddModelError("", "Item no longer available");
+                return BadRequest(ModelState);
+            }
+
+            this.OnGtDeleted(item);
+            this.context.Gts.Remove(item);
+            this.context.SaveChanges();
+
+            return new NoContentResult();
+        }
+        catch(Exception ex)
+        {
+            ModelState.AddModelError("", ex.Message);
+            return BadRequest(ModelState);
+        }
+    }
+
+    partial void OnGtUpdated(Models.ProjetoNew.Gt item);
+
+    [HttpPut("{id_GT}")]
+    [EnableQuery(MaxExpansionDepth=10,MaxAnyAllExpressionDepth=10,MaxNodeCount=1000)]
+    public IActionResult PutGt(int key, [FromBody]Models.ProjetoNew.Gt newItem)
+    {
+        try
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (newItem == null || (newItem.id_GT != key))
+            {
+                return BadRequest();
+            }
+
+            this.OnGtUpdated(newItem);
+            this.context.Gts.Update(newItem);
+            this.context.SaveChanges();
+
+            var itemToReturn = this.context.Gts.Where(i => i.id_GT == key);
+            return new ObjectResult(SingleResult.Create(itemToReturn));
+        }
+        catch(Exception ex)
+        {
+            ModelState.AddModelError("", ex.Message);
+            return BadRequest(ModelState);
+        }
+    }
+
+    [HttpPatch("{id_GT}")]
+    [EnableQuery(MaxExpansionDepth=10,MaxAnyAllExpressionDepth=10,MaxNodeCount=1000)]
+    public IActionResult PatchGt(int key, [FromBody]Delta<Models.ProjetoNew.Gt> patch)
+    {
+        try
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var item = this.context.Gts.Where(i => i.id_GT == key).FirstOrDefault();
+
+            if (item == null)
+            {
+                ModelState.AddModelError("", "Item no longer available");
+                return BadRequest(ModelState);
+            }
+
+            patch.Patch(item);
+
+            this.OnGtUpdated(item);
+            this.context.Gts.Update(item);
+            this.context.SaveChanges();
+
+            var itemToReturn = this.context.Gts.Where(i => i.id_GT == key);
+            return new ObjectResult(SingleResult.Create(itemToReturn));
+        }
+        catch(Exception ex)
+        {
+            ModelState.AddModelError("", ex.Message);
+            return BadRequest(ModelState);
+        }
+    }
+
+    partial void OnGtCreated(Models.ProjetoNew.Gt item);
+
+    [HttpPost]
+    [EnableQuery(MaxExpansionDepth=10,MaxAnyAllExpressionDepth=10,MaxNodeCount=1000)]
+    public IActionResult Post([FromBody] Models.ProjetoNew.Gt item)
+    {
+        try
+        {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (item == null)
+            {
+                return BadRequest();
+            }
+
+            this.OnGtCreated(item);
+            this.context.Gts.Add(item);
+            this.context.SaveChanges();
+
+            return Created($"odata/ProjetoNew/Gts/{item.id_GT}", item);
+        }
+        catch(Exception ex)
+        {
+            ModelState.AddModelError("", ex.Message);
+            return BadRequest(ModelState);
+        }
+    }
+  }
+}

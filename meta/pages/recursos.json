@@ -1,0 +1,190 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Recursos"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "name": "grid0",
+                  "allowDelete": true,
+                  "confirmDelete": true,
+                  "allowAdd": true,
+                  "allowFiltering": true,
+                  "allowMultiSorting": false,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "count": "${getRecursosCount}",
+                  "data": "${getRecursosResult}",
+                  "events": {
+                    "loadData": [
+                      {
+                        "name": "ProjetoNew.getRecursos",
+                        "parameters": [
+                          {
+                            "name": "$top",
+                            "value": "event.top"
+                          },
+                          {
+                            "name": "$skip",
+                            "value": "event.skip"
+                          },
+                          {
+                            "name": "$count",
+                            "value": "event.top != null && event.skip != null"
+                          },
+                          {
+                            "name": "$filter",
+                            "value": "${event.filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${event.orderby}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "name": "getRecursosResult",
+                            "type": "set",
+                            "value": "${result.value}"
+                          },
+                          {
+                            "name": "getRecursosCount",
+                            "type": "set",
+                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
+                          }
+                        ],
+                        "type": "invoke",
+                        "error": [
+                          {
+                            "detail": "Unable to load Recursos",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ]
+                      }
+                    ],
+                    "delete": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to delete Recurso",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.deleteRecurso",
+                        "parameters": [
+                          {
+                            "name": "index_Recurso",
+                            "value": "${event.index_Recurso}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "detail": "Recurso deleted!",
+                            "severity": "success",
+                            "summary": "Success",
+                            "type": "notify"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ],
+                    "add": [
+                      {
+                        "path": "add-recurso",
+                        "type": "popup"
+                      }
+                    ],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "index_Recurso",
+                            "value": "${event.index_Recurso}"
+                          }
+                        ],
+                        "path": "edit-recurso",
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "obs",
+                      "title": "Obs",
+                      "type": "string"
+                    },
+                    {
+                      "property": "Designacao_EN",
+                      "title": "Designacao EN",
+                      "type": "string"
+                    },
+                    {
+                      "property": "Designacao_PT",
+                      "title": "Designacao PT",
+                      "type": "string"
+                    },
+                    {
+                      "property": "res",
+                      "title": "Res",
+                      "type": "string"
+                    },
+                    {
+                      "property": "web",
+                      "title": "Web",
+                      "type": "string"
+                    },
+                    {
+                      "property": "custo",
+                      "title": "Custo",
+                      "type": "number",
+                      "format": "double"
+                    },
+                    {
+                      "property": "index_Recurso",
+                      "title": "Index Recurso",
+                      "type": "integer"
+                    },
+                    {
+                      "property": "Dado",
+                      "title": "Dado",
+                      "type": "string"
+                    }
+                  ],
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "type": "execute",
+        "code": "this.grid0.load();"
+      }
+    ]
+  },
+  "name": "Recursos",
+  "layout": "Main"
+}

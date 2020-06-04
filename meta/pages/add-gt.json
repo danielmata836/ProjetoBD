@@ -1,0 +1,85 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new Gt!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.createGt",
+                        "parameters": [
+                          {
+                            "name": "Gt",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "property": "sigla",
+                      "required": true,
+                      "title": "Sigla",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "id_GT",
+                      "required": true,
+                      "title": "Id Gt",
+                      "type": "integer"
+                    },
+                    {
+                      "property": "nome_GT",
+                      "required": true,
+                      "title": "Nome Gt",
+                      "type": "string",
+                      "maxLength": 100
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": []
+  },
+  "name": "Add Gt",
+  "layout": "Main"
+}

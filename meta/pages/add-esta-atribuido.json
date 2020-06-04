@@ -1,0 +1,110 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new EstaAtribuido!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.createEstaAtribuido",
+                        "parameters": [
+                          {
+                            "name": "EstaAtribuido",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "data": "${getRecursosResult}",
+                      "property": "index_Recurso",
+                      "required": true,
+                      "textProperty": "obs",
+                      "title": "Recurso",
+                      "type": "lookup",
+                      "valueProperty": "index_Recurso",
+                      "placeholder": "Choose Recurso"
+                    },
+                    {
+                      "data": "${getServicosResult}",
+                      "property": "index_servicos",
+                      "required": true,
+                      "textProperty": "designa_pt_servicos",
+                      "title": "Servico",
+                      "type": "lookup",
+                      "valueProperty": "index_servicos",
+                      "placeholder": "Choose Servico"
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ProjetoNew.getRecursos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getRecursosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getServicos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getServicosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Add Esta Atribuido",
+  "layout": "Main"
+}

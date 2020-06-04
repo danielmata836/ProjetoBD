@@ -1,0 +1,203 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "${pessoa}",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Pessoa",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.updatePessoa",
+                        "parameters": [
+                          {
+                            "name": "id_Pessoa",
+                            "value": "${parameters.id_Pessoa}"
+                          },
+                          {
+                            "name": "Pessoa",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "property": "email_pessoa",
+                      "required": true,
+                      "title": "Email Pessoa",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "nome_pessoa",
+                      "required": true,
+                      "title": "Nome Pessoa",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "responsavel",
+                      "required": true,
+                      "title": "Responsavel",
+                      "type": "string",
+                      "maxLength": 10
+                    },
+                    {
+                      "property": "password",
+                      "required": true,
+                      "title": "Password",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "membro",
+                      "required": true,
+                      "title": "Membro",
+                      "type": "string",
+                      "maxLength": 1
+                    },
+                    {
+                      "property": "id_Pessoa",
+                      "required": true,
+                      "title": "Id Pessoa",
+                      "type": "integer"
+                    },
+                    {
+                      "data": "${getServicosResult}",
+                      "property": "index_servicos",
+                      "required": true,
+                      "textProperty": "designa_pt_servicos",
+                      "title": "Servico",
+                      "type": "lookup",
+                      "valueProperty": "index_servicos",
+                      "placeholder": "Choose Servico"
+                    },
+                    {
+                      "data": "${getInstituicaosResult}",
+                      "property": "Num_Inst",
+                      "required": true,
+                      "textProperty": "Tipo_Inst",
+                      "title": "Instituicao",
+                      "type": "lookup",
+                      "valueProperty": "Num_Inst",
+                      "placeholder": "Choose Instituicao"
+                    },
+                    {
+                      "data": "${getGtsResult}",
+                      "property": "id_GT",
+                      "required": true,
+                      "textProperty": "sigla",
+                      "title": "Gt",
+                      "type": "lookup",
+                      "valueProperty": "id_GT",
+                      "placeholder": "Choose Gt"
+                    },
+                    {
+                      "property": "id",
+                      "required": true,
+                      "title": "Id",
+                      "type": "string",
+                      "maxLength": 450
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form",
+                  "visible": "pessoa"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ProjetoNew.getPessoaByid_Pessoa",
+        "parameters": [
+          {
+            "name": "id_Pessoa",
+            "value": "${parameters.id_Pessoa}"
+          }
+        ],
+        "then": [
+          {
+            "name": "pessoa",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getServicos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getServicosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getInstituicaos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getInstituicaosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getGts",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getGtsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Pessoa",
+  "layout": "Main"
+}

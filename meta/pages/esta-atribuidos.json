@@ -1,0 +1,177 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Esta Atribuidos"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "name": "grid0",
+                  "allowDelete": true,
+                  "confirmDelete": true,
+                  "allowAdd": true,
+                  "allowFiltering": true,
+                  "allowMultiSorting": false,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "count": "${getEstaAtribuidosCount}",
+                  "data": "${getEstaAtribuidosResult}",
+                  "events": {
+                    "loadData": [
+                      {
+                        "name": "ProjetoNew.getEstaAtribuidos",
+                        "parameters": [
+                          {
+                            "name": "$top",
+                            "value": "event.top"
+                          },
+                          {
+                            "name": "$skip",
+                            "value": "event.skip"
+                          },
+                          {
+                            "name": "$count",
+                            "value": "event.top != null && event.skip != null"
+                          },
+                          {
+                            "name": "$filter",
+                            "value": "${event.filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${event.orderby}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": "Recurso,Servico"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "name": "getEstaAtribuidosResult",
+                            "type": "set",
+                            "value": "${result.value}"
+                          },
+                          {
+                            "name": "getEstaAtribuidosCount",
+                            "type": "set",
+                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
+                          }
+                        ],
+                        "type": "invoke",
+                        "error": [
+                          {
+                            "detail": "Unable to load EstaAtribuidos",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ]
+                      }
+                    ],
+                    "delete": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to delete EstaAtribuido",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.deleteEstaAtribuido",
+                        "parameters": [
+                          {
+                            "name": "index_Recurso",
+                            "value": "${event.index_Recurso}"
+                          },
+                          {
+                            "name": "index_servicos",
+                            "value": "${event.index_servicos}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "detail": "EstaAtribuido deleted!",
+                            "severity": "success",
+                            "summary": "Success",
+                            "type": "notify"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ],
+                    "add": [
+                      {
+                        "path": "add-esta-atribuido",
+                        "type": "popup"
+                      }
+                    ],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "index_Recurso",
+                            "value": "${event.index_Recurso}"
+                          },
+                          {
+                            "name": "index_servicos",
+                            "value": "${event.index_servicos}"
+                          }
+                        ],
+                        "path": "edit-esta-atribuido",
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "index_Recurso",
+                      "sortProperty": "Recurso.obs",
+                      "filterProperty": "Recurso.obs",
+                      "template": "${data.Recurso?.obs}",
+                      "title": "Recurso",
+                      "type": "string"
+                    },
+                    {
+                      "property": "index_servicos",
+                      "sortProperty": "Servico.designa_pt_servicos",
+                      "filterProperty": "Servico.designa_pt_servicos",
+                      "template": "${data.Servico?.designa_pt_servicos}",
+                      "title": "Servico",
+                      "type": "string"
+                    }
+                  ],
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "type": "execute",
+        "code": "this.grid0.load();"
+      }
+    ]
+  },
+  "name": "Esta Atribuidos",
+  "layout": "Main"
+}

@@ -1,0 +1,113 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new Instituicao!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.createInstituicao",
+                        "parameters": [
+                          {
+                            "name": "Instituicao",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "property": "Tipo_Inst",
+                      "required": true,
+                      "title": "Tipo Inst",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "Nome_Inst",
+                      "required": true,
+                      "title": "Nome Inst",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "Num_Inst",
+                      "required": true,
+                      "title": "Num Inst",
+                      "type": "integer"
+                    },
+                    {
+                      "property": "Morada_Inst",
+                      "required": true,
+                      "title": "Morada Inst",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "Parceiro",
+                      "required": true,
+                      "title": "Parceiro",
+                      "type": "string",
+                      "maxLength": 10
+                    },
+                    {
+                      "property": "acronimo",
+                      "required": true,
+                      "title": "Acronimo",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "Formacao",
+                      "required": true,
+                      "title": "Formacao",
+                      "type": "string",
+                      "maxLength": 10
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": []
+  },
+  "name": "Add Instituicao",
+  "layout": "Main"
+}

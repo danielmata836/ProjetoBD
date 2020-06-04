@@ -1,0 +1,110 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new Pertencer!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.createPertencer",
+                        "parameters": [
+                          {
+                            "name": "Pertencer",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "data": "${getInstituicaosResult}",
+                      "property": "Num_Inst",
+                      "required": true,
+                      "textProperty": "Tipo_Inst",
+                      "title": "Instituicao",
+                      "type": "lookup",
+                      "valueProperty": "Num_Inst",
+                      "placeholder": "Choose Instituicao"
+                    },
+                    {
+                      "data": "${getEquipamentosResult}",
+                      "property": "no_regis_produto",
+                      "required": true,
+                      "textProperty": "nome_equi",
+                      "title": "Equipamento",
+                      "type": "lookup",
+                      "valueProperty": "no_regis_produto",
+                      "placeholder": "Choose Equipamento"
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ProjetoNew.getInstituicaos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getInstituicaosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getEquipamentos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getEquipamentosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Add Pertencer",
+  "layout": "Main"
+}

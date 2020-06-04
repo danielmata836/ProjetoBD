@@ -1,0 +1,143 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "${recurso}",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Recurso",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.updateRecurso",
+                        "parameters": [
+                          {
+                            "name": "index_Recurso",
+                            "value": "${parameters.index_Recurso}"
+                          },
+                          {
+                            "name": "Recurso",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "property": "obs",
+                      "required": true,
+                      "title": "Obs",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "Designacao_EN",
+                      "required": true,
+                      "title": "Designacao En",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "Designacao_PT",
+                      "required": true,
+                      "title": "Designacao Pt",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "res",
+                      "required": true,
+                      "title": "Res",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "web",
+                      "required": true,
+                      "title": "Web",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "custo",
+                      "required": true,
+                      "title": "Custo",
+                      "type": "number"
+                    },
+                    {
+                      "property": "index_Recurso",
+                      "required": true,
+                      "title": "Index Recurso",
+                      "type": "integer"
+                    },
+                    {
+                      "property": "Dado",
+                      "required": true,
+                      "title": "Dado",
+                      "type": "string",
+                      "maxLength": 100
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form",
+                  "visible": "recurso"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ProjetoNew.getRecursoByindex_Recurso",
+        "parameters": [
+          {
+            "name": "index_Recurso",
+            "value": "${parameters.index_Recurso}"
+          }
+        ],
+        "then": [
+          {
+            "name": "recurso",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Recurso",
+  "layout": "Main"
+}

@@ -1,0 +1,141 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "${pertenceui}",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update PertenceUi",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.updatePertenceUi",
+                        "parameters": [
+                          {
+                            "name": "id_UI",
+                            "value": "${parameters.id_UI}"
+                          },
+                          {
+                            "name": "id_Pessoa",
+                            "value": "${parameters.id_Pessoa}"
+                          },
+                          {
+                            "name": "PertenceUi",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "data": "${getUisResult}",
+                      "property": "id_UI",
+                      "required": true,
+                      "textProperty": "nome_UI",
+                      "title": "Ui",
+                      "type": "lookup",
+                      "valueProperty": "id_UI",
+                      "placeholder": "Choose Ui"
+                    },
+                    {
+                      "data": "${getPessoasResult}",
+                      "property": "id_Pessoa",
+                      "required": true,
+                      "textProperty": "email_pessoa",
+                      "title": "Pessoa",
+                      "type": "lookup",
+                      "valueProperty": "id_Pessoa",
+                      "placeholder": "Choose Pessoa"
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form",
+                  "visible": "pertenceui"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ProjetoNew.getPertenceUiById_UIAndId_Pessoa",
+        "parameters": [
+          {
+            "name": "id_UI",
+            "value": "${parameters.id_UI}"
+          },
+          {
+            "name": "id_Pessoa",
+            "value": "${parameters.id_Pessoa}"
+          }
+        ],
+        "then": [
+          {
+            "name": "pertenceui",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getUis",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getUisResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getPessoas",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPessoasResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Pertence Ui",
+  "layout": "Main"
+}

@@ -1,0 +1,177 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Pertence Uis"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "name": "grid0",
+                  "allowDelete": true,
+                  "confirmDelete": true,
+                  "allowAdd": true,
+                  "allowFiltering": true,
+                  "allowMultiSorting": false,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "count": "${getPertenceUisCount}",
+                  "data": "${getPertenceUisResult}",
+                  "events": {
+                    "loadData": [
+                      {
+                        "name": "ProjetoNew.getPertenceUis",
+                        "parameters": [
+                          {
+                            "name": "$top",
+                            "value": "event.top"
+                          },
+                          {
+                            "name": "$skip",
+                            "value": "event.skip"
+                          },
+                          {
+                            "name": "$count",
+                            "value": "event.top != null && event.skip != null"
+                          },
+                          {
+                            "name": "$filter",
+                            "value": "${event.filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${event.orderby}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": "Ui,Pessoa"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "name": "getPertenceUisResult",
+                            "type": "set",
+                            "value": "${result.value}"
+                          },
+                          {
+                            "name": "getPertenceUisCount",
+                            "type": "set",
+                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
+                          }
+                        ],
+                        "type": "invoke",
+                        "error": [
+                          {
+                            "detail": "Unable to load PertenceUis",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ]
+                      }
+                    ],
+                    "delete": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to delete PertenceUi",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.deletePertenceUi",
+                        "parameters": [
+                          {
+                            "name": "id_UI",
+                            "value": "${event.id_UI}"
+                          },
+                          {
+                            "name": "id_Pessoa",
+                            "value": "${event.id_Pessoa}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "detail": "PertenceUi deleted!",
+                            "severity": "success",
+                            "summary": "Success",
+                            "type": "notify"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ],
+                    "add": [
+                      {
+                        "path": "add-pertence-ui",
+                        "type": "popup"
+                      }
+                    ],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "id_UI",
+                            "value": "${event.id_UI}"
+                          },
+                          {
+                            "name": "id_Pessoa",
+                            "value": "${event.id_Pessoa}"
+                          }
+                        ],
+                        "path": "edit-pertence-ui",
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "id_UI",
+                      "sortProperty": "Ui.nome_UI",
+                      "filterProperty": "Ui.nome_UI",
+                      "template": "${data.Ui?.nome_UI}",
+                      "title": "Ui",
+                      "type": "string"
+                    },
+                    {
+                      "property": "id_Pessoa",
+                      "sortProperty": "Pessoa.email_pessoa",
+                      "filterProperty": "Pessoa.email_pessoa",
+                      "template": "${data.Pessoa?.email_pessoa}",
+                      "title": "Pessoa",
+                      "type": "string"
+                    }
+                  ],
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "type": "execute",
+        "code": "this.grid0.load();"
+      }
+    ]
+  },
+  "name": "Pertence Uis",
+  "layout": "Main"
+}

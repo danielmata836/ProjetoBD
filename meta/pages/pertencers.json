@@ -1,0 +1,177 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Pertencers"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "name": "grid0",
+                  "allowDelete": true,
+                  "confirmDelete": true,
+                  "allowAdd": true,
+                  "allowFiltering": true,
+                  "allowMultiSorting": false,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "count": "${getPertencersCount}",
+                  "data": "${getPertencersResult}",
+                  "events": {
+                    "loadData": [
+                      {
+                        "name": "ProjetoNew.getPertencers",
+                        "parameters": [
+                          {
+                            "name": "$top",
+                            "value": "event.top"
+                          },
+                          {
+                            "name": "$skip",
+                            "value": "event.skip"
+                          },
+                          {
+                            "name": "$count",
+                            "value": "event.top != null && event.skip != null"
+                          },
+                          {
+                            "name": "$filter",
+                            "value": "${event.filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${event.orderby}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": "Instituicao,Equipamento"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "name": "getPertencersResult",
+                            "type": "set",
+                            "value": "${result.value}"
+                          },
+                          {
+                            "name": "getPertencersCount",
+                            "type": "set",
+                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
+                          }
+                        ],
+                        "type": "invoke",
+                        "error": [
+                          {
+                            "detail": "Unable to load Pertencers",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ]
+                      }
+                    ],
+                    "delete": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to delete Pertencer",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.deletePertencer",
+                        "parameters": [
+                          {
+                            "name": "Num_Inst",
+                            "value": "${event.Num_Inst}"
+                          },
+                          {
+                            "name": "no_regis_produto",
+                            "value": "${event.no_regis_produto}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "detail": "Pertencer deleted!",
+                            "severity": "success",
+                            "summary": "Success",
+                            "type": "notify"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ],
+                    "add": [
+                      {
+                        "path": "add-pertencer",
+                        "type": "popup"
+                      }
+                    ],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "Num_Inst",
+                            "value": "${event.Num_Inst}"
+                          },
+                          {
+                            "name": "no_regis_produto",
+                            "value": "${event.no_regis_produto}"
+                          }
+                        ],
+                        "path": "edit-pertencer",
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "Num_Inst",
+                      "sortProperty": "Instituicao.Tipo_Inst",
+                      "filterProperty": "Instituicao.Tipo_Inst",
+                      "template": "${data.Instituicao?.Tipo_Inst}",
+                      "title": "Instituicao",
+                      "type": "string"
+                    },
+                    {
+                      "property": "no_regis_produto",
+                      "sortProperty": "Equipamento.nome_equi",
+                      "filterProperty": "Equipamento.nome_equi",
+                      "template": "${data.Equipamento?.nome_equi}",
+                      "title": "Equipamento",
+                      "type": "string"
+                    }
+                  ],
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "type": "execute",
+        "code": "this.grid0.load();"
+      }
+    ]
+  },
+  "name": "Pertencers",
+  "layout": "Main"
+}

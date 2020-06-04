@@ -1,0 +1,123 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Produtos"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "name": "grid0",
+                  "allowDelete": false,
+                  "confirmDelete": false,
+                  "allowAdd": false,
+                  "allowFiltering": true,
+                  "allowMultiSorting": false,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "count": "${getProdutosCount}",
+                  "data": "${getProdutosResult}",
+                  "events": {
+                    "loadData": [
+                      {
+                        "name": "ProjetoNew.getProdutos",
+                        "parameters": [
+                          {
+                            "name": "$top",
+                            "value": "event.top"
+                          },
+                          {
+                            "name": "$skip",
+                            "value": "event.skip"
+                          },
+                          {
+                            "name": "$count",
+                            "value": "event.top != null && event.skip != null"
+                          },
+                          {
+                            "name": "$filter",
+                            "value": "${event.filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${event.orderby}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "name": "getProdutosResult",
+                            "type": "set",
+                            "value": "${result.value}"
+                          },
+                          {
+                            "name": "getProdutosCount",
+                            "type": "set",
+                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
+                          }
+                        ],
+                        "type": "invoke",
+                        "error": [
+                          {
+                            "detail": "Unable to load Produtos",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "niv_produtos",
+                      "title": "Niv Produtos",
+                      "type": "integer"
+                    },
+                    {
+                      "property": "tipo_produtos",
+                      "title": "Tipo Produtos",
+                      "type": "string"
+                    },
+                    {
+                      "property": "descricaoProduto",
+                      "title": "Descricao Produto",
+                      "type": "string"
+                    },
+                    {
+                      "property": "index_Recurso",
+                      "title": "Index Recurso",
+                      "type": "integer"
+                    }
+                  ],
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "type": "execute",
+        "code": "this.grid0.load();"
+      }
+    ]
+  },
+  "name": "Produtos",
+  "layout": "Main"
+}

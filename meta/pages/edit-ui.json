@@ -1,0 +1,116 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "${ui}",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Ui",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.updateUi",
+                        "parameters": [
+                          {
+                            "name": "id_UI",
+                            "value": "${parameters.id_UI}"
+                          },
+                          {
+                            "name": "Ui",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "property": "nome_UI",
+                      "required": true,
+                      "title": "Nome Ui",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "acronimo_UI",
+                      "required": true,
+                      "title": "Acronimo Ui",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "morada_UI",
+                      "required": true,
+                      "title": "Morada Ui",
+                      "type": "string",
+                      "maxLength": 100
+                    },
+                    {
+                      "property": "id_UI",
+                      "required": true,
+                      "title": "Id Ui",
+                      "type": "integer"
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form",
+                  "visible": "ui"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ProjetoNew.getUiByid_UI",
+        "parameters": [
+          {
+            "name": "id_UI",
+            "value": "${parameters.id_UI}"
+          }
+        ],
+        "then": [
+          {
+            "name": "ui",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Ui",
+  "layout": "Main"
+}

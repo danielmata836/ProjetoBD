@@ -1,0 +1,188 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Equipamentos"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "name": "grid0",
+                  "allowDelete": true,
+                  "confirmDelete": true,
+                  "allowAdd": true,
+                  "allowFiltering": true,
+                  "allowMultiSorting": false,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "count": "${getEquipamentosCount}",
+                  "data": "${getEquipamentosResult}",
+                  "events": {
+                    "loadData": [
+                      {
+                        "name": "ProjetoNew.getEquipamentos",
+                        "parameters": [
+                          {
+                            "name": "$top",
+                            "value": "event.top"
+                          },
+                          {
+                            "name": "$skip",
+                            "value": "event.skip"
+                          },
+                          {
+                            "name": "$count",
+                            "value": "event.top != null && event.skip != null"
+                          },
+                          {
+                            "name": "$filter",
+                            "value": "${event.filter}"
+                          },
+                          {
+                            "name": "$orderby",
+                            "value": "${event.orderby}"
+                          },
+                          {
+                            "name": "$expand",
+                            "value": "Recurso"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "name": "getEquipamentosResult",
+                            "type": "set",
+                            "value": "${result.value}"
+                          },
+                          {
+                            "name": "getEquipamentosCount",
+                            "type": "set",
+                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
+                          }
+                        ],
+                        "type": "invoke",
+                        "error": [
+                          {
+                            "detail": "Unable to load Equipamentos",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ]
+                      }
+                    ],
+                    "delete": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to delete Equipamento",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.deleteEquipamento",
+                        "parameters": [
+                          {
+                            "name": "no_regis_produto",
+                            "value": "${event.no_regis_produto}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "detail": "Equipamento deleted!",
+                            "severity": "success",
+                            "summary": "Success",
+                            "type": "notify"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ],
+                    "add": [
+                      {
+                        "path": "add-equipamento",
+                        "type": "popup"
+                      }
+                    ],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "no_regis_produto",
+                            "value": "${event.no_regis_produto}"
+                          }
+                        ],
+                        "path": "edit-equipamento",
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "no_regis_produto",
+                      "title": "No Regis Produto",
+                      "type": "integer"
+                    },
+                    {
+                      "property": "nome_equi",
+                      "title": "Nome Equi",
+                      "type": "string"
+                    },
+                    {
+                      "property": "index_Recurso",
+                      "sortProperty": "Recurso.obs",
+                      "filterProperty": "Recurso.obs",
+                      "template": "${data.Recurso?.obs}",
+                      "title": "Recurso",
+                      "type": "string"
+                    },
+                    {
+                      "property": "garantia",
+                      "formatString": "medium",
+                      "title": "Garantia",
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    {
+                      "property": "categoria",
+                      "title": "Categoria",
+                      "type": "string"
+                    },
+                    {
+                      "property": "Equi_obs",
+                      "title": "Equi Obs",
+                      "type": "string"
+                    }
+                  ],
+                  "type": "grid"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "type": "execute",
+        "code": "this.grid0.load();"
+      }
+    ]
+  },
+  "name": "Equipamentos",
+  "layout": "Main"
+}

@@ -1,0 +1,120 @@
+no_regis_produto, nome_equi, index_Recurso, categoria, Equi_obs, garantia
+1, GNSS Topcon, 34, Geodesia, GNSS e afins,08/02/2021
+2, Antenas (VP geodésicas) e recetores, 35, Geodesia, GNSS e afins
+3, Tripés para antenas, 36, Geodesia, GNSS e afins
+4, GPS Stonex S900A e bastões, 37, Geodesia, GPS e equipamentos afins
+5, GPS Leica GS09, 38, Geodesia, GPS e equipamentos afins
+6, GPS Leica GS15, 39, Geodesia, GPS e equipamentos afins
+7, GPS Trimble R4, 40, Geodesia, GPS e equipamentos afins
+8, GPS Trimble Nomad, 41, Geodesia, GPS e equipamentos afins
+9, GPS Trimble GeoExplorer 6000 Série GeoXR, 42, Geodesia, GPS e equipamentos afins
+10, GPS estações totais, 43, Geodesia, GPS e equipamentos afins
+
+11, Prensa hidraúlica, 44, Geologia, Pulverização e Preparação de Amostras
+12, Isogranulador, 45, Geologia, Pulverização e Preparação de Amostras
+13, moinho com maxilas removíveis de tungsténio carboneto, 46, Geologia, Pulverização e Preparação de Amostras
+14, moinho de ágata Siebtechnik, 47, Geologia, Pulverização e Preparação de Amostras
+15, Balanças digitais de alta precisão (Mettler), 48, Geologia, Pulverização e Preparação de Amostras
+16, máquinas de corte primário de rochas, 49, Geologia, Pulverização e Preparação de Amostras
+17, GEOFORM – polidor de precisão e desgaste e discos e copos de diamante, 50, Geologia, Pulverização e Preparação de Amostras
+18, sistema de polimento para lâminas e superfícies de rochas (máquina final de polimento + unidade de bomba de vácuo), 51, Geologia, Pulverização e Preparação de Amostras
+19, Husqvarna TS 230 F (máquina de corte primária), 52, Geologia, Pulverização e Preparação de Amostras
+20, máquina de corte de testemunhos de sondagens e rocha, 53, Geologia, Pulverização e Preparação de Amostras
+
+21, Microssonda electrónica de alto vácuo com WDS e EDS, 54, Geoquímica,
+22, Espectrómetro de fluorescência de RX, 55, Geoquímica,
+23, Fluorescência de raios X de energia dispersiva, 56, Geoquímica,
+24, Difractómetro de raios X, 57, Geoquímica,
+25, Difractómetro de raios X portátil, 58, Geoquímica,
+26, Espectrómetro infravermelho portátil, 59, Geoquímica,
+27, Espectrómetro de Infra-vermelhos Bruker Tensor-27 equipado com detetor-TGC e unidade ATR, 60, Geoquímica,
+28, Espectrómetro de infravermelhos com transformada de Fourier, 61, Geoquímica,
+29, Espectrómetro de absorção atómica, 62, Geoquímica,
+30, Absorção Atómica Zenit, 63, Geoquímica,
+
+31, Fresadora, 64, Sismologia,
+32, Sismómetros de banda larga, 65, Sismologia,
+33, Módulos fotovoltaicos, 66, Sismologia,
+34, Controladores solares, 67, Sismologia,
+35, Bateria solar, 68, Sismologia,
+36, Acelerómetro, estação permanente, 69, Sismologia,
+37, Rede móvel Reftek, 70, Sismologia,
+38, Rede OBS curto-periodo, 71, Sismologia,
+39, Sismómetro banda larga 6TD-1, 72, Sismologia,
+
+40, Espectrografia Gamma GR-256 com detector GPS-21, 73, Geofísica Aplicada,
+41, Ground Penetrating Radar GSSI SIR 3000, 74, Geofísica Aplicada,
+42, Radar de solos, 75, Geofísica Aplicada,
+43, Electromagnética frequênica muito baixa (VLF), 76, Geofísica Aplicada,
+44, Resistivímetros, 77, Geofísica Aplicada,
+45, Condutivímetro de solo, 78, Geofísica Aplicada,
+46, Equipamento de diagrafias, 79, Geofísica Aplicada,
+47, Sísmica de reflexão (72 canais), 80, Geofísica Aplicada,
+48, Fonte sísmica de massa acelerada, 81, Geofísica Aplicada,
+49, Geofones verticais, 4 Hz, 10 Hz, 40 Hz, 82, Geofísica Aplicada,
+
+50, Analisar de partículas a laser, 83, Mecânica e Física das Rochas,
+51, Estação fotogramétrica Leica LPS, 84, Mecânica e Física das Rochas,
+52, Prensa de tração directa, 85, Mecânica e Física das Rochas,
+53, Prensa uniaxial, 86, Mecânica e Física das Rochas,
+54, Bomba de vácuo, 87, Mecânica e Física das Rochas,
+55, Microscópio ótico, 88, Mecânica e Física das Rochas,
+56, Célula triaxial Hoek, 89, Mecânica e Física das Rochas,
+57, Unidade Coreflooding, 90, Mecânica e Física das Rochas,
+58, Data-logger, 91, Mecânica e Física das Rochas,
+59, Emissor-Receptor ultrasónico, 92, Mecânica e Física das Rochas,
+
+60, Estação base magnética terrestre, 93, Geomagnetismo,
+61, Magnetómetro escalar de campo total, 94, Geomagnetismo,
+62, Magnetómetro Fluxo-DI, 95, Geomagnetismo,
+63, Magnetómetro escalar (campo total F), 96, Geomagnetismo,
+64, Magnetómetro fluxgate triaxial, 97, Geomagnetismo,
+65, Magnetómetro Cesium G-858, 98, Geomagnetismo,
+66, Magnetómetro fluxgate LEMI-018, 99, Geomagnetismo,
+67, Magnetómetro de observações absolutas DI-flux (MinGeo), 100, Geomagnetismo,
+68, Magnetómetro escalar de campo completo, 101, Geomagnetismo,
+69, Magnetómetro escalar (campo total F), 102, Geomagnetismo,
+
+70, Magnetómetro Spinner (JR-6), 103, Paleomagnetismo,
+71, Magnetizador de pulso anisterético (AMU-1A), 104, Paleomagnetismo,
+72, Desmagnetizador de campo magnético alternado (LDA-3A), 105, Paleomagnetismo,
+73, Magnetizador de Impulso (IM-10-30), 106, Paleomagnetismo,
+74, Desmagnetizador térmico (caseiro), 107, Paleomagnetismo,
+75, Desmagnetizador AF – magnetizador ARM, 108, Paleomagnetismo,
+76, Medidor de susceptibilidade magnética, 109, Paleomagnetismo,
+77, Magnetizador, 110, Paleomagnetismo,
+
+78, Estações de trabalho para processamento e interpretação de dados sísmicos, 111, Geologia Marinha, SeisLab
+79, Radex Pro Seismic Processing software (Licenças), 112, Geologia Marinha, SeisLab
+80, Landmark suite software, 113, Geologia Marinha, SeisLab
+81, Propagação sísmica de reflexão de alta resolução: 1kJ pps, 24 canais 200 tips sparker, 114, Geologia Marinha,
+82, Ecossounder multifeixe + SVP + sistema de posicionamento, 115, Geologia Marinha,
+83, Sistema aquático STR SeaSpyder de telemetria, fotografia e vídeo, 116, Geologia Marinha,
+84, Sensor de velocidade do som Valeport & Analisador, 117, Geologia Marinha,
+
+85, Estações de trabalho, 118, Deteção Remota, GEOMODLAB
+86, Software eCognition and PIX4D mapper, 119, Deteção Remota, GEOMODLAB
+87, Lidar Phoenix Scout, 120, Deteção Remota,
+88, Hexacopterous, 121, Deteção Remota, Drones
+89, Sensefly Ebee Classic, 122, Deteção Remota, Drones
+90, Sensefly Ebee Plus RTK, 123, Deteção Remota, Drones
+91, DJI Phantom 3 Advanced, 124, Deteção Remota, Drones
+92, DJI Phantom 4, 125, Deteção Remota, Drones
+93, Soda and Parrot Sequoia, 126, Deteção Remota, Câmaras para drones
+
+94, Absorção Atómica Zenit, 127, Georecursos,
+95, Espectrofotómetro de feixe duplo Varian 100, 128, Georecursos,
+96, Fluorescência de raios X de energia dispersiva, 129, Georecursos,
+97, Reactor de lixiviação sob pressão, 130, Georecursos,
+98, Identificador de radionuclídeos com detector de germânio, 131, Georecursos,
+99, Analisador de granulometria por difração Laser, 132, Georecursos,
+100, Cromatógrafo fase gasosa para colunas com empacotamento FID e TCD, 133, Georecursos,
+101, Cromatógrafo em fase gasosa com colunas capilares para FID e ECD, 134, Georecursos,
+102, Célula de flutuação, 135, Georecursos,
+103, Câmara Corrosão Climática, 136, Georecursos,
+
+104, equipamento de perfuração para rocha, 137, Outros, Geradores
+105, Trado para solos, 138, Outros, Geradores
+106, Servidores, 139, Outros,
+107, Sensores meteorológicos, 140, Outros,
+108, dataloggers diversos, 141, Outros,

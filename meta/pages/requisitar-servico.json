@@ -23,16 +23,16 @@
                       {
                         "error": [
                           {
-                            "detail": "Unable to create new Recurso!",
+                            "detail": "Unable to create new Servico!",
                             "severity": "error",
                             "summary": "Error",
                             "type": "notify"
                           }
                         ],
-                        "name": "ProjetoNew.createRecurso",
+                        "name": "ProjetoNew.createServico",
                         "parameters": [
                           {
-                            "name": "Recurso",
+                            "name": "Servico",
                             "value": "${event}"
                           }
                         ],
@@ -47,69 +47,86 @@
                   },
                   "fields": [
                     {
-                      "property": "obs",
+                      "property": "designa_pt_servicos",
                       "required": true,
-                      "title": "Obs",
+                      "title": "Designa Pt Servicos",
                       "type": "string",
                       "maxLength": 100,
                       "requiredText": "is required"
                     },
                     {
-                      "property": "Designacao_EN",
+                      "property": "designa_en_servicos",
                       "required": true,
-                      "title": "Designacao En",
+                      "title": "Designa En Servicos",
                       "type": "string",
                       "maxLength": 100,
                       "requiredText": "is required"
                     },
                     {
-                      "property": "Designacao_PT",
+                      "property": "inst_dispo_servicos",
                       "required": true,
-                      "title": "Designacao Pt",
+                      "title": "Inst Dispo Servicos",
                       "type": "string",
                       "maxLength": 100,
                       "requiredText": "is required"
                     },
                     {
-                      "property": "res",
+                      "property": "index_servicos",
                       "required": true,
-                      "title": "Res",
-                      "type": "string",
-                      "maxLength": 100,
-                      "requiredText": "is required"
-                    },
-                    {
-                      "property": "web",
-                      "required": true,
-                      "title": "Web",
-                      "type": "string",
-                      "maxLength": 100,
-                      "requiredText": "is required"
-                    },
-                    {
-                      "property": "custo",
-                      "required": true,
-                      "title": "Custo",
-                      "type": "number",
-                      "requiredText": "is required",
-                      "minText": "cannot be less than",
-                      "maxText": "cannot be more than"
-                    },
-                    {
-                      "property": "index_Recurso",
-                      "required": true,
-                      "title": "Index Recurso",
+                      "title": "Index Servicos",
                       "type": "integer",
                       "requiredText": "is required",
                       "minText": "cannot be less than",
                       "maxText": "cannot be more than"
                     },
                     {
-                      "property": "Dado",
+                      "property": "obs_servicos",
                       "required": true,
-                      "title": "Dado",
+                      "title": "Obs Servicos",
                       "type": "string",
                       "maxLength": 100,
+                      "requiredText": "is required"
+                    },
+                    {
+                      "property": "custo_servicos",
+                      "required": true,
+                      "title": "Custo Servicos",
+                      "type": "number",
+                      "requiredText": "is required",
+                      "minText": "cannot be less than",
+                      "maxText": "cannot be more than"
+                    },
+                    {
+                      "property": "desc_servicos",
+                      "required": true,
+                      "title": "Desc Servicos",
+                      "type": "string",
+                      "maxLength": 100,
+                      "requiredText": "is required"
+                    },
+                    {
+                      "data": "${getGtsResult}",
+                      "property": "id_GT",
+                      "required": true,
+                      "textProperty": "sigla",
+                      "title": "Gt",
+                      "type": "lookup",
+                      "valueProperty": "id_GT",
+                      "placeholder": "Choose Gt",
+                      "requiredText": "is required"
+                    },
+                    {
+                      "property": "data_inicio",
+                      "required": false,
+                      "title": "Data Inicio",
+                      "type": "date",
+                      "requiredText": "is required"
+                    },
+                    {
+                      "property": "data_fim",
+                      "required": false,
+                      "title": "Data Fim",
+                      "type": "date",
                       "requiredText": "is required"
                     }
                   ],
@@ -124,12 +141,24 @@
     }
   ],
   "events": {
-    "load": []
+    "load": [
+      {
+        "name": "ProjetoNew.getGts",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getGtsResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
   },
-  "name": "Add Recurso",
+  "name": "Requisitar Servico",
   "layout": "Main",
   "access": [
-    "Staff",
-    "Member"
+    "Authenticated"
   ]
 }

@@ -184,6 +184,6 @@
   "name": "Unidades de Investigação",
   "layout": "Main",
   "access": [
-    "Authenticated"
+    "Staff"
   ]
 }

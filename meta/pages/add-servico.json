@@ -1,14 +1,13 @@
 {
+  "access": [
+    "Authenticated"
+  ],
   "components": [
     {
-      "type": "content",
-      "container": "main",
       "components": [
         {
-          "type": "row",
           "components": [
             {
-              "type": "col",
               "class": "col-md-12",
               "components": [
                 {
@@ -47,97 +46,101 @@
                   },
                   "fields": [
                     {
+                      "maxLength": 100,
                       "property": "designa_pt_servicos",
                       "required": true,
+                      "requiredText": "is required",
                       "title": "Designa Pt Servicos",
-                      "type": "string",
-                      "maxLength": 100,
-                      "requiredText": "is required"
+                      "type": "string"
                     },
                     {
+                      "maxLength": 100,
                       "property": "designa_en_servicos",
                       "required": true,
+                      "requiredText": "is required",
                       "title": "Designa En Servicos",
-                      "type": "string",
-                      "maxLength": 100,
-                      "requiredText": "is required"
+                      "type": "string"
                     },
                     {
+                      "maxLength": 100,
                       "property": "inst_dispo_servicos",
                       "required": true,
+                      "requiredText": "is required",
                       "title": "Inst Dispo Servicos",
-                      "type": "string",
-                      "maxLength": 100,
-                      "requiredText": "is required"
+                      "type": "string"
                     },
                     {
+                      "maxText": "cannot be more than",
+                      "minText": "cannot be less than",
                       "property": "index_servicos",
                       "required": true,
-                      "title": "Index Servicos",
-                      "type": "integer",
                       "requiredText": "is required",
-                      "minText": "cannot be less than",
-                      "maxText": "cannot be more than"
+                      "title": "Index Servicos",
+                      "type": "integer"
                     },
                     {
+                      "maxLength": 100,
                       "property": "obs_servicos",
                       "required": true,
+                      "requiredText": "is required",
                       "title": "Obs Servicos",
-                      "type": "string",
-                      "maxLength": 100,
-                      "requiredText": "is required"
+                      "type": "string"
                     },
                     {
+                      "maxText": "cannot be more than",
+                      "minText": "cannot be less than",
                       "property": "custo_servicos",
                       "required": true,
-                      "title": "Custo Servicos",
-                      "type": "number",
                       "requiredText": "is required",
-                      "minText": "cannot be less than",
-                      "maxText": "cannot be more than"
+                      "title": "Custo Servicos",
+                      "type": "number"
                     },
                     {
+                      "maxLength": 100,
                       "property": "desc_servicos",
                       "required": true,
+                      "requiredText": "is required",
                       "title": "Desc Servicos",
-                      "type": "string",
-                      "maxLength": 100,
-                      "requiredText": "is required"
+                      "type": "string"
                     },
                     {
                       "data": "${getGtsResult}",
+                      "placeholder": "Choose Gt",
                       "property": "id_GT",
                       "required": true,
+                      "requiredText": "is required",
                       "textProperty": "sigla",
                       "title": "Gt",
                       "type": "lookup",
-                      "valueProperty": "id_GT",
-                      "placeholder": "Choose Gt",
-                      "requiredText": "is required"
+                      "valueProperty": "id_GT"
                     },
                     {
                       "property": "data_inicio",
                       "required": false,
+                      "requiredText": "is required",
                       "title": "Data Inicio",
-                      "type": "date",
-                      "requiredText": "is required"
+                      "type": "date"
                     },
                     {
                       "property": "data_fim",
                       "required": false,
+                      "requiredText": "is required",
                       "title": "Data Fim",
-                      "type": "date",
-                      "requiredText": "is required"
+                      "type": "date"
                     }
                   ],
                   "name": "form0",
                   "type": "form"
                 }
-              ]
+              ],
+              "type": "col"
             }
-          ]
+          ],
+          "type": "row"
         }
-      ]
+      ],
+      "container": "main",
+      "type": "content"
     }
   ],
   "events": {
@@ -156,9 +159,6 @@
       }
     ]
   },
-  "name": "Add Servico",
   "layout": "Main",
-  "access": [
-    "Authenticated"
-  ]
+  "name": "Add Servico"
 }

@@ -136,7 +136,7 @@ export class SecurityService {
       }
     } else {
       this.router.navigate([{ outlets: { popup: null } } ])
-          .then(() => this.router.navigate(['/add-recurso'], { queryParams: { redirectUrl: state.url } }));
+          .then(() => this.router.navigate(['/login'], { queryParams: { redirectUrl: state.url } }));
 
       return false;
     }

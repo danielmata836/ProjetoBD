@@ -127,6 +127,7 @@
   "name": "Add Equipamento",
   "layout": "Main",
   "access": [
-    "Staff"
+    "Staff",
+    "Member"
   ]
 }

@@ -14,7 +14,6 @@
     "Equipamentos",
     "Formações",
     "Grupos de Trabalho",
-    "Pertence Uis",
     "Serviços",
     "Calendário",
     "Recursos",
@@ -24,8 +23,7 @@
     "Pessoas",
     "Login",
     "Application Users",
-    "Application Roles",
-    "Add Servico"
+    "Application Roles"
   ],
   "pages": [
     "Equipamentos",
@@ -81,7 +79,7 @@
     "emailConfirmation": false,
     "layout": "Main",
     "loginLayout": "Login",
-    "loginPage": "Add Recurso",
+    "loginPage": "Login",
     "provider": "default",
     "smtpFrom": "",
     "smtpPassword": "",

@@ -192,6 +192,6 @@
   "name": "Pertence Uis",
   "layout": "Main",
   "access": [
-    "Authenticated"
+    "Staff"
   ]
 }

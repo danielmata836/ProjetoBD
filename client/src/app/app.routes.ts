@@ -69,7 +69,7 @@ export const routes: Routes = [
         path: 'add-equipamento',
         canActivate: [AuthGuard],
         data: {
-          roles: ['Staff'],
+          roles: ['Staff', 'Member'],
         },
         component: AddEquipamentoComponent
       },
@@ -189,7 +189,7 @@ export const routes: Routes = [
         path: 'pertence-uis',
         canActivate: [AuthGuard],
         data: {
-          roles: ['Authenticated'],
+          roles: ['Staff'],
         },
         component: PertenceUisComponent
       },
@@ -275,8 +275,9 @@ export const routes: Routes = [
       },
       {
         path: 'add-recurso',
+        canActivate: [AuthGuard],
         data: {
-          roles: ['Everybody'],
+          roles: ['Staff', 'Member'],
         },
         component: AddRecursoComponent
       },
@@ -316,7 +317,7 @@ export const routes: Routes = [
         path: 'unidades-de-investigação',
         canActivate: [AuthGuard],
         data: {
-          roles: ['Authenticated'],
+          roles: ['Staff'],
         },
         component: UnidadesDeInvestigacaoComponent
       },

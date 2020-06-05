@@ -38,8 +38,6 @@
     </rz-panelmenu-item>
     <rz-panelmenu-item text="Instituições" path="instituições" *ngIf="security?.isInRole(['Staff'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Pertence Uis" path="pertence-uis" *ngIf="security?.isInRole(['Authenticated'])">
-    </rz-panelmenu-item>
     <rz-panelmenu-item text="Pessoas" path="pessoas" *ngIf="security?.isInRole(['Staff'])">
     </rz-panelmenu-item>
     <rz-panelmenu-item text="Produtos" path="produtos" *ngIf="security?.isInRole(['Authenticated'])">
@@ -48,9 +46,7 @@
     </rz-panelmenu-item>
     <rz-panelmenu-item text="Serviços" path="serviços" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Add Servico" path="add-servico" *ngIf="security?.isInRole(['Authenticated'])">
-    </rz-panelmenu-item>
-    <rz-panelmenu-item text="Unidades de Investigação" path="unidades-de-investigação" *ngIf="security?.isInRole(['Authenticated'])">
+    <rz-panelmenu-item text="Unidades de Investigação" path="unidades-de-investigação" *ngIf="security?.isInRole(['Staff'])">
     </rz-panelmenu-item>
     <rz-panelmenu-item text="Calendário" path="calendário" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>

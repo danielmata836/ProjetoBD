@@ -24,7 +24,20 @@
             {
               "class": "col-md-6 text-lg-right",
               "name": "rightCol",
-              "type": "col"
+              "type": "col",
+              "components": [
+                {
+                  "type": "profilemenu",
+                  "name": "profilemenu0",
+                  "visible": "${security.isAuthenticated()}",
+                  "template": [
+                    {
+                      "email": "${security.user.name}",
+                      "type": "gravatar"
+                    }
+                  ]
+                }
+              ]
             }
           ],
           "name": "headerRow",

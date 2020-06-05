@@ -62,7 +62,8 @@
                       "title": "Recurso",
                       "type": "lookup",
                       "valueProperty": "index_Recurso",
-                      "placeholder": "Choose Recurso"
+                      "placeholder": "Choose Recurso",
+                      "requiredText": "is required"
                     },
                     {
                       "data": "${getServicosResult}",
@@ -72,7 +73,8 @@
                       "title": "Servico",
                       "type": "lookup",
                       "valueProperty": "index_servicos",
-                      "placeholder": "Choose Servico"
+                      "placeholder": "Choose Servico",
+                      "requiredText": "is required"
                     }
                   ],
                   "name": "form0",
@@ -137,5 +139,8 @@
     ]
   },
   "name": "Edit Esta Atribuido",
-  "layout": "Main"
+  "layout": "Main",
+  "access": [
+    "Staff"
+  ]
 }

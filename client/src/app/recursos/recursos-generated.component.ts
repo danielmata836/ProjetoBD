@@ -19,6 +19,7 @@ import { AddRecursoComponent } from '../add-recurso/add-recurso.component';
 import { EditRecursoComponent } from '../edit-recurso/edit-recurso.component';
 
 import { ProjetoNewService } from '../projeto-new.service';
+import { SecurityService } from '../security.service';
 
 export class RecursosGenerated implements AfterViewInit, OnInit, OnDestroy {
   // Components
@@ -49,6 +50,8 @@ export class RecursosGenerated implements AfterViewInit, OnInit, OnDestroy {
   _subscription: Subscription;
 
   projetoNew: ProjetoNewService;
+
+  security: SecurityService;
   parameters: any;
   getRecursosResult: any;
   getRecursosCount: any;
@@ -78,6 +81,7 @@ export class RecursosGenerated implements AfterViewInit, OnInit, OnDestroy {
     this.httpClient = this.injector.get(HttpClient);
 
     this.projetoNew = this.injector.get(ProjetoNewService);
+    this.security = this.injector.get(SecurityService);
   }
 
   ngAfterViewInit() {

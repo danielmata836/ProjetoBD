@@ -13,6 +13,8 @@ import { ContentContainerModule } from '@radzen/angular/dist/content-container';
 import { HeaderModule } from '@radzen/angular/dist/header';
 import { SidebarToggleModule } from '@radzen/angular/dist/sidebar-toggle';
 import { LabelModule } from '@radzen/angular/dist/label';
+import { ProfileMenuModule } from '@radzen/angular/dist/profilemenu';
+import { GravatarModule } from '@radzen/angular/dist/gravatar';
 import { SidebarModule } from '@radzen/angular/dist/sidebar';
 import { PanelMenuModule } from '@radzen/angular/dist/panelmenu';
 import { FooterModule } from '@radzen/angular/dist/footer';
@@ -21,6 +23,8 @@ import { HeadingModule } from '@radzen/angular/dist/heading';
 import { GridModule } from '@radzen/angular/dist/grid';
 import { FormModule } from '@radzen/angular/dist/form';
 import { SchedulerModule } from '@radzen/angular/dist/scheduler';
+import { LoginModule } from '@radzen/angular/dist/login';
+import { HtmlModule } from '@radzen/angular/dist/html';
 import { SharedModule } from '@radzen/angular/dist/shared';
 import { NotificationModule } from '@radzen/angular/dist/notification';
 import { DialogModule } from '@radzen/angular/dist/dialog';
@@ -36,11 +40,11 @@ import { EditEquipamentoComponent } from './edit-equipamento/edit-equipamento.co
 import { EstaAtribuidosComponent } from './esta-atribuidos/esta-atribuidos.component';
 import { AddEstaAtribuidoComponent } from './add-esta-atribuido/add-esta-atribuido.component';
 import { EditEstaAtribuidoComponent } from './edit-esta-atribuido/edit-esta-atribuido.component';
-import { FormacaosComponent } from './formacaos/formacaos.component';
-import { GtsComponent } from './gts/gts.component';
+import { FormacoesComponent } from './formações/formações.component';
+import { GruposDeTrabalhoComponent } from './grupos-de-trabalho/grupos-de-trabalho.component';
 import { AddGtComponent } from './add-gt/add-gt.component';
 import { EditGtComponent } from './edit-gt/edit-gt.component';
-import { InstituicaosComponent } from './instituicaos/instituicaos.component';
+import { InstituicoesComponent } from './instituições/instituições.component';
 import { AddInstituicaoComponent } from './add-instituicao/add-instituicao.component';
 import { EditInstituicaoComponent } from './edit-instituicao/edit-instituicao.component';
 import { PedesComponent } from './pedes/pedes.component';
@@ -59,17 +63,29 @@ import { ProdutosComponent } from './produtos/produtos.component';
 import { RecursosComponent } from './recursos/recursos.component';
 import { AddRecursoComponent } from './add-recurso/add-recurso.component';
 import { EditRecursoComponent } from './edit-recurso/edit-recurso.component';
-import { ServicosComponent } from './servicos/servicos.component';
+import { ServicosComponent } from './serviços/serviços.component';
 import { AddServicoComponent } from './add-servico/add-servico.component';
 import { EditServicoComponent } from './edit-servico/edit-servico.component';
-import { UisComponent } from './uis/uis.component';
+import { UnidadesDeInvestigacaoComponent } from './unidades-de-investigação/unidades-de-investigação.component';
 import { AddUiComponent } from './add-ui/add-ui.component';
 import { EditUiComponent } from './edit-ui/edit-ui.component';
-import { ServicoCalendarComponent } from './servico-calendar/servico-calendar.component';
+import { CalendarioComponent } from './calendário/calendário.component';
+import { ApplicationUsersComponent } from './application-users/application-users.component';
+import { ApplicationRolesComponent } from './application-roles/application-roles.component';
+import { RegisterApplicationUserComponent } from './register-application-user/register-application-user.component';
+import { AddApplicationRoleComponent } from './add-application-role/add-application-role.component';
+import { AddApplicationUserComponent } from './add-application-user/add-application-user.component';
+import { EditApplicationUserComponent } from './edit-application-user/edit-application-user.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { LoginLayoutComponent } from './login-layout/login-layout.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { ProjetoNewService } from './projeto-new.service';
+import { SecurityService, UserService } from './security.service';
+import { SecurityInterceptor } from './security.interceptor';
+import { AuthGuard } from './auth.guard';
 
 export const PageDeclarations = [
   EquipamentosComponent,
@@ -78,11 +94,11 @@ export const PageDeclarations = [
   EstaAtribuidosComponent,
   AddEstaAtribuidoComponent,
   EditEstaAtribuidoComponent,
-  FormacaosComponent,
-  GtsComponent,
+  FormacoesComponent,
+  GruposDeTrabalhoComponent,
   AddGtComponent,
   EditGtComponent,
-  InstituicaosComponent,
+  InstituicoesComponent,
   AddInstituicaoComponent,
   EditInstituicaoComponent,
   PedesComponent,
@@ -104,10 +120,19 @@ export const PageDeclarations = [
   ServicosComponent,
   AddServicoComponent,
   EditServicoComponent,
-  UisComponent,
+  UnidadesDeInvestigacaoComponent,
   AddUiComponent,
   EditUiComponent,
-  ServicoCalendarComponent,
+  CalendarioComponent,
+  ApplicationUsersComponent,
+  ApplicationRolesComponent,
+  RegisterApplicationUserComponent,
+  AddApplicationRoleComponent,
+  AddApplicationUserComponent,
+  EditApplicationUserComponent,
+  ProfileComponent,
+  LoginComponent,
+  UnauthorizedComponent,
 ];
 
 export const LayoutDeclarations = [
@@ -128,6 +153,14 @@ export const AppProviders = [
     multi: true
   },
   ProjetoNewService,
+  UserService,
+  SecurityService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: SecurityInterceptor,
+    multi: true
+  },
+  AuthGuard,
   ConfigService,
   {
     provide: APP_INITIALIZER,
@@ -148,6 +181,8 @@ export const AppImports = [
   HeaderModule,
   SidebarToggleModule,
   LabelModule,
+  ProfileMenuModule,
+  GravatarModule,
   SidebarModule,
   PanelMenuModule,
   FooterModule,
@@ -156,6 +191,8 @@ export const AppImports = [
   GridModule,
   FormModule,
   SchedulerModule,
+  LoginModule,
+  HtmlModule,
   SharedModule,
   NotificationModule,
   DialogModule,

@@ -16,6 +16,7 @@ import { FormComponent } from '@radzen/angular/dist/form';
 import { ConfigService } from '../config.service';
 
 import { ProjetoNewService } from '../projeto-new.service';
+import { SecurityService } from '../security.service';
 
 export class EditEquipamentoGenerated implements AfterViewInit, OnInit, OnDestroy {
   // Components
@@ -45,6 +46,8 @@ export class EditEquipamentoGenerated implements AfterViewInit, OnInit, OnDestro
   _subscription: Subscription;
 
   projetoNew: ProjetoNewService;
+
+  security: SecurityService;
   equipamento: any;
   getRecursosResult: any;
   parameters: any;
@@ -74,6 +77,7 @@ export class EditEquipamentoGenerated implements AfterViewInit, OnInit, OnDestro
     this.httpClient = this.injector.get(HttpClient);
 
     this.projetoNew = this.injector.get(ProjetoNewService);
+    this.security = this.injector.get(SecurityService);
   }
 
   ngAfterViewInit() {

@@ -19,6 +19,7 @@ import { AddPessoaComponent } from '../add-pessoa/add-pessoa.component';
 import { EditPessoaComponent } from '../edit-pessoa/edit-pessoa.component';
 
 import { ProjetoNewService } from '../projeto-new.service';
+import { SecurityService } from '../security.service';
 
 export class PessoasGenerated implements AfterViewInit, OnInit, OnDestroy {
   // Components
@@ -49,6 +50,8 @@ export class PessoasGenerated implements AfterViewInit, OnInit, OnDestroy {
   _subscription: Subscription;
 
   projetoNew: ProjetoNewService;
+
+  security: SecurityService;
   parameters: any;
   getPessoasResult: any;
   getPessoasCount: any;
@@ -78,6 +81,7 @@ export class PessoasGenerated implements AfterViewInit, OnInit, OnDestroy {
     this.httpClient = this.injector.get(HttpClient);
 
     this.projetoNew = this.injector.get(ProjetoNewService);
+    this.security = this.injector.get(SecurityService);
   }
 
   ngAfterViewInit() {

@@ -7,6 +7,20 @@
       </rz-label>
     </div>
     <div class="col-md-6 text-lg-right">
+      <rz-profilemenu #profilemenu0 *ngIf="security?.isAuthenticated()" (click)="profilemenu0Click($event)">
+        <rz-profilemenu-item path="profile" icon="settings" text="Profile" *ngIf="security?.isInRole(['Authenticated'])">
+        </rz-profilemenu-item>
+        <rz-profilemenu-item path="application-users" icon="person" text="Users" *ngIf="security?.isInRole(['Admin'])">
+        </rz-profilemenu-item>
+        <rz-profilemenu-item path="application-roles" icon="security" text="Roles" *ngIf="security?.isInRole(['Admin'])">
+        </rz-profilemenu-item>
+        <rz-profilemenu-item text="Logout" icon="power_settings_new">
+        </rz-profilemenu-item>
+        <ng-template let-data profilemenuTemplate>
+          <rz-gravatar #gravatar1 [email]="security?.user?.name">
+          </rz-gravatar>
+        </ng-template>
+      </rz-profilemenu>
     </div>
   </div>
 </rz-header>
@@ -16,33 +30,35 @@
 </rz-body>
 <rz-sidebar #sidebar0>
   <rz-panelmenu #panelmenu0 [style]="{'height': '100%'}">
-    <rz-panelmenu-item text="Equipamentos" path="equipamentos">
+    <rz-panelmenu-item text="Equipamentos" path="equipamentos" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Esta Atribuidos" path="esta-atribuidos">
+    <rz-panelmenu-item text="Formações" path="formações" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Formacaos" path="formacaos">
+    <rz-panelmenu-item text="Grupos de Trabalho" path="grupos-de-trabalho" *ngIf="security?.isInRole(['Staff'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Gts" path="gts">
+    <rz-panelmenu-item text="Instituições" path="instituições" *ngIf="security?.isInRole(['Staff'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Instituicaos" path="instituicaos">
+    <rz-panelmenu-item text="Pertence Uis" path="pertence-uis" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Pedes" path="pedes">
+    <rz-panelmenu-item text="Pessoas" path="pessoas" *ngIf="security?.isInRole(['Staff'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Pertence Uis" path="pertence-uis">
+    <rz-panelmenu-item text="Produtos" path="produtos" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Pertencers" path="pertencers">
+    <rz-panelmenu-item text="Recursos" path="recursos" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Pessoas" path="pessoas">
+    <rz-panelmenu-item text="Serviços" path="serviços" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Produtos" path="produtos">
+    <rz-panelmenu-item text="Add Servico" path="add-servico" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Recursos" path="recursos">
+    <rz-panelmenu-item text="Unidades de Investigação" path="unidades-de-investigação" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Servicos" path="servicos">
+    <rz-panelmenu-item text="Calendário" path="calendário" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Uis" path="uis">
+    <rz-panelmenu-item text="Application Users" path="application-users" *ngIf="security?.isInRole(['Admin'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Servico Calendar" path="servico-calendar">
+    <rz-panelmenu-item text="Application Roles" path="application-roles" *ngIf="security?.isInRole(['Admin'])">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Login" path="login" *ngIf="security?.isInRole(['Everybody'])">
     </rz-panelmenu-item>
   </rz-panelmenu>
 </rz-sidebar>

@@ -54,7 +54,8 @@
                       "title": "Instituicao",
                       "type": "lookup",
                       "valueProperty": "Num_Inst",
-                      "placeholder": "Choose Instituicao"
+                      "placeholder": "Choose Instituicao",
+                      "requiredText": "is required"
                     },
                     {
                       "data": "${getEquipamentosResult}",
@@ -64,7 +65,8 @@
                       "title": "Equipamento",
                       "type": "lookup",
                       "valueProperty": "no_regis_produto",
-                      "placeholder": "Choose Equipamento"
+                      "placeholder": "Choose Equipamento",
+                      "requiredText": "is required"
                     }
                   ],
                   "name": "form0",
@@ -106,5 +108,8 @@
     ]
   },
   "name": "Add Pertencer",
-  "layout": "Main"
+  "layout": "Main",
+  "access": [
+    "Staff"
+  ]
 }

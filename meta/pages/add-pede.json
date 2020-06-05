@@ -54,7 +54,8 @@
                       "title": "Pessoa",
                       "type": "lookup",
                       "valueProperty": "id_Pessoa",
-                      "placeholder": "Choose Pessoa"
+                      "placeholder": "Choose Pessoa",
+                      "requiredText": "is required"
                     },
                     {
                       "data": "${getServicosResult}",
@@ -64,7 +65,8 @@
                       "title": "Servico",
                       "type": "lookup",
                       "valueProperty": "index_servicos",
-                      "placeholder": "Choose Servico"
+                      "placeholder": "Choose Servico",
+                      "requiredText": "is required"
                     }
                   ],
                   "name": "form0",
@@ -106,5 +108,8 @@
     ]
   },
   "name": "Add Pede",
-  "layout": "Main"
+  "layout": "Main",
+  "access": [
+    "Staff"
+  ]
 }

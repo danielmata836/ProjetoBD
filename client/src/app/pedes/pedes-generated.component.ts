@@ -19,6 +19,7 @@ import { AddPedeComponent } from '../add-pede/add-pede.component';
 import { EditPedeComponent } from '../edit-pede/edit-pede.component';
 
 import { ProjetoNewService } from '../projeto-new.service';
+import { SecurityService } from '../security.service';
 
 export class PedesGenerated implements AfterViewInit, OnInit, OnDestroy {
   // Components
@@ -49,6 +50,8 @@ export class PedesGenerated implements AfterViewInit, OnInit, OnDestroy {
   _subscription: Subscription;
 
   projetoNew: ProjetoNewService;
+
+  security: SecurityService;
   parameters: any;
   getPedesResult: any;
   getPedesCount: any;
@@ -78,6 +81,7 @@ export class PedesGenerated implements AfterViewInit, OnInit, OnDestroy {
     this.httpClient = this.injector.get(HttpClient);
 
     this.projetoNew = this.injector.get(ProjetoNewService);
+    this.security = this.injector.get(SecurityService);
   }
 
   ngAfterViewInit() {

@@ -55,54 +55,66 @@
                       "required": true,
                       "title": "Obs",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "Designacao_EN",
                       "required": true,
                       "title": "Designacao En",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "Designacao_PT",
                       "required": true,
                       "title": "Designacao Pt",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "res",
                       "required": true,
                       "title": "Res",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "web",
                       "required": true,
                       "title": "Web",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "custo",
                       "required": true,
                       "title": "Custo",
-                      "type": "number"
+                      "type": "number",
+                      "requiredText": "is required",
+                      "minText": "cannot be less than",
+                      "maxText": "cannot be more than"
                     },
                     {
                       "property": "index_Recurso",
                       "required": true,
                       "title": "Index Recurso",
-                      "type": "integer"
+                      "type": "integer",
+                      "requiredText": "is required",
+                      "minText": "cannot be less than",
+                      "maxText": "cannot be more than"
                     },
                     {
                       "property": "Dado",
                       "required": true,
                       "title": "Dado",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     }
                   ],
                   "name": "form0",
@@ -139,5 +151,8 @@
     ]
   },
   "name": "Edit Recurso",
-  "layout": "Main"
+  "layout": "Main",
+  "access": [
+    "Staff"
+  ]
 }

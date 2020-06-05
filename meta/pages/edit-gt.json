@@ -55,20 +55,25 @@
                       "required": true,
                       "title": "Sigla",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "id_GT",
                       "required": true,
                       "title": "Id Gt",
-                      "type": "integer"
+                      "type": "integer",
+                      "requiredText": "is required",
+                      "minText": "cannot be less than",
+                      "maxText": "cannot be more than"
                     },
                     {
                       "property": "nome_GT",
                       "required": true,
                       "title": "Nome Gt",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     }
                   ],
                   "name": "form0",
@@ -105,5 +110,8 @@
     ]
   },
   "name": "Edit Gt",
-  "layout": "Main"
+  "layout": "Main",
+  "access": [
+    "Admin"
+  ]
 }

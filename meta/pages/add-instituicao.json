@@ -51,48 +51,57 @@
                       "required": true,
                       "title": "Tipo Inst",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "Nome_Inst",
                       "required": true,
                       "title": "Nome Inst",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "Num_Inst",
                       "required": true,
                       "title": "Num Inst",
-                      "type": "integer"
+                      "type": "integer",
+                      "requiredText": "is required",
+                      "minText": "cannot be less than",
+                      "maxText": "cannot be more than"
                     },
                     {
                       "property": "Morada_Inst",
                       "required": true,
                       "title": "Morada Inst",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "Parceiro",
                       "required": true,
                       "title": "Parceiro",
                       "type": "string",
-                      "maxLength": 10
+                      "maxLength": 10,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "acronimo",
                       "required": true,
                       "title": "Acronimo",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "Formacao",
                       "required": true,
                       "title": "Formacao",
                       "type": "string",
-                      "maxLength": 10
+                      "maxLength": 10,
+                      "requiredText": "is required"
                     }
                   ],
                   "name": "form0",
@@ -109,5 +118,8 @@
     "load": []
   },
   "name": "Add Instituicao",
-  "layout": "Main"
+  "layout": "Main",
+  "access": [
+    "Staff"
+  ]
 }

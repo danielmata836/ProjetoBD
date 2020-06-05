@@ -17,6 +17,7 @@ import { GridComponent } from '@radzen/angular/dist/grid';
 import { ConfigService } from '../config.service';
 
 import { ProjetoNewService } from '../projeto-new.service';
+import { SecurityService } from '../security.service';
 
 export class ProdutosGenerated implements AfterViewInit, OnInit, OnDestroy {
   // Components
@@ -47,6 +48,8 @@ export class ProdutosGenerated implements AfterViewInit, OnInit, OnDestroy {
   _subscription: Subscription;
 
   projetoNew: ProjetoNewService;
+
+  security: SecurityService;
   parameters: any;
   getProdutosResult: any;
   getProdutosCount: any;
@@ -76,6 +79,7 @@ export class ProdutosGenerated implements AfterViewInit, OnInit, OnDestroy {
     this.httpClient = this.injector.get(HttpClient);
 
     this.projetoNew = this.injector.get(ProjetoNewService);
+    this.security = this.injector.get(SecurityService);
   }
 
   ngAfterViewInit() {

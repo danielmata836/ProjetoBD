@@ -16,6 +16,7 @@ import { FormComponent } from '@radzen/angular/dist/form';
 import { ConfigService } from '../config.service';
 
 import { ProjetoNewService } from '../projeto-new.service';
+import { SecurityService } from '../security.service';
 
 export class EditEstaAtribuidoGenerated implements AfterViewInit, OnInit, OnDestroy {
   // Components
@@ -45,6 +46,8 @@ export class EditEstaAtribuidoGenerated implements AfterViewInit, OnInit, OnDest
   _subscription: Subscription;
 
   projetoNew: ProjetoNewService;
+
+  security: SecurityService;
   estaatribuido: any;
   getRecursosResult: any;
   getServicosResult: any;
@@ -75,6 +78,7 @@ export class EditEstaAtribuidoGenerated implements AfterViewInit, OnInit, OnDest
     this.httpClient = this.injector.get(HttpClient);
 
     this.projetoNew = this.injector.get(ProjetoNewService);
+    this.security = this.injector.get(SecurityService);
   }
 
   ngAfterViewInit() {

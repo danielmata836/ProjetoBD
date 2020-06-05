@@ -62,7 +62,8 @@
                       "title": "Ui",
                       "type": "lookup",
                       "valueProperty": "id_UI",
-                      "placeholder": "Choose Ui"
+                      "placeholder": "Choose Ui",
+                      "requiredText": "is required"
                     },
                     {
                       "data": "${getPessoasResult}",
@@ -72,7 +73,8 @@
                       "title": "Pessoa",
                       "type": "lookup",
                       "valueProperty": "id_Pessoa",
-                      "placeholder": "Choose Pessoa"
+                      "placeholder": "Choose Pessoa",
+                      "requiredText": "is required"
                     }
                   ],
                   "name": "form0",
@@ -137,5 +139,8 @@
     ]
   },
   "name": "Edit Pertence Ui",
-  "layout": "Main"
+  "layout": "Main",
+  "access": [
+    "Staff"
+  ]
 }

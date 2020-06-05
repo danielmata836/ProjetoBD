@@ -16,6 +16,7 @@ import { FormComponent } from '@radzen/angular/dist/form';
 import { ConfigService } from '../config.service';
 
 import { ProjetoNewService } from '../projeto-new.service';
+import { SecurityService } from '../security.service';
 
 export class AddUiGenerated implements AfterViewInit, OnInit, OnDestroy {
   // Components
@@ -45,6 +46,8 @@ export class AddUiGenerated implements AfterViewInit, OnInit, OnDestroy {
   _subscription: Subscription;
 
   projetoNew: ProjetoNewService;
+
+  security: SecurityService;
   parameters: any;
 
   constructor(private injector: Injector) {
@@ -72,6 +75,7 @@ export class AddUiGenerated implements AfterViewInit, OnInit, OnDestroy {
     this.httpClient = this.injector.get(HttpClient);
 
     this.projetoNew = this.injector.get(ProjetoNewService);
+    this.security = this.injector.get(SecurityService);
   }
 
   ngAfterViewInit() {

@@ -51,27 +51,33 @@
                       "required": true,
                       "title": "Nome Ui",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "acronimo_UI",
                       "required": true,
                       "title": "Acronimo Ui",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "morada_UI",
                       "required": true,
                       "title": "Morada Ui",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "id_UI",
                       "required": true,
                       "title": "Id Ui",
-                      "type": "integer"
+                      "type": "integer",
+                      "requiredText": "is required",
+                      "minText": "cannot be less than",
+                      "maxText": "cannot be more than"
                     }
                   ],
                   "name": "form0",
@@ -88,5 +94,8 @@
     "load": []
   },
   "name": "Add Ui",
-  "layout": "Main"
+  "layout": "Main",
+  "access": [
+    "Staff"
+  ]
 }

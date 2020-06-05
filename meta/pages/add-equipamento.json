@@ -50,14 +50,18 @@
                       "property": "no_regis_produto",
                       "required": true,
                       "title": "No Regis Produto",
-                      "type": "integer"
+                      "type": "integer",
+                      "requiredText": "is required",
+                      "minText": "cannot be less than",
+                      "maxText": "cannot be more than"
                     },
                     {
                       "property": "nome_equi",
                       "required": true,
                       "title": "Nome Equi",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "data": "${getRecursosResult}",
@@ -67,27 +71,31 @@
                       "title": "Recurso",
                       "type": "lookup",
                       "valueProperty": "index_Recurso",
-                      "placeholder": "Choose Recurso"
+                      "placeholder": "Choose Recurso",
+                      "requiredText": "is required"
                     },
                     {
                       "property": "garantia",
                       "required": false,
                       "title": "Garantia",
-                      "type": "date"
+                      "type": "date",
+                      "requiredText": "is required"
                     },
                     {
                       "property": "categoria",
                       "required": false,
                       "title": "Categoria",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "Equi_obs",
                       "required": false,
                       "title": "Equi Obs",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     }
                   ],
                   "name": "form0",
@@ -117,5 +125,8 @@
     ]
   },
   "name": "Add Equipamento",
-  "layout": "Main"
+  "layout": "Main",
+  "access": [
+    "Staff"
+  ]
 }

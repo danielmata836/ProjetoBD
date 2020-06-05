@@ -19,6 +19,7 @@ import { AddPertenceUiComponent } from '../add-pertence-ui/add-pertence-ui.compo
 import { EditPertenceUiComponent } from '../edit-pertence-ui/edit-pertence-ui.component';
 
 import { ProjetoNewService } from '../projeto-new.service';
+import { SecurityService } from '../security.service';
 
 export class PertenceUisGenerated implements AfterViewInit, OnInit, OnDestroy {
   // Components
@@ -49,6 +50,8 @@ export class PertenceUisGenerated implements AfterViewInit, OnInit, OnDestroy {
   _subscription: Subscription;
 
   projetoNew: ProjetoNewService;
+
+  security: SecurityService;
   parameters: any;
   getPertenceUisResult: any;
   getPertenceUisCount: any;
@@ -78,6 +81,7 @@ export class PertenceUisGenerated implements AfterViewInit, OnInit, OnDestroy {
     this.httpClient = this.injector.get(HttpClient);
 
     this.projetoNew = this.injector.get(ProjetoNewService);
+    this.security = this.injector.get(SecurityService);
   }
 
   ngAfterViewInit() {

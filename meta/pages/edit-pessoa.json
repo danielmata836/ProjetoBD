@@ -55,41 +55,49 @@
                       "required": true,
                       "title": "Email Pessoa",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "nome_pessoa",
                       "required": true,
                       "title": "Nome Pessoa",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "responsavel",
                       "required": true,
                       "title": "Responsavel",
                       "type": "string",
-                      "maxLength": 10
+                      "maxLength": 10,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "password",
                       "required": true,
                       "title": "Password",
                       "type": "string",
-                      "maxLength": 100
+                      "maxLength": 100,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "membro",
                       "required": true,
                       "title": "Membro",
                       "type": "string",
-                      "maxLength": 1
+                      "maxLength": 1,
+                      "requiredText": "is required"
                     },
                     {
                       "property": "id_Pessoa",
                       "required": true,
                       "title": "Id Pessoa",
-                      "type": "integer"
+                      "type": "integer",
+                      "requiredText": "is required",
+                      "minText": "cannot be less than",
+                      "maxText": "cannot be more than"
                     },
                     {
                       "data": "${getServicosResult}",
@@ -99,7 +107,8 @@
                       "title": "Servico",
                       "type": "lookup",
                       "valueProperty": "index_servicos",
-                      "placeholder": "Choose Servico"
+                      "placeholder": "Choose Servico",
+                      "requiredText": "is required"
                     },
                     {
                       "data": "${getInstituicaosResult}",
@@ -109,7 +118,8 @@
                       "title": "Instituicao",
                       "type": "lookup",
                       "valueProperty": "Num_Inst",
-                      "placeholder": "Choose Instituicao"
+                      "placeholder": "Choose Instituicao",
+                      "requiredText": "is required"
                     },
                     {
                       "data": "${getGtsResult}",
@@ -119,14 +129,16 @@
                       "title": "Gt",
                       "type": "lookup",
                       "valueProperty": "id_GT",
-                      "placeholder": "Choose Gt"
+                      "placeholder": "Choose Gt",
+                      "requiredText": "is required"
                     },
                     {
                       "property": "id",
                       "required": true,
                       "title": "Id",
                       "type": "string",
-                      "maxLength": 450
+                      "maxLength": 450,
+                      "requiredText": "is required"
                     }
                   ],
                   "name": "form0",
@@ -199,5 +211,8 @@
     ]
   },
   "name": "Edit Pessoa",
-  "layout": "Main"
+  "layout": "Main",
+  "access": [
+    "Staff"
+  ]
 }

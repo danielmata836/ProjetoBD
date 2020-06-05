@@ -1,4 +1,4 @@
-index_recurso,,Geoambiente, niv_produtos, tipo_produtos, decricaoProduto
+index_recurso, niv_produtos, tipo_produtos, decricaoProduto
 142,,Geodesia, Dados de GNSS da ReNEP a Rede Portuguesa de Estações GNSS Permanentes
 143,,Geodesia, Medidores de mare acústicas – dados de nível do mar
 144,,Geodesia, Modelo geóide para converter altura elipsoidal em altura ortométrica
@@ -29,21 +29,21 @@ index_recurso,,Geoambiente, niv_produtos, tipo_produtos, decricaoProduto
 169,,Riscos Naturais,Avaliação da suscetibilidade à instabilidade de taludes
 170,,Riscos Naturais,Mapas de suscetibilidade de instabilidade de arribas à escala regional
 171,,Riscos Naturais,Monitorização da emissão de radão em solos e rochas para controle ambiental
-172,,Riscos Antropogénicos
+172,,Riscos Antropogénicos, em construção
 173,,Riscos Cósmicos,Dados solares e monitorização de dados climáticos espaciais
 174,, Riscos Cósmicos, Espectroscopia de refletância asteróide
 175,,Geologia Marinha, Dados de reflexão sísmica
 176,,Geologia Marinha,Observação direta do fundo do mar foto e vídeo
 177,,Geologia Marinha, Multibeam e backscatter: aquisição processamento e interpretação 
 178,,Geologia Marinha, Disponibilização de cartografia temática no EMODnet-geology
-179,,Geologia Marinha, Observação direta do fundo do mar: aquisição de video
+179,,Geologia Marinha, Observação direta do fundo do mar aquisição de video
 180,,Geologia Marinha, Perfis de velocidade do som da coluna de água
-181,Deteção Remota,Mapas de ocupação do solo a partir de imagens de deteção remota
+181,,Deteção Remota,Mapas de ocupação do solo a partir de imagens de deteção remota
 182,,Deteção Remota,mapRS Mapeamento para gestão de georrecursos, ambiente e situações de emergência, derivado de dados de deteção remota multi-fonte
 183,,Deteção Remota,droneMAP Aquisição de dados usando drones e processamento para caracterização temática, com fins de monitorização e validação mediante solicitação
 184,,Deteção Remota,Mapeamento da deformação da superfície com recurso a interferometria SAR
 185,,Deteção Remota,droneMAP Aquisição de dados usando drones e processamento para caracterização temática
-186,,Geoambiente,Mapas geoquímicos 
+186,,Geoambiente,Mapas geoquímicos, geoquimicos
 187,,Geoambiente ,Mapas de vulnerabilidade geoambiental
 188,,Geoambiente ,Mapas de ocupação do solo a partir de imagens de deteção remota
 189,,Geoambiente ,Planos e redes de monitorização de parâmetros geoambientais

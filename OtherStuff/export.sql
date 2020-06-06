@@ -156,7 +156,9 @@ CREATE TABLE dbo.Formacao (
 	tipo_formacao        varchar(100) NOT NULL    ,
 	descricao_Formacao   varchar(200) NOT NULL    ,
 	index_Recurso        int NOT NULL    ,
-	tipo_Ensino          varchar(100)     
+	tipo_Ensino          varchar(100)     ,
+	index_formacao       int NOT NULL    ,
+	CONSTRAINT Pk_Formacao_index_formacao PRIMARY KEY  ( index_formacao )
  );
 
 CREATE TABLE dbo.Pessoa ( 
@@ -176,7 +178,9 @@ CREATE TABLE dbo.Produtos (
 	niv_produtos         int     ,
 	tipo_produtos        varchar(100)     ,
 	descricaoProduto     varchar(100) NOT NULL    ,
-	index_Recurso        int NOT NULL    
+	index_Recurso        int NOT NULL    ,
+	index_produtos       int NOT NULL    ,
+	CONSTRAINT Pk_Produtos_index_produtos PRIMARY KEY  ( index_produtos )
  );
 
 CREATE TABLE dbo.pede ( 
@@ -604,102 +608,102 @@ INSERT INTO dbo.Equipamento( no_regis_produto, nome_equi, index_Recurso, garanti
 INSERT INTO dbo.Equipamento( no_regis_produto, nome_equi, index_Recurso, garantia, categoria, Equi_obs ) VALUES ( 106, ' Servidores', 139, null, ' Outros', null ); 
 INSERT INTO dbo.Equipamento( no_regis_produto, nome_equi, index_Recurso, garantia, categoria, Equi_obs ) VALUES ( 107, ' Sensores meteorológicos', 140, null, ' Outros', null ); 
 INSERT INTO dbo.Equipamento( no_regis_produto, nome_equi, index_Recurso, garantia, categoria, Equi_obs ) VALUES ( 108, ' dataloggers diversos', 141, null, ' Outros', null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( 'Geologia', 'Caracterização petrográfica e microscópica de materiais geológicos', 1, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Sismologia', ' Estágios de curta-média duração (para profissionais) operação e gestão de rede sísmicas', 2, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Sismologia', ' Estágios de curta-média duração (para profissionais) processamento e análise sísmica', 3, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Sismologia', ' Estágios de curta duração (para alunos dos ensinos secundário e superior) redes sísmicas', 4, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geofísica Aplicada', ' Formação em aquisição processamento de dados de sísmica de reflexão e refração', 5, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geofísica Aplicada', ' Formação em Diagrafias', 6, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geofísica Aplicada', ' Formação em técnicas de inversão geofísica', 7, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geofísica Aplicada', ' Formação em inversão sísmica estocástica', 8, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geofísica Aplicada', ' Modelação numérica da deformação crustal para estudos da fonte sísmica', 9, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geofísica Aplicada', ' Inversão da forma de onda para estudo da fonte sísmica', 10, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geofísica Aplicada', ' Modelação da estrutura da crusta com dados de ruído sísmico e magnetometria', 11, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geofísica Aplicada', ' Registo processamento e interpretação de dados geofísicos em contexto arqueológico e no meio ambiente', 12, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geomatemática', ' modelação e computação Cursos teóricos e ou práticos nos 3 ciclos superiores nas áreas curriculares marinhas à medida dos parceiros C4G', 13, ' E-leraning e in-house' ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geomatemática', ' modelação e computação Formação avançada em interpretação de dados geofísicos', 14, ' E-learning e in-house' ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geoambiente', ' Curso “Modelação de processos geoquímicos”', 15, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geoambiente', 'Curso “Deteção remota aplicada ao Geoambiente”', 16, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geoambiente', 'Workshop “Impactes ambientais associados à indústria extrativa”', 17, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geoambiente', 'Workshop “Geologia médica”', 18, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geoambiente', 'Curso “Sistemas de Gestão Ambiental: ISO 14001 (2015)”', 19, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Geoambiente', 'Workshop “Hidrologia Isotópica na gestão sustentável de recursos hídricos”', 20, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Georrecursos', 'Formação em procedimentos de utilização de equipamentos específicos em georrecuros', 21, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Georrecursos', 'Formação em procedimentos normalizados de caracterização de georrecursos', 22, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( ' Georrecursos', 'Formação sobre operações unitárias em extração mineira processamento de minérios', 23, ' armazenamento de rejeitados etc' ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( 'Riscos Naturais', 'Workshops sobre o risco de movimentos de massa e sua cartografia', 24, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( 'Riscos Naturais', 'Formação para potenciais utilizadores do OpenQuake', 25, ' elearning' ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( 'Riscos Naturais', 'Formação técnico-científica elearning sobre riscos costeiros', 26, ' suscetibilidades e cartografia' ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( 'Riscos Naturais', 'Workshops sobre o risco de tsunami', 27, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( 'Riscos Naturais', 'Boas práticas e riscos de longo prazo decorrentes da exposição ao radão', 28, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( 'Riscos Cósmicos', ' Formação em Modelação de Espectros de Refletância de Meteoritos e Asteróides', 29, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( 'Materiais', 'Imagens relacionadas com as Ciências da Terra (GEOIMAGENS)', 30, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( 'Materiais', 'Léxico de geologia (GEOLEX)', 31, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( 'Materiais', 'Léxico de hidrogeologia (HIDROLEX)', 32, null ); 
-INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino ) VALUES ( 'Materiais', 'Glossário de Palinologia (PALINOGLOSS)', 33, null ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( 'Geologia', 'Caracterização petrográfica e microscópica de materiais geológicos', 1, null, 1 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Sismologia', ' Estágios de curta-média duração (para profissionais) operação e gestão de rede sísmicas', 2, null, 2 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Sismologia', ' Estágios de curta-média duração (para profissionais) processamento e análise sísmica', 3, null, 3 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Sismologia', ' Estágios de curta duração (para alunos dos ensinos secundário e superior) redes sísmicas', 4, null, 4 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geofísica Aplicada', ' Formação em aquisição processamento de dados de sísmica de reflexão e refração', 5, null, 5 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geofísica Aplicada', ' Formação em Diagrafias', 6, null, 6 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geofísica Aplicada', ' Formação em técnicas de inversão geofísica', 7, null, 7 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geofísica Aplicada', ' Formação em inversão sísmica estocástica', 8, null, 8 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geofísica Aplicada', ' Modelação numérica da deformação crustal para estudos da fonte sísmica', 9, null, 9 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geofísica Aplicada', ' Inversão da forma de onda para estudo da fonte sísmica', 10, null, 10 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geofísica Aplicada', ' Modelação da estrutura da crusta com dados de ruído sísmico e magnetometria', 11, null, 11 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geofísica Aplicada', ' Registo processamento e interpretação de dados geofísicos em contexto arqueológico e no meio ambiente', 12, null, 12 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geomatemática', ' modelação e computação Cursos teóricos e ou práticos nos 3 ciclos superiores nas áreas curriculares marinhas à medida dos parceiros C4G', 13, ' E-leraning e in-house', 13 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geomatemática', ' modelação e computação Formação avançada em interpretação de dados geofísicos', 14, ' E-learning e in-house', 14 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geoambiente', ' Curso “Modelação de processos geoquímicos”', 15, null, 15 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geoambiente', 'Curso “Deteção remota aplicada ao Geoambiente”', 16, null, 16 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geoambiente', 'Workshop “Impactes ambientais associados à indústria extrativa”', 17, null, 17 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geoambiente', 'Workshop “Geologia médica”', 18, null, 18 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geoambiente', 'Curso “Sistemas de Gestão Ambiental: ISO 14001 (2015)”', 19, null, 19 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Geoambiente', 'Workshop “Hidrologia Isotópica na gestão sustentável de recursos hídricos”', 20, null, 20 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Georrecursos', 'Formação em procedimentos de utilização de equipamentos específicos em georrecuros', 21, null, 21 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Georrecursos', 'Formação em procedimentos normalizados de caracterização de georrecursos', 22, null, 22 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( ' Georrecursos', 'Formação sobre operações unitárias em extração mineira processamento de minérios', 23, ' armazenamento de rejeitados etc', 23 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( 'Riscos Naturais', 'Workshops sobre o risco de movimentos de massa e sua cartografia', 24, null, 24 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( 'Riscos Naturais', 'Formação para potenciais utilizadores do OpenQuake', 25, ' elearning', 25 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( 'Riscos Naturais', 'Formação técnico-científica elearning sobre riscos costeiros', 26, ' suscetibilidades e cartografia', 26 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( 'Riscos Naturais', 'Workshops sobre o risco de tsunami', 27, null, 27 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( 'Riscos Naturais', 'Boas práticas e riscos de longo prazo decorrentes da exposição ao radão', 28, null, 28 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( 'Riscos Cósmicos', ' Formação em Modelação de Espectros de Refletância de Meteoritos e Asteróides', 29, null, 29 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( 'Materiais', 'Imagens relacionadas com as Ciências da Terra (GEOIMAGENS)', 30, null, 30 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( 'Materiais', 'Léxico de geologia (GEOLEX)', 31, null, 31 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( 'Materiais', 'Léxico de hidrogeologia (HIDROLEX)', 32, null, 32 ); 
+INSERT INTO dbo.Formacao( tipo_formacao, descricao_Formacao, index_Recurso, tipo_Ensino, index_formacao ) VALUES ( 'Materiais', 'Glossário de Palinologia (PALINOGLOSS)', 33, null, 33 ); 
 INSERT INTO dbo.Pessoa( email_pessoa, nome_pessoa, responsavel, membro, id_Pessoa, index_servicos, Num_Inst, id_GT, id ) VALUES ( ' danielmata836@sapo.pt', ' Daniel Mata', ' N', 'N', 2, null, null, null, 'eebf2d65-bee9-4e66-84c3-e03f35ee4213' ); 
 INSERT INTO dbo.Pessoa( email_pessoa, nome_pessoa, responsavel, membro, id_Pessoa, index_servicos, Num_Inst, id_GT, id ) VALUES ( ' transportadoratabuense@sapo.pt', ' Transportadora Tabuense', ' N', 'N', 3, null, null, null, '732fd563-6c9c-4bb2-90f9-a128b18f0b1f' ); 
 INSERT INTO dbo.Pessoa( email_pessoa, nome_pessoa, responsavel, membro, id_Pessoa, index_servicos, Num_Inst, id_GT, id ) VALUES ( ' mota.santos@ubi.pt', ' Miguel Santos', ' N', 'N', 4, null, null, null, 'de7f2d48-2ac3-46ab-808b-046191658d31' ); 
 INSERT INTO dbo.Pessoa( email_pessoa, nome_pessoa, responsavel, membro, id_Pessoa, index_servicos, Num_Inst, id_GT, id ) VALUES ( ' daniel.mata@ubi.pt', ' Daniel Mata', ' N', 'S', 5, null, null, 1, '41ccf666-1c09-4a68-9970-c53aee7cbce5' ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geodesia', ' Dados de GNSS da ReNEP a Rede Portuguesa de Estações GNSS Permanentes', 142 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geodesia', ' Medidores de mare acústicas – dados de nível do mar', 143 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geodesia', ' Modelo geóide para converter altura elipsoidal em altura ortométrica', 144 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geodesia', ' Campanhas de campo geodésicas', 145 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geodesia', '  Portal de dados em geodesia – visualização', 146 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geologia', 'Testemunhos de sondagens', 147 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geologia', 'Base de dados Recursos hidrogeológicos portugueses e ocorrências termais', 148 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geologia', 'Base de dados Inclusões fluidas', 149 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geologia', 'Base de dados Documentação técnica não publicada', 150 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geologia', 'Mapas Geológicos', 151 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, ' Geologia', 'Catálogos e Coleções', 152 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, ' Geologia', 'Inventários', 153 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Sismologia', ' Dados sismológicos e redes', 154 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, ' Geofísica Aplicada', ' Ruido sísmico', 155 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, ' Geofísica Aplicada', 'Perfis de Tomografia elétrica no Vale do Tejo', 156 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geofísica Aplicada', ' Perfis de Georadar (Vale do Tejo)', 157 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geofísica Aplicada', 'Relatórios técnicos de sondagens geotécnicas', 158 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Mecânica das Rochas ', 'Dados de módulos elásticos', 159 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geomagnetismo ', '  Séries de valores médios (minuto hora ano) do observatório magnético de Coimbra', 160 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Paleomagnetismo', 'Instalações de campo em paleomagnetismo', 161 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geomatemática', ' Modelação e Computação', 162 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geomatemática', ' Modelação e Computação', 163 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geomatemática', ' Modelação e Computação', 164 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geomatemática', ' Software', 165 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Riscos Naturais', 'Alerta precoce de tsunamis', 166 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Riscos Naturais', 'Estudos de risco sísmico e mapas de stress', 167 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Riscos Naturais', 'Avaliação de riscos em ambiente costeiro', 168 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Riscos Naturais', 'Avaliação da suscetibilidade à instabilidade de taludes', 169 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Riscos Naturais', 'Mapas de suscetibilidade de instabilidade de arribas à escala regional', 170 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Riscos Naturais', 'Monitorização da emissão de radão em solos e rochas para controle ambiental', 171 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Riscos Antropogénicos', ' em construção', 172 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Riscos Cósmicos', 'Dados solares e monitorização de dados climáticos espaciais', 173 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, ' Riscos Cósmicos', ' Espectroscopia de refletância asteróide', 174 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geologia Marinha', ' Dados de reflexão sísmica', 175 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geologia Marinha', 'Observação direta do fundo do mar foto e vídeo', 176 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geologia Marinha', ' Multibeam e backscatter: aquisição processamento e interpretação ', 177 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geologia Marinha', ' Disponibilização de cartografia temática no EMODnet-geology', 178 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geologia Marinha', ' Observação direta do fundo do mar aquisição de video', 179 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geologia Marinha', ' Perfis de velocidade do som da coluna de água', 180 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Deteção Remota', 'Mapas de ocupação do solo a partir de imagens de deteção remota', 181 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Deteção Remota', 'mapRS Mapeamento para gestão de georrecursos', 182 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Deteção Remota', 'droneMAP Aquisição de dados usando drones e processamento para caracterização temática', 183 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Deteção Remota', 'Mapeamento da deformação da superfície com recurso a interferometria SAR', 184 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Deteção Remota', 'droneMAP Aquisição de dados usando drones e processamento para caracterização temática', 185 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente', 'Mapas geoquímicos', 186 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente ', 'Mapas de vulnerabilidade geoambiental', 187 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente ', 'Mapas de ocupação do solo a partir de imagens de deteção remota', 188 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente ', 'Planos e redes de monitorização de parâmetros geoambientais', 189 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente ', ' Carta geoambiental morfológica e geomorfológica', 190 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente ', 'Identificação de anomalias geoambientais em diferentes meios ', 191 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente ', 'Identificação e avaliação de vulnerabilidade ambiental em diferentes meios', 192 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente ', 'Caracterização e análise multi-escalar de processos geoambientais', 193 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente ', 'Identificação de medidas de remediação e mitigação', 194 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente ', 'Monitorização de parâmetros geoambientais', 195 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente ', 'Modelação de processos geoquímicos de interação água-rocha', 196 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Geoambiente ', 'Estudos de impacte ambiental', 197 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Monitorização de ambientes com permafrost', 'Temperaturas do permafrost da Península Antártica', 198 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Monitorização de ambientes com permafrost', 'Cartografia geoambiental de perigosidade e de risco em regiões polares e de montanha', 199 ); 
-INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso ) VALUES ( null, 'Monitorização de ambientes com permafrost', 'Consultadoria ambiental em regiões polares e de montanha', 200 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geodesia', ' Dados de GNSS da ReNEP a Rede Portuguesa de Estações GNSS Permanentes', 142, 1 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geodesia', ' Medidores de mare acústicas – dados de nível do mar', 143, 2 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geodesia', ' Modelo geóide para converter altura elipsoidal em altura ortométrica', 144, 3 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geodesia', ' Campanhas de campo geodésicas', 145, 4 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geodesia', '  Portal de dados em geodesia – visualização', 146, 5 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geologia', 'Testemunhos de sondagens', 147, 6 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geologia', 'Base de dados Recursos hidrogeológicos portugueses e ocorrências termais', 148, 7 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geologia', 'Base de dados Inclusões fluidas', 149, 8 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geologia', 'Base de dados Documentação técnica não publicada', 150, 9 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geologia', 'Mapas Geológicos', 151, 10 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, ' Geologia', 'Catálogos e Coleções', 152, 11 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, ' Geologia', 'Inventários', 153, 12 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Sismologia', ' Dados sismológicos e redes', 154, 13 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, ' Geofísica Aplicada', ' Ruido sísmico', 155, 14 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, ' Geofísica Aplicada', 'Perfis de Tomografia elétrica no Vale do Tejo', 156, 15 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geofísica Aplicada', ' Perfis de Georadar (Vale do Tejo)', 157, 16 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geofísica Aplicada', 'Relatórios técnicos de sondagens geotécnicas geofísica geotérmicas', 158, 17 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Mecânica das Rochas ', 'Dados de módulos elásticos coeficiente de Poisson', 159, 18 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geomagnetismo ', '  Séries de valores médios (minuto hora ano) do observatório magnético de Coimbra', 160, 19 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Paleomagnetismo', 'Instalações de campo em paleomagnetismo', 161, 20 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geomatemática', ' Modelação e Computação Modelos de Tsunamis em Portugal', 162, 21 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geomatemática', ' Modelação e Computação Modelos de correntes geomagneticamente induzidas na rede elétrica portuguesa', 163, 22 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geomatemática', ' Modelação e Computação Modelação de fluxos em meios porosos e fraturados', 164, 23 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geomatemática', ' Software', 165, 24 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Riscos Naturais', 'Alerta precoce de tsunamis', 166, 25 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Riscos Naturais', 'Estudos de risco sísmico e mapas de stress', 167, 26 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Riscos Naturais', 'Avaliação de riscos em ambiente costeiro', 168, 27 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Riscos Naturais', 'Avaliação da suscetibilidade à instabilidade de taludes', 169, 28 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Riscos Naturais', 'Mapas de suscetibilidade de instabilidade de arribas à escala regional', 170, 29 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Riscos Naturais', 'Monitorização da emissão de radão em solos e rochas para controle ambiental', 171, 30 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Riscos Antropogénicos', ' em construção', 172, 31 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Riscos Cósmicos', 'Dados solares e monitorização de dados climáticos espaciais', 173, 32 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, ' Riscos Cósmicos', ' Espectroscopia de refletância asteróide', 174, 33 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geologia Marinha', ' Dados de reflexão sísmica', 175, 34 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geologia Marinha', 'Observação direta do fundo do mar foto e vídeo', 176, 35 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geologia Marinha', ' Multibeam e backscatter: aquisição processamento e interpretação ', 177, 36 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geologia Marinha', ' Disponibilização de cartografia temática no EMODnet-geology', 178, 37 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geologia Marinha', ' Observação direta do fundo do mar aquisição de video', 179, 38 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geologia Marinha', ' Perfis de velocidade do som da coluna de água', 180, 39 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Deteção Remota', 'Mapas de ocupação do solo a partir de imagens de deteção remota', 181, 40 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Deteção Remota', 'mapRS Mapeamento para gestão de georrecursos ambiente dados de deteção remota multi-fonte', 182, 41 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Deteção Remota', 'droneMAP Aquisição de dados usando drones validação mediante solicitação', 183, 42 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Deteção Remota', 'Mapeamento da deformação da superfície com recurso a interferometria SAR', 184, 43 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Deteção Remota', 'droneMAP Aquisição de dados usando drones e processamento para caracterização temática', 185, 44 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente', 'Mapas geoquímicos', 186, 45 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente ', 'Mapas de vulnerabilidade geoambiental', 187, 46 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente ', 'Mapas de ocupação do solo a partir de imagens de deteção remota', 188, 47 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente ', 'Planos e redes de monitorização de parâmetros geoambientais', 189, 48 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente ', ' Carta geoambiental morfológica e geomorfológica', 190, 49 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente ', 'Identificação de anomalias geoambientais em diferentes meios ', 191, 50 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente ', 'Identificação e avaliação de vulnerabilidade ambiental em diferentes meios', 192, 51 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente ', 'Caracterização e análise multi-escalar de processos geoambientais', 193, 52 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente ', 'Identificação de medidas de remediação e mitigação', 194, 53 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente ', 'Monitorização de parâmetros geoambientais', 195, 54 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente ', 'Modelação de processos geoquímicos de interação água-rocha', 196, 55 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Geoambiente ', 'Estudos de impacte ambiental', 197, 56 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Monitorização de ambientes com permafrost', 'Temperaturas do permafrost da Península Antártica', 198, 57 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Monitorização de ambientes com permafrost', 'Cartografia geoambiental de perigosidade e de risco em regiões polares e de montanha', 199, 58 ); 
+INSERT INTO dbo.Produtos( niv_produtos, tipo_produtos, descricaoProduto, index_Recurso, index_produtos ) VALUES ( null, 'Monitorização de ambientes com permafrost', 'Consultadoria ambiental em regiões polares e de montanha', 200, 59 ); 
 INSERT INTO dbo.pertenceUI( id_UI, id_Pessoa ) VALUES ( 1, 5 ); 
 INSERT INTO dbo.pertencer( Num_Inst, no_regis_produto ) VALUES ( 5, 11 ); 
 INSERT INTO dbo.pertencer( Num_Inst, no_regis_produto ) VALUES ( 5, 70 ); 

@@ -156,7 +156,9 @@ CREATE TABLE dbo.Formacao (
 	tipo_formacao        varchar(100) NOT NULL    ,
 	descricao_Formacao   varchar(200) NOT NULL    ,
 	index_Recurso        int NOT NULL    ,
-	tipo_Ensino          varchar(100)     
+	tipo_Ensino          varchar(100)     ,
+	index_formacao       int NOT NULL    ,
+	CONSTRAINT Pk_Formacao_index_formacao PRIMARY KEY  ( index_formacao )
  );
 
 CREATE TABLE dbo.Pessoa ( 
@@ -176,7 +178,9 @@ CREATE TABLE dbo.Produtos (
 	niv_produtos         int     ,
 	tipo_produtos        varchar(100)     ,
 	descricaoProduto     varchar(100) NOT NULL    ,
-	index_Recurso        int NOT NULL    
+	index_Recurso        int NOT NULL    ,
+	index_produtos       int NOT NULL    ,
+	CONSTRAINT Pk_Produtos_index_produtos PRIMARY KEY  ( index_produtos )
  );
 
 CREATE TABLE dbo.pede ( 

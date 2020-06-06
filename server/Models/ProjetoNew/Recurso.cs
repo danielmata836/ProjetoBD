@@ -33,7 +33,7 @@ namespace ProjetoNew.Models.ProjetoNew
       get;
       set;
     }
-    public double custo
+    public double? custo
     {
       get;
       set;

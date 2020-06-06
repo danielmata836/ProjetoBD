@@ -26,57 +26,8 @@
                   "allowMultiSorting": false,
                   "allowPaging": true,
                   "allowSorting": true,
-                  "count": "${getProdutosCount}",
-                  "data": "${getProdutosResult}",
                   "events": {
-                    "loadData": [
-                      {
-                        "name": "ProjetoNew.getProdutos",
-                        "parameters": [
-                          {
-                            "name": "$top",
-                            "value": "event.top"
-                          },
-                          {
-                            "name": "$skip",
-                            "value": "event.skip"
-                          },
-                          {
-                            "name": "$count",
-                            "value": "event.top != null && event.skip != null"
-                          },
-                          {
-                            "name": "$filter",
-                            "value": "${event.filter}"
-                          },
-                          {
-                            "name": "$orderby",
-                            "value": "${event.orderby}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "name": "getProdutosResult",
-                            "type": "set",
-                            "value": "${result.value}"
-                          },
-                          {
-                            "name": "getProdutosCount",
-                            "type": "set",
-                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
-                          }
-                        ],
-                        "type": "invoke",
-                        "error": [
-                          {
-                            "detail": "Unable to load Produtos",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ]
-                      }
-                    ]
+                    "loadData": []
                   },
                   "title": "",
                   "columns": [

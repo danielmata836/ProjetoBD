@@ -23,11 +23,6 @@ namespace ProjetoNew.Models.ProjetoNew
       get;
       set;
     }
-    public string password
-    {
-      get;
-      set;
-    }
     public string membro
     {
       get;
@@ -44,21 +39,21 @@ namespace ProjetoNew.Models.ProjetoNew
     public ICollection<Pede> Pedes { get; set; }
 
     public ICollection<PertenceUi> PertenceUis { get; set; }
-    public int index_servicos
+    public int? index_servicos
     {
       get;
       set;
     }
 
     public Servico Servico { get; set; }
-    public int Num_Inst
+    public int? Num_Inst
     {
       get;
       set;
     }
 
     public Instituicao Instituicao { get; set; }
-    public int id_GT
+    public int? id_GT
     {
       get;
       set;

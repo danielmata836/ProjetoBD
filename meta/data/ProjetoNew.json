@@ -116,38 +116,6 @@
         }
       }
     },
-    "Formacao": {
-      "x-table": "dbo.Formacao",
-      "resource": "Formacaos",
-      "required": [
-        "tipo_formacao",
-        "descricao_Formacao",
-        "index_Recurso"
-      ],
-      "properties": {
-        "tipo_formacao": {
-          "x-nullable": false,
-          "type": "string",
-          "length": 100,
-          "x-key": true,
-          "x-virtual": true
-        },
-        "descricao_Formacao": {
-          "x-nullable": false,
-          "type": "string",
-          "length": 100
-        },
-        "index_Recurso": {
-          "x-nullable": false,
-          "type": "integer"
-        },
-        "tipo_Ensino": {
-          "type": "string",
-          "length": 100
-        }
-      },
-      "x-view": true
-    },
     "Gt": {
       "x-table": "dbo.GT",
       "resource": "Gts",
@@ -414,40 +382,22 @@
       "x-table": "dbo.Pessoa",
       "resource": "Pessoas",
       "required": [
-        "email_pessoa",
-        "nome_pessoa",
-        "responsavel",
-        "password",
-        "membro",
-        "id_Pessoa",
-        "index_servicos",
-        "Num_Inst",
-        "id_GT",
-        "id"
+        "id_Pessoa"
       ],
       "properties": {
         "email_pessoa": {
-          "x-nullable": false,
           "type": "string",
           "length": 100
         },
         "nome_pessoa": {
-          "x-nullable": false,
           "type": "string",
           "length": 100
         },
         "responsavel": {
-          "x-nullable": false,
           "type": "string",
           "length": 10
         },
-        "password": {
-          "x-nullable": false,
-          "type": "string",
-          "length": 100
-        },
         "membro": {
-          "x-nullable": false,
           "type": "string",
           "length": 1
         },
@@ -473,7 +423,6 @@
           "$ref": "#/definitions/Servico"
         },
         "index_servicos": {
-          "x-nullable": false,
           "type": "integer",
           "x-foreignKey": {
             "parentTable": "Servicos",
@@ -490,7 +439,6 @@
           "$ref": "#/definitions/Instituicao"
         },
         "Num_Inst": {
-          "x-nullable": false,
           "type": "integer",
           "x-foreignKey": {
             "parentTable": "Instituicao",
@@ -507,7 +455,6 @@
           "$ref": "#/definitions/Gt"
         },
         "id_GT": {
-          "x-nullable": false,
           "type": "integer",
           "x-foreignKey": {
             "parentTable": "GT",
@@ -520,7 +467,6 @@
           }
         },
         "id": {
-          "x-nullable": false,
           "type": "string",
           "length": 450
         },
@@ -538,80 +484,34 @@
         }
       }
     },
-    "Produto": {
-      "x-table": "dbo.Produtos",
-      "resource": "Produtos",
-      "required": [
-        "niv_produtos",
-        "tipo_produtos",
-        "descricaoProduto",
-        "index_Recurso"
-      ],
-      "properties": {
-        "niv_produtos": {
-          "x-nullable": false,
-          "type": "integer",
-          "x-key": true,
-          "x-virtual": true
-        },
-        "tipo_produtos": {
-          "x-nullable": false,
-          "type": "string",
-          "length": 100
-        },
-        "descricaoProduto": {
-          "x-nullable": false,
-          "type": "string",
-          "length": 100
-        },
-        "index_Recurso": {
-          "x-nullable": false,
-          "type": "integer"
-        }
-      },
-      "x-view": true
-    },
     "Recurso": {
       "x-table": "dbo.Recursos",
       "resource": "Recursos",
       "required": [
-        "obs",
-        "Designacao_EN",
-        "Designacao_PT",
-        "res",
-        "web",
-        "custo",
-        "index_Recurso",
-        "Dado"
+        "index_Recurso"
       ],
       "properties": {
         "obs": {
-          "x-nullable": false,
           "type": "string",
           "length": 100
         },
         "Designacao_EN": {
-          "x-nullable": false,
           "type": "string",
           "length": 100
         },
         "Designacao_PT": {
-          "x-nullable": false,
           "type": "string",
           "length": 100
         },
         "res": {
-          "x-nullable": false,
           "type": "string",
           "length": 100
         },
         "web": {
-          "x-nullable": false,
           "type": "string",
           "length": 100
         },
         "custo": {
-          "x-nullable": false,
           "type": "number",
           "format": "double"
         },
@@ -633,7 +533,6 @@
           ]
         },
         "Dado": {
-          "x-nullable": false,
           "type": "string",
           "length": 100
         },
@@ -993,73 +892,6 @@
           "201": {
             "schema": {
               "$ref": "#/definitions/EstaAtribuido"
-            }
-          },
-          "default": {
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        }
-      }
-    },
-    "/Formacaos": {
-      "get": {
-        "operationId": "getFormacaos",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "$filter",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$top",
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "$skip",
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "$orderby",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$count",
-            "type": "boolean"
-          },
-          {
-            "in": "query",
-            "name": "$expand",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$format",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$select",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "schema": {
-              "properties": {
-                "value": {
-                  "items": {
-                    "$ref": "#/definitions/Formacao"
-                  },
-                  "type": "array"
-                }
-              },
-              "type": "object"
             }
           },
           "default": {
@@ -1636,73 +1468,6 @@
           "201": {
             "schema": {
               "$ref": "#/definitions/Pessoa"
-            }
-          },
-          "default": {
-            "schema": {
-              "$ref": "#/definitions/Error"
-            }
-          }
-        }
-      }
-    },
-    "/Produtos": {
-      "get": {
-        "operationId": "getProdutos",
-        "parameters": [
-          {
-            "in": "query",
-            "name": "$filter",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$top",
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "$skip",
-            "type": "integer"
-          },
-          {
-            "in": "query",
-            "name": "$orderby",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$count",
-            "type": "boolean"
-          },
-          {
-            "in": "query",
-            "name": "$expand",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$format",
-            "type": "string"
-          },
-          {
-            "in": "query",
-            "name": "$select",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "schema": {
-              "properties": {
-                "value": {
-                  "items": {
-                    "$ref": "#/definitions/Produto"
-                  },
-                  "type": "array"
-                }
-              },
-              "type": "object"
             }
           },
           "default": {

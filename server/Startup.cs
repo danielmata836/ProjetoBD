@@ -169,7 +169,6 @@ namespace ProjetoNew
           estaAtribuidoEntitySet.EntityType.HasKey(entity => new {
             entity.index_Recurso, entity.index_servicos
           });
-          oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Formacao>("Formacaos");
           oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Gt>("Gts");
           oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Instituicao>("Instituicaos");
 
@@ -188,7 +187,6 @@ namespace ProjetoNew
             entity.Num_Inst, entity.no_regis_produto
           });
           oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Pessoa>("Pessoas");
-          oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Produto>("Produtos");
           oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Recurso>("Recursos");
           oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Servico>("Servicos");
           oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Ui>("Uis");

@@ -12,13 +12,6 @@ export interface EstaAtribuido {
   index_servicos: number;
 }
 
-export interface Formacao {
-  tipo_formacao: string;
-  descricao_Formacao: string;
-  index_Recurso: number;
-  tipo_Ensino: string;
-}
-
 export interface Gt {
   sigla: string;
   id_GT: number;
@@ -54,20 +47,12 @@ export interface Pessoa {
   email_pessoa: string;
   nome_pessoa: string;
   responsavel: string;
-  password: string;
   membro: string;
   id_Pessoa: number;
   index_servicos: number;
   Num_Inst: number;
   id_GT: number;
   id: string;
-}
-
-export interface Produto {
-  niv_produtos: number;
-  tipo_produtos: string;
-  descricaoProduto: string;
-  index_Recurso: number;
 }
 
 export interface Recurso {

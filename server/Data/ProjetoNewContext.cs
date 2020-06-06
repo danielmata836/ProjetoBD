@@ -137,12 +137,6 @@ namespace ProjetoNew.Data
           set;
         }
 
-        public DbSet<ProjetoNew.Models.ProjetoNew.Formacao> Formacaos
-        {
-          get;
-          set;
-        }
-
         public DbSet<ProjetoNew.Models.ProjetoNew.Gt> Gts
         {
           get;
@@ -174,12 +168,6 @@ namespace ProjetoNew.Data
         }
 
         public DbSet<ProjetoNew.Models.ProjetoNew.Pessoa> Pessoas
-        {
-          get;
-          set;
-        }
-
-        public DbSet<ProjetoNew.Models.ProjetoNew.Produto> Produtos
         {
           get;
           set;

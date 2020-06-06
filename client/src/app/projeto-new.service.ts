@@ -45,10 +45,6 @@ export class ProjetoNewService {
     return this.odata.post(`/EstaAtribuidos`, estaAtribuido, { expand }, ['Recurso', 'Servico']);
   }
 
-  getFormacaos(filter: string | null, top: number | null, skip: number | null, orderby: string | null, count: boolean | null, expand: string | null, format: string | null, select: string | null) : Observable<any> {
-    return this.odata.get(`/Formacaos`, { filter, top, skip, orderby, count, expand, format, select });
-  }
-
   getGts(filter: string | null, top: number | null, skip: number | null, orderby: string | null, count: boolean | null, expand: string | null, format: string | null, select: string | null) : Observable<any> {
     return this.odata.get(`/Gts`, { filter, top, skip, orderby, count, expand, format, select });
   }
@@ -131,10 +127,6 @@ export class ProjetoNewService {
 
   updatePessoa(expand: string | null, idPessoa: number | null, pessoa: models.Pessoa | null) : Observable<any> {
     return this.odata.patch(`/Pessoas(${idPessoa})`, pessoa, item => item.id_Pessoa == idPessoa, { expand }, ['Servico','Instituicao','Gt']);
-  }
-
-  getProdutos(filter: string | null, top: number | null, skip: number | null, orderby: string | null, count: boolean | null, expand: string | null, format: string | null, select: string | null) : Observable<any> {
-    return this.odata.get(`/Produtos`, { filter, top, skip, orderby, count, expand, format, select });
   }
 
   getRecursos(filter: string | null, top: number | null, skip: number | null, orderby: string | null, count: boolean | null, expand: string | null, format: string | null, select: string | null) : Observable<any> {

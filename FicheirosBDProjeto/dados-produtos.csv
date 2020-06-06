@@ -1,60 +1,60 @@
-index_recurso, niv_produtos, tipo_produtos, decricaoProduto
-142,,Geodesia, Dados de GNSS da ReNEP a Rede Portuguesa de Estações GNSS Permanentes
-143,,Geodesia, Medidores de mare acústicas – dados de nível do mar
-144,,Geodesia, Modelo geóide para converter altura elipsoidal em altura ortométrica
-145,,Geodesia, Campanhas de campo geodésicas
-146,,Geodesia,  Portal de dados em geodesia – visualização
-147,,Geologia,Testemunhos de sondagens
-148,,Geologia,Base de dados Recursos hidrogeológicos portugueses e ocorrências termais
-149,,Geologia,Base de dados Inclusões fluidas
-150,,Geologia,Base de dados Documentação técnica não publicada
-151,,Geologia,Mapas Geológicos
-152,, Geologia,Catálogos e Coleções
-153,, Geologia,Inventários
-154,,Sismologia, Dados sismológicos e redes
-155,, Geofísica Aplicada, Ruido sísmico
-156,, Geofísica Aplicada,Perfis de Tomografia elétrica no Vale do Tejo
-157,,Geofísica Aplicada, Perfis de Georadar (Vale do Tejo)
-158,,Geofísica Aplicada,Relatórios técnicos de sondagens geotécnicas geofísica geotérmicas
-159,,Mecânica das Rochas ,Dados de módulos elásticos coeficiente de Poisson
-160,,Geomagnetismo ,  Séries de valores médios (minuto hora ano) do observatório magnético de Coimbra
-161,,Paleomagnetismo,Instalações de campo em paleomagnetismo
-162,,Geomatemática, Modelação e Computação Modelos de Tsunamis em Portugal
-163,,Geomatemática, Modelação e Computação Modelos de correntes geomagneticamente induzidas na rede elétrica portuguesa
-164,,Geomatemática, Modelação e Computação Modelação de fluxos em meios porosos e fraturados
-165,,Geomatemática, Software
-166,,Riscos Naturais,Alerta precoce de tsunamis
-167,,Riscos Naturais,Estudos de risco sísmico e mapas de stress
-168,,Riscos Naturais,Avaliação de riscos em ambiente costeiro
-169,,Riscos Naturais,Avaliação da suscetibilidade à instabilidade de taludes
-170,,Riscos Naturais,Mapas de suscetibilidade de instabilidade de arribas à escala regional
-171,,Riscos Naturais,Monitorização da emissão de radão em solos e rochas para controle ambiental
-172,,Riscos Antropogénicos, em construção
-173,,Riscos Cósmicos,Dados solares e monitorização de dados climáticos espaciais
-174,, Riscos Cósmicos, Espectroscopia de refletância asteróide
-175,,Geologia Marinha, Dados de reflexão sísmica
-176,,Geologia Marinha,Observação direta do fundo do mar foto e vídeo
-177,,Geologia Marinha, Multibeam e backscatter: aquisição processamento e interpretação 
-178,,Geologia Marinha, Disponibilização de cartografia temática no EMODnet-geology
-179,,Geologia Marinha, Observação direta do fundo do mar aquisição de video
-180,,Geologia Marinha, Perfis de velocidade do som da coluna de água
-181,,Deteção Remota,Mapas de ocupação do solo a partir de imagens de deteção remota
-182,,Deteção Remota,mapRS Mapeamento para gestão de georrecursos ambiente e situações de emergência derivado de dados de deteção remota multi-fonte
-183,,Deteção Remota,droneMAP Aquisição de dados usando drones e processamento para caracterização temática com fins de monitorização e validação mediante solicitação
-184,,Deteção Remota,Mapeamento da deformação da superfície com recurso a interferometria SAR
-185,,Deteção Remota,droneMAP Aquisição de dados usando drones e processamento para caracterização temática
-186,,Geoambiente,Mapas geoquímicos
-187,,Geoambiente ,Mapas de vulnerabilidade geoambiental
-188,,Geoambiente ,Mapas de ocupação do solo a partir de imagens de deteção remota
-189,,Geoambiente ,Planos e redes de monitorização de parâmetros geoambientais
-190,,Geoambiente , Carta geoambiental morfológica e geomorfológica
-191,,Geoambiente ,Identificação de anomalias geoambientais em diferentes meios 
-192,,Geoambiente ,Identificação e avaliação de vulnerabilidade ambiental em diferentes meios
-193,,Geoambiente ,Caracterização e análise multi-escalar de processos geoambientais
-194,,Geoambiente ,Identificação de medidas de remediação e mitigação
-195,,Geoambiente ,Monitorização de parâmetros geoambientais
-196,,Geoambiente ,Modelação de processos geoquímicos de interação água-rocha
-197,,Geoambiente ,Estudos de impacte ambiental
-198,,Monitorização de ambientes com permafrost,Temperaturas do permafrost da Península Antártica
-199,,Monitorização de ambientes com permafrost,Cartografia geoambiental de perigosidade e de risco em regiões polares e de montanha
-200,,Monitorização de ambientes com permafrost,Consultadoria ambiental em regiões polares e de montanha
+index_recurso, niv_produtos, tipo_produtos, decricaoProduto,,index_produtos
+142,,Geodesia, Dados de GNSS da ReNEP a Rede Portuguesa de Estações GNSS Permanentes,,1
+143,,Geodesia, Medidores de mare acústicas – dados de nível do mar,,2
+144,,Geodesia, Modelo geóide para converter altura elipsoidal em altura ortométrica,,3
+145,,Geodesia, Campanhas de campo geodésicas,,4
+146,,Geodesia,  Portal de dados em geodesia – visualização,,5
+147,,Geologia,Testemunhos de sondagens,,6
+148,,Geologia,Base de dados Recursos hidrogeológicos portugueses e ocorrências termais,,7
+149,,Geologia,Base de dados Inclusões fluidas,,8
+150,,Geologia,Base de dados Documentação técnica não publicada,,9
+151,,Geologia,Mapas Geológicos,,10
+152,, Geologia,Catálogos e Coleções,,11
+153,, Geologia,Inventários,,12
+154,,Sismologia, Dados sismológicos e redes,,13
+155,, Geofísica Aplicada, Ruido sísmico,,14
+156,, Geofísica Aplicada,Perfis de Tomografia elétrica no Vale do Tejo,,15
+157,,Geofísica Aplicada, Perfis de Georadar (Vale do Tejo),,16
+158,,Geofísica Aplicada,Relatórios técnicos de sondagens geotécnicas geofísica geotérmicas,,17
+159,,Mecânica das Rochas ,Dados de módulos elásticos coeficiente de Poisson,,18
+160,,Geomagnetismo ,  Séries de valores médios (minuto hora ano) do observatório magnético de Coimbra,,19
+161,,Paleomagnetismo,Instalações de campo em paleomagnetismo,,20
+162,,Geomatemática, Modelação e Computação Modelos de Tsunamis em Portugal,,21
+163,,Geomatemática, Modelação e Computação Modelos de correntes geomagneticamente induzidas na rede elétrica portuguesa,,22
+164,,Geomatemática, Modelação e Computação Modelação de fluxos em meios porosos e fraturados,,23
+165,,Geomatemática, Software,,24
+166,,Riscos Naturais,Alerta precoce de tsunamis,,25
+167,,Riscos Naturais,Estudos de risco sísmico e mapas de stress,,26
+168,,Riscos Naturais,Avaliação de riscos em ambiente costeiro,,27
+169,,Riscos Naturais,Avaliação da suscetibilidade à instabilidade de taludes,,28
+170,,Riscos Naturais,Mapas de suscetibilidade de instabilidade de arribas à escala regional,,29
+171,,Riscos Naturais,Monitorização da emissão de radão em solos e rochas para controle ambiental,,30
+172,,Riscos Antropogénicos, em construção,,31
+173,,Riscos Cósmicos,Dados solares e monitorização de dados climáticos espaciais,,32
+174,, Riscos Cósmicos, Espectroscopia de refletância asteróide,,33
+175,,Geologia Marinha, Dados de reflexão sísmica,,34
+176,,Geologia Marinha,Observação direta do fundo do mar foto e vídeo,,35
+177,,Geologia Marinha, Multibeam e backscatter: aquisição processamento e interpretação ,,36
+178,,Geologia Marinha, Disponibilização de cartografia temática no EMODnet-geology,,37
+179,,Geologia Marinha, Observação direta do fundo do mar aquisição de video,,38
+180,,Geologia Marinha, Perfis de velocidade do som da coluna de água,,39
+181,,Deteção Remota,Mapas de ocupação do solo a partir de imagens de deteção remota,,40
+182,,Deteção Remota,mapRS Mapeamento para gestão de georrecursos ambiente e situações de emergência derivado de dados de deteção remota multi-fonte,,41
+183,,Deteção Remota,droneMAP Aquisição de dados usando drones e processamento para caracterização temática com fins de monitorização e validação mediante solicitação,,42
+184,,Deteção Remota,Mapeamento da deformação da superfície com recurso a interferometria SAR,,43
+185,,Deteção Remota,droneMAP Aquisição de dados usando drones e processamento para caracterização temática,,44
+186,,Geoambiente,Mapas geoquímicos,,45
+187,,Geoambiente ,Mapas de vulnerabilidade geoambiental,,46
+188,,Geoambiente ,Mapas de ocupação do solo a partir de imagens de deteção remota,,47
+189,,Geoambiente ,Planos e redes de monitorização de parâmetros geoambientais,,48
+190,,Geoambiente , Carta geoambiental morfológica e geomorfológica,,49
+191,,Geoambiente ,Identificação de anomalias geoambientais em diferentes meios ,,50
+192,,Geoambiente ,Identificação e avaliação de vulnerabilidade ambiental em diferentes meios,,51
+193,,Geoambiente ,Caracterização e análise multi-escalar de processos geoambientais,,52
+194,,Geoambiente ,Identificação de medidas de remediação e mitigação,,53
+195,,Geoambiente ,Monitorização de parâmetros geoambientais,,54
+196,,Geoambiente ,Modelação de processos geoquímicos de interação água-rocha,,55
+197,,Geoambiente ,Estudos de impacte ambiental,,56
+198,,Monitorização de ambientes com permafrost,Temperaturas do permafrost da Península Antártica,,57
+199,,Monitorização de ambientes com permafrost,Cartografia geoambiental de perigosidade e de risco em regiões polares e de montanha,,58
+200,,Monitorização de ambientes com permafrost,Consultadoria ambiental em regiões polares e de montanha,,59

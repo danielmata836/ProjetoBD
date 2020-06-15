@@ -26,93 +26,9 @@
                   "allowMultiSorting": false,
                   "allowPaging": true,
                   "allowSorting": true,
-                  "count": "${getPertencersCount}",
-                  "data": "${getPertencersResult}",
                   "events": {
-                    "loadData": [
-                      {
-                        "name": "ProjetoNew.getPertencers",
-                        "parameters": [
-                          {
-                            "name": "$top",
-                            "value": "event.top"
-                          },
-                          {
-                            "name": "$skip",
-                            "value": "event.skip"
-                          },
-                          {
-                            "name": "$count",
-                            "value": "event.top != null && event.skip != null"
-                          },
-                          {
-                            "name": "$filter",
-                            "value": "${event.filter}"
-                          },
-                          {
-                            "name": "$orderby",
-                            "value": "${event.orderby}"
-                          },
-                          {
-                            "name": "$expand",
-                            "value": "Instituicao,Equipamento"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "name": "getPertencersResult",
-                            "type": "set",
-                            "value": "${result.value}"
-                          },
-                          {
-                            "name": "getPertencersCount",
-                            "type": "set",
-                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
-                          }
-                        ],
-                        "type": "invoke",
-                        "error": [
-                          {
-                            "detail": "Unable to load Pertencers",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ]
-                      }
-                    ],
-                    "delete": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to delete Pertencer",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.deletePertencer",
-                        "parameters": [
-                          {
-                            "name": "Num_Inst",
-                            "value": "${event.Num_Inst}"
-                          },
-                          {
-                            "name": "no_regis_produto",
-                            "value": "${event.no_regis_produto}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "detail": "Pertencer deleted!",
-                            "severity": "success",
-                            "summary": "Success",
-                            "type": "notify"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ],
+                    "loadData": [],
+                    "delete": [],
                     "add": [
                       {
                         "path": "add-pertencer",

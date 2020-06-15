@@ -12,42 +12,13 @@
               "class": "col-md-12",
               "components": [
                 {
-                  "data": "${gt}",
                   "events": {
                     "cancel": [
                       {
                         "type": "back"
                       }
                     ],
-                    "submit": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to update Gt",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.updateGt",
-                        "parameters": [
-                          {
-                            "name": "id_GT",
-                            "value": "${parameters.id_GT}"
-                          },
-                          {
-                            "name": "Gt",
-                            "value": "${event}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "type": "back"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "submit": []
                   },
                   "fields": [
                     {
@@ -88,26 +59,7 @@
     }
   ],
   "events": {
-    "load": [
-      {
-        "name": "ProjetoNew.getGtByid_GT",
-        "parameters": [
-          {
-            "name": "id_GT",
-            "value": "${parameters.id_GT}"
-          }
-        ],
-        "then": [
-          {
-            "name": "gt",
-            "type": "set",
-            "value": "${result}"
-          }
-        ],
-        "error": [],
-        "type": "invoke"
-      }
-    ]
+    "load": []
   },
   "name": "Edit Gt",
   "layout": "Main",

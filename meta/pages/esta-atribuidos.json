@@ -26,93 +26,9 @@
                   "allowMultiSorting": false,
                   "allowPaging": true,
                   "allowSorting": true,
-                  "count": "${getEstaAtribuidosCount}",
-                  "data": "${getEstaAtribuidosResult}",
                   "events": {
-                    "loadData": [
-                      {
-                        "name": "ProjetoNew.getEstaAtribuidos",
-                        "parameters": [
-                          {
-                            "name": "$top",
-                            "value": "event.top"
-                          },
-                          {
-                            "name": "$skip",
-                            "value": "event.skip"
-                          },
-                          {
-                            "name": "$count",
-                            "value": "event.top != null && event.skip != null"
-                          },
-                          {
-                            "name": "$filter",
-                            "value": "${event.filter}"
-                          },
-                          {
-                            "name": "$orderby",
-                            "value": "${event.orderby}"
-                          },
-                          {
-                            "name": "$expand",
-                            "value": "Recurso,Servico"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "name": "getEstaAtribuidosResult",
-                            "type": "set",
-                            "value": "${result.value}"
-                          },
-                          {
-                            "name": "getEstaAtribuidosCount",
-                            "type": "set",
-                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
-                          }
-                        ],
-                        "type": "invoke",
-                        "error": [
-                          {
-                            "detail": "Unable to load EstaAtribuidos",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ]
-                      }
-                    ],
-                    "delete": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to delete EstaAtribuido",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.deleteEstaAtribuido",
-                        "parameters": [
-                          {
-                            "name": "index_Recurso",
-                            "value": "${event.index_Recurso}"
-                          },
-                          {
-                            "name": "index_servicos",
-                            "value": "${event.index_servicos}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "detail": "EstaAtribuido deleted!",
-                            "severity": "success",
-                            "summary": "Success",
-                            "type": "notify"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ],
+                    "loadData": [],
+                    "delete": [],
                     "add": [
                       {
                         "path": "add-esta-atribuido",

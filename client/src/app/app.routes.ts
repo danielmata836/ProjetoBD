@@ -48,6 +48,11 @@ import { EditApplicationUserComponent } from './edit-application-user/edit-appli
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { FormacaosComponent } from './formacaos/formacaos.component';
+import { AddFormacaoComponent } from './add-formacao/add-formacao.component';
+import { EditFormacaoComponent } from './edit-formacao/edit-formacao.component';
+import { AddProdutoComponent } from './add-produto/add-produto.component';
+import { EditProdutoComponent } from './edit-produto/edit-produto.component';
 
 import { SecurityService } from './security.service';
 import { AuthGuard } from './auth.guard';
@@ -117,7 +122,7 @@ export const routes: Routes = [
         path: 'grupos-de-trabalho',
         canActivate: [AuthGuard],
         data: {
-          roles: ['Staff'],
+          roles: ['Staff', 'Member'],
         },
         component: GruposDeTrabalhoComponent
       },
@@ -406,6 +411,46 @@ export const routes: Routes = [
           roles: ['Everybody'],
         },
         component: UnauthorizedComponent
+      },
+      {
+        path: 'formacaos',
+        canActivate: [AuthGuard],
+        data: {
+          roles: ['Authenticated'],
+        },
+        component: FormacaosComponent
+      },
+      {
+        path: 'add-formacao',
+        canActivate: [AuthGuard],
+        data: {
+          roles: ['Authenticated'],
+        },
+        component: AddFormacaoComponent
+      },
+      {
+        path: 'edit-formacao/:index_formacao',
+        canActivate: [AuthGuard],
+        data: {
+          roles: ['Authenticated'],
+        },
+        component: EditFormacaoComponent
+      },
+      {
+        path: 'add-produto',
+        canActivate: [AuthGuard],
+        data: {
+          roles: ['Authenticated'],
+        },
+        component: AddProdutoComponent
+      },
+      {
+        path: 'edit-produto',
+        canActivate: [AuthGuard],
+        data: {
+          roles: ['Authenticated'],
+        },
+        component: EditProdutoComponent
       },
     ]
   },

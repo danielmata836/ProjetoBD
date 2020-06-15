@@ -18,7 +18,6 @@ import { ConfigService } from '../config.service';
 import { AddPessoaComponent } from '../add-pessoa/add-pessoa.component';
 import { EditPessoaComponent } from '../edit-pessoa/edit-pessoa.component';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class PessoasGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -49,12 +48,8 @@ export class PessoasGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
   parameters: any;
-  getPessoasResult: any;
-  getPessoasCount: any;
 
   constructor(private injector: Injector) {
   }
@@ -80,7 +75,6 @@ export class PessoasGenerated implements AfterViewInit, OnInit, OnDestroy {
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -103,26 +97,6 @@ export class PessoasGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   load() {
     this.grid0.load();
-  }
-
-  grid0LoadData(event: any) {
-    this.projetoNew.getPessoas(`${event.filter}`, event.top, event.skip, `${event.orderby}`, event.top != null && event.skip != null, `Servico,Instituicao,Gt`, null, null)
-    .subscribe((result: any) => {
-      this.getPessoasResult = result.value;
-
-      this.getPessoasCount = event.top != null && event.skip != null ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to load Pessoas` });
-    });
-  }
-
-  grid0Delete(event: any) {
-    this.projetoNew.deletePessoa(event.id_Pessoa)
-    .subscribe((result: any) => {
-      this.notificationService.notify({ severity: "success", summary: `Success`, detail: `Pessoa deleted!` });
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to delete Pessoa` });
-    });
   }
 
   grid0Add(event: any) {

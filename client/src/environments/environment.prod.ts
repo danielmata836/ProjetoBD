@@ -1,7 +1,7 @@
 export const environment = {
-  serverMethodsUrl: '/',
-  projetoNew: '/odata/ProjetoNew',
+  serverMethodsUrl: 'http://localhost:5000/',
+  projetoNew: 'http://localhost:5000/odata/ProjetoNew',
 
-  securityUrl: '/auth',
+  securityUrl: 'http://localhost:5000/auth',
   production: true
 };

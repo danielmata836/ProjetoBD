@@ -26,93 +26,9 @@
                   "allowMultiSorting": false,
                   "allowPaging": true,
                   "allowSorting": true,
-                  "count": "${getPedesCount}",
-                  "data": "${getPedesResult}",
                   "events": {
-                    "loadData": [
-                      {
-                        "name": "ProjetoNew.getPedes",
-                        "parameters": [
-                          {
-                            "name": "$top",
-                            "value": "event.top"
-                          },
-                          {
-                            "name": "$skip",
-                            "value": "event.skip"
-                          },
-                          {
-                            "name": "$count",
-                            "value": "event.top != null && event.skip != null"
-                          },
-                          {
-                            "name": "$filter",
-                            "value": "${event.filter}"
-                          },
-                          {
-                            "name": "$orderby",
-                            "value": "${event.orderby}"
-                          },
-                          {
-                            "name": "$expand",
-                            "value": "Pessoa,Servico"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "name": "getPedesResult",
-                            "type": "set",
-                            "value": "${result.value}"
-                          },
-                          {
-                            "name": "getPedesCount",
-                            "type": "set",
-                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
-                          }
-                        ],
-                        "type": "invoke",
-                        "error": [
-                          {
-                            "detail": "Unable to load Pedes",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ]
-                      }
-                    ],
-                    "delete": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to delete Pede",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.deletePede",
-                        "parameters": [
-                          {
-                            "name": "id_Pessoa",
-                            "value": "${event.id_Pessoa}"
-                          },
-                          {
-                            "name": "index_servicos",
-                            "value": "${event.index_servicos}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "detail": "Pede deleted!",
-                            "severity": "success",
-                            "summary": "Success",
-                            "type": "notify"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ],
+                    "loadData": [],
+                    "delete": [],
                     "add": [
                       {
                         "path": "add-pede",

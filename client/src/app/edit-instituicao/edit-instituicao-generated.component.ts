@@ -15,7 +15,6 @@ import { FormComponent } from '@radzen/angular/dist/form';
 
 import { ConfigService } from '../config.service';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class EditInstituicaoGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -45,10 +44,7 @@ export class EditInstituicaoGenerated implements AfterViewInit, OnInit, OnDestro
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
-  instituicao: any;
   parameters: any;
 
   constructor(private injector: Injector) {
@@ -75,7 +71,6 @@ export class EditInstituicaoGenerated implements AfterViewInit, OnInit, OnDestro
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -97,12 +92,7 @@ export class EditInstituicaoGenerated implements AfterViewInit, OnInit, OnDestro
 
 
   load() {
-    this.projetoNew.getInstituicaoByNumInst(null, this.parameters.Num_Inst)
-    .subscribe((result: any) => {
-      this.instituicao = result;
-    }, (result: any) => {
 
-    });
   }
 
   form0Cancel(event: any) {
@@ -111,18 +101,5 @@ export class EditInstituicaoGenerated implements AfterViewInit, OnInit, OnDestro
     } else {
       this._location.back();
     }
-  }
-
-  form0Submit(event: any) {
-    this.projetoNew.updateInstituicao(null, this.parameters.Num_Inst, event)
-    .subscribe((result: any) => {
-      if (this.dialogRef) {
-        this.dialogRef.close();
-      } else {
-        this._location.back();
-      }
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to update Instituicao` });
-    });
   }
 }

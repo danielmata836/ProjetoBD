@@ -49,7 +49,6 @@ export class AddEstaAtribuidoGenerated implements AfterViewInit, OnInit, OnDestr
 
   security: SecurityService;
   getRecursosResult: any;
-  getServicosResult: any;
   parameters: any;
 
   constructor(private injector: Injector) {
@@ -104,13 +103,6 @@ export class AddEstaAtribuidoGenerated implements AfterViewInit, OnInit, OnDestr
     }, (result: any) => {
 
     });
-
-    this.projetoNew.getServicos(null, null, null, null, null, null, null, null)
-    .subscribe((result: any) => {
-      this.getServicosResult = result.value;
-    }, (result: any) => {
-
-    });
   }
 
   form0Cancel(event: any) {
@@ -119,18 +111,5 @@ export class AddEstaAtribuidoGenerated implements AfterViewInit, OnInit, OnDestr
     } else {
       this._location.back();
     }
-  }
-
-  form0Submit(event: any) {
-    this.projetoNew.createEstaAtribuido(null, event)
-    .subscribe((result: any) => {
-      if (this.dialogRef) {
-        this.dialogRef.close();
-      } else {
-        this._location.back();
-      }
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to create new EstaAtribuido!` });
-    });
   }
 }

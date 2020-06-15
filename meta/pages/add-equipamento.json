@@ -19,31 +19,7 @@
                         "type": "back"
                       }
                     ],
-                    "submit": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to create new Equipamento!",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.createEquipamento",
-                        "parameters": [
-                          {
-                            "name": "Equipamento",
-                            "value": "${event}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "type": "back"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "submit": []
                   },
                   "fields": [
                     {

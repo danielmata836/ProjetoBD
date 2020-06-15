@@ -1,7 +1,7 @@
 <rz-content #content1 container="main">
   <div class="row">
     <div class="col-md-12">
-      <rz-form #form0 (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+      <rz-form #form0 (cancel)="form0Cancel($event)">
         <rz-string-form-field [maxLength]="100" property="designa_pt_servicos" [required]="true" requiredText="is required" title="Designa Pt Servicos" type="string">
         </rz-string-form-field>
         <rz-string-form-field [maxLength]="100" property="designa_en_servicos" [required]="true" requiredText="is required" title="Designa En Servicos" type="string">
@@ -16,7 +16,7 @@
         </rz-number-form-field>
         <rz-string-form-field [maxLength]="100" property="desc_servicos" [required]="true" requiredText="is required" title="Desc Servicos" type="string">
         </rz-string-form-field>
-        <rz-lookup-form-field [data]="getGtsResult" placeholder="Choose Gt" property="id_GT" [required]="true" requiredText="is required" textProperty="sigla" title="Gt" valueProperty="id_GT" type="lookup">
+        <rz-lookup-form-field placeholder="Choose Gt" property="id_GT" [required]="true" requiredText="is required" textProperty="sigla" title="Gt" valueProperty="id_GT" type="lookup">
         </rz-lookup-form-field>
         <rz-date-form-field property="data_inicio" [required]="false" requiredText="is required" title="Data Inicio" type="date">
         </rz-date-form-field>

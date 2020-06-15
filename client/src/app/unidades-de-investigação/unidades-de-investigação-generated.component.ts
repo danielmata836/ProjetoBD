@@ -18,7 +18,6 @@ import { ConfigService } from '../config.service';
 import { AddUiComponent } from '../add-ui/add-ui.component';
 import { EditUiComponent } from '../edit-ui/edit-ui.component';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class UnidadesDeInvestigacaoGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -49,12 +48,8 @@ export class UnidadesDeInvestigacaoGenerated implements AfterViewInit, OnInit, O
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
   parameters: any;
-  getUisResult: any;
-  getUisCount: any;
 
   constructor(private injector: Injector) {
   }
@@ -80,7 +75,6 @@ export class UnidadesDeInvestigacaoGenerated implements AfterViewInit, OnInit, O
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -103,26 +97,6 @@ export class UnidadesDeInvestigacaoGenerated implements AfterViewInit, OnInit, O
 
   load() {
     this.grid0.load();
-  }
-
-  grid0LoadData(event: any) {
-    this.projetoNew.getUis(`${event.filter}`, event.top, event.skip, `${event.orderby}`, event.top != null && event.skip != null, null, null, null)
-    .subscribe((result: any) => {
-      this.getUisResult = result.value;
-
-      this.getUisCount = event.top != null && event.skip != null ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to load Uis` });
-    });
-  }
-
-  grid0Delete(event: any) {
-    this.projetoNew.deleteUi(event.id_UI)
-    .subscribe((result: any) => {
-      this.notificationService.notify({ severity: "success", summary: `Success`, detail: `Ui deleted!` });
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to delete Ui` });
-    });
   }
 
   grid0Add(event: any) {

@@ -15,7 +15,6 @@ import { FormComponent } from '@radzen/angular/dist/form';
 
 import { ConfigService } from '../config.service';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class AddPertencerGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -45,11 +44,7 @@ export class AddPertencerGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
-  getInstituicaosResult: any;
-  getEquipamentosResult: any;
   parameters: any;
 
   constructor(private injector: Injector) {
@@ -76,7 +71,6 @@ export class AddPertencerGenerated implements AfterViewInit, OnInit, OnDestroy {
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -98,19 +92,7 @@ export class AddPertencerGenerated implements AfterViewInit, OnInit, OnDestroy {
 
 
   load() {
-    this.projetoNew.getInstituicaos(null, null, null, null, null, null, null, null)
-    .subscribe((result: any) => {
-      this.getInstituicaosResult = result.value;
-    }, (result: any) => {
 
-    });
-
-    this.projetoNew.getEquipamentos(null, null, null, null, null, null, null, null)
-    .subscribe((result: any) => {
-      this.getEquipamentosResult = result.value;
-    }, (result: any) => {
-
-    });
   }
 
   form0Cancel(event: any) {
@@ -119,18 +101,5 @@ export class AddPertencerGenerated implements AfterViewInit, OnInit, OnDestroy {
     } else {
       this._location.back();
     }
-  }
-
-  form0Submit(event: any) {
-    this.projetoNew.createPertencer(null, event)
-    .subscribe((result: any) => {
-      if (this.dialogRef) {
-        this.dialogRef.close();
-      } else {
-        this._location.back();
-      }
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to create new Pertencer!` });
-    });
   }
 }

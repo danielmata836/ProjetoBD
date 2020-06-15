@@ -18,7 +18,6 @@ import { ConfigService } from '../config.service';
 import { AddGtComponent } from '../add-gt/add-gt.component';
 import { EditGtComponent } from '../edit-gt/edit-gt.component';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class GruposDeTrabalhoGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -49,12 +48,8 @@ export class GruposDeTrabalhoGenerated implements AfterViewInit, OnInit, OnDestr
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
   parameters: any;
-  getGtsResult: any;
-  getGtsCount: any;
 
   constructor(private injector: Injector) {
   }
@@ -80,7 +75,6 @@ export class GruposDeTrabalhoGenerated implements AfterViewInit, OnInit, OnDestr
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -103,26 +97,6 @@ export class GruposDeTrabalhoGenerated implements AfterViewInit, OnInit, OnDestr
 
   load() {
     this.grid0.load();
-  }
-
-  grid0LoadData(event: any) {
-    this.projetoNew.getGts(`${event.filter}`, event.top, event.skip, `${event.orderby}`, event.top != null && event.skip != null, null, null, null)
-    .subscribe((result: any) => {
-      this.getGtsResult = result.value;
-
-      this.getGtsCount = event.top != null && event.skip != null ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to load Gts` });
-    });
-  }
-
-  grid0Delete(event: any) {
-    this.projetoNew.deleteGt(event.id_GT)
-    .subscribe((result: any) => {
-      this.notificationService.notify({ severity: "success", summary: `Success`, detail: `Gt deleted!` });
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to delete Gt` });
-    });
   }
 
   grid0Add(event: any) {

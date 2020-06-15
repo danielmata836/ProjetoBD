@@ -18,7 +18,6 @@ import { ConfigService } from '../config.service';
 import { AddPertenceUiComponent } from '../add-pertence-ui/add-pertence-ui.component';
 import { EditPertenceUiComponent } from '../edit-pertence-ui/edit-pertence-ui.component';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class PertenceUisGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -49,12 +48,8 @@ export class PertenceUisGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
   parameters: any;
-  getPertenceUisResult: any;
-  getPertenceUisCount: any;
 
   constructor(private injector: Injector) {
   }
@@ -80,7 +75,6 @@ export class PertenceUisGenerated implements AfterViewInit, OnInit, OnDestroy {
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -103,26 +97,6 @@ export class PertenceUisGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   load() {
     this.grid0.load();
-  }
-
-  grid0LoadData(event: any) {
-    this.projetoNew.getPertenceUis(`${event.filter}`, event.top, event.skip, `${event.orderby}`, event.top != null && event.skip != null, `Ui,Pessoa`, null, null)
-    .subscribe((result: any) => {
-      this.getPertenceUisResult = result.value;
-
-      this.getPertenceUisCount = event.top != null && event.skip != null ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to load PertenceUis` });
-    });
-  }
-
-  grid0Delete(event: any) {
-    this.projetoNew.deletePertenceUi(event.id_UI, event.id_Pessoa)
-    .subscribe((result: any) => {
-      this.notificationService.notify({ severity: "success", summary: `Success`, detail: `PertenceUi deleted!` });
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to delete PertenceUi` });
-    });
   }
 
   grid0Add(event: any) {

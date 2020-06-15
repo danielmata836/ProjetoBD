@@ -18,7 +18,6 @@ import { ConfigService } from '../config.service';
 import { AddPertencerComponent } from '../add-pertencer/add-pertencer.component';
 import { EditPertencerComponent } from '../edit-pertencer/edit-pertencer.component';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class PertencersGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -49,12 +48,8 @@ export class PertencersGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
   parameters: any;
-  getPertencersResult: any;
-  getPertencersCount: any;
 
   constructor(private injector: Injector) {
   }
@@ -80,7 +75,6 @@ export class PertencersGenerated implements AfterViewInit, OnInit, OnDestroy {
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -103,26 +97,6 @@ export class PertencersGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   load() {
     this.grid0.load();
-  }
-
-  grid0LoadData(event: any) {
-    this.projetoNew.getPertencers(`${event.filter}`, event.top, event.skip, `${event.orderby}`, event.top != null && event.skip != null, `Instituicao,Equipamento`, null, null)
-    .subscribe((result: any) => {
-      this.getPertencersResult = result.value;
-
-      this.getPertencersCount = event.top != null && event.skip != null ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to load Pertencers` });
-    });
-  }
-
-  grid0Delete(event: any) {
-    this.projetoNew.deletePertencer(event.Num_Inst, event.no_regis_produto)
-    .subscribe((result: any) => {
-      this.notificationService.notify({ severity: "success", summary: `Success`, detail: `Pertencer deleted!` });
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to delete Pertencer` });
-    });
   }
 
   grid0Add(event: any) {

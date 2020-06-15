@@ -79,6 +79,11 @@ import { EditApplicationUserComponent } from './edit-application-user/edit-appli
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { FormacaosComponent } from './formacaos/formacaos.component';
+import { AddFormacaoComponent } from './add-formacao/add-formacao.component';
+import { EditFormacaoComponent } from './edit-formacao/edit-formacao.component';
+import { AddProdutoComponent } from './add-produto/add-produto.component';
+import { EditProdutoComponent } from './edit-produto/edit-produto.component';
 import { LoginLayoutComponent } from './login-layout/login-layout.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
@@ -133,6 +138,11 @@ export const PageDeclarations = [
   ProfileComponent,
   LoginComponent,
   UnauthorizedComponent,
+  FormacaosComponent,
+  AddFormacaoComponent,
+  EditFormacaoComponent,
+  AddProdutoComponent,
+  EditProdutoComponent,
 ];
 
 export const LayoutDeclarations = [

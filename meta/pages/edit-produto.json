@@ -1,0 +1,149 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "${produto}",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Produto",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.updateProduto",
+                        "parameters": [
+                          {
+                            "name": "index_produtos",
+                            "value": "${parameters.index_produtos}"
+                          },
+                          {
+                            "name": "Produto",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "property": "niv_produtos",
+                      "required": false,
+                      "title": "Niv Produtos",
+                      "type": "integer",
+                      "requiredText": "is required",
+                      "minText": "cannot be less than",
+                      "maxText": "cannot be more than"
+                    },
+                    {
+                      "property": "tipo_produtos",
+                      "required": false,
+                      "title": "Tipo Produtos",
+                      "type": "string",
+                      "maxLength": 100,
+                      "requiredText": "is required"
+                    },
+                    {
+                      "property": "descricaoProduto",
+                      "required": true,
+                      "title": "Descricao Produto",
+                      "type": "string",
+                      "maxLength": 100,
+                      "requiredText": "is required"
+                    },
+                    {
+                      "data": "${getRecursosResult}",
+                      "property": "index_Recurso",
+                      "required": true,
+                      "textProperty": "obs",
+                      "title": "Recurso",
+                      "type": "lookup",
+                      "valueProperty": "index_Recurso",
+                      "placeholder": "Choose Recurso",
+                      "requiredText": "is required"
+                    },
+                    {
+                      "property": "index_produtos",
+                      "required": true,
+                      "title": "Index Produtos",
+                      "type": "integer",
+                      "requiredText": "is required",
+                      "minText": "cannot be less than",
+                      "maxText": "cannot be more than"
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form",
+                  "visible": "produto"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ProjetoNew.getProdutoByindex_produtos",
+        "parameters": [
+          {
+            "name": "index_produtos",
+            "value": "${parameters.index_produtos}"
+          }
+        ],
+        "then": [
+          {
+            "name": "produto",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getRecursos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getRecursosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Produto",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

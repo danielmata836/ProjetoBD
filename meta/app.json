@@ -23,7 +23,8 @@
     "Pessoas",
     "Login",
     "Application Users",
-    "Application Roles"
+    "Application Roles",
+    "Formacaos"
   ],
   "pages": [
     "Equipamentos",
@@ -70,7 +71,12 @@
     "Edit Application User",
     "Profile",
     "Login",
-    "Unauthorized"
+    "Unauthorized",
+    "Formacaos",
+    "Add Formacao",
+    "Edit Formacao",
+    "Add Produto",
+    "Edit Produto"
   ],
   "security": {
     "autoGeneratePages": true,

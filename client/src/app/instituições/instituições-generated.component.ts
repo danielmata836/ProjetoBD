@@ -18,7 +18,6 @@ import { ConfigService } from '../config.service';
 import { AddInstituicaoComponent } from '../add-instituicao/add-instituicao.component';
 import { EditInstituicaoComponent } from '../edit-instituicao/edit-instituicao.component';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class InstituicoesGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -49,12 +48,8 @@ export class InstituicoesGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
   parameters: any;
-  getInstituicaosResult: any;
-  getInstituicaosCount: any;
 
   constructor(private injector: Injector) {
   }
@@ -80,7 +75,6 @@ export class InstituicoesGenerated implements AfterViewInit, OnInit, OnDestroy {
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -103,26 +97,6 @@ export class InstituicoesGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   load() {
     this.grid0.load();
-  }
-
-  grid0LoadData(event: any) {
-    this.projetoNew.getInstituicaos(`${event.filter}`, event.top, event.skip, `${event.orderby}`, event.top != null && event.skip != null, null, null, null)
-    .subscribe((result: any) => {
-      this.getInstituicaosResult = result.value;
-
-      this.getInstituicaosCount = event.top != null && event.skip != null ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to load Instituicaos` });
-    });
-  }
-
-  grid0Delete(event: any) {
-    this.projetoNew.deleteInstituicao(event.Num_Inst)
-    .subscribe((result: any) => {
-      this.notificationService.notify({ severity: "success", summary: `Success`, detail: `Instituicao deleted!` });
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to delete Instituicao` });
-    });
   }
 
   grid0Add(event: any) {

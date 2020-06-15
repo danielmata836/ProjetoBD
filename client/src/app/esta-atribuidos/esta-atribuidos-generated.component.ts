@@ -18,7 +18,6 @@ import { ConfigService } from '../config.service';
 import { AddEstaAtribuidoComponent } from '../add-esta-atribuido/add-esta-atribuido.component';
 import { EditEstaAtribuidoComponent } from '../edit-esta-atribuido/edit-esta-atribuido.component';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class EstaAtribuidosGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -49,12 +48,8 @@ export class EstaAtribuidosGenerated implements AfterViewInit, OnInit, OnDestroy
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
   parameters: any;
-  getEstaAtribuidosResult: any;
-  getEstaAtribuidosCount: any;
 
   constructor(private injector: Injector) {
   }
@@ -80,7 +75,6 @@ export class EstaAtribuidosGenerated implements AfterViewInit, OnInit, OnDestroy
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -103,26 +97,6 @@ export class EstaAtribuidosGenerated implements AfterViewInit, OnInit, OnDestroy
 
   load() {
     this.grid0.load();
-  }
-
-  grid0LoadData(event: any) {
-    this.projetoNew.getEstaAtribuidos(`${event.filter}`, event.top, event.skip, `${event.orderby}`, event.top != null && event.skip != null, `Recurso,Servico`, null, null)
-    .subscribe((result: any) => {
-      this.getEstaAtribuidosResult = result.value;
-
-      this.getEstaAtribuidosCount = event.top != null && event.skip != null ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to load EstaAtribuidos` });
-    });
-  }
-
-  grid0Delete(event: any) {
-    this.projetoNew.deleteEstaAtribuido(event.index_Recurso, event.index_servicos)
-    .subscribe((result: any) => {
-      this.notificationService.notify({ severity: "success", summary: `Success`, detail: `EstaAtribuido deleted!` });
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to delete EstaAtribuido` });
-    });
   }
 
   grid0Add(event: any) {

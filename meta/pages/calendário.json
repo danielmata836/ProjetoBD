@@ -25,7 +25,6 @@
                   "startProperty": "data_inicio",
                   "endProperty": "data_fim",
                   "titleProperty": "designa_pt_servicos",
-                  "data": "${getServicosResult}",
                   "events": {
                     "eventSelect": [
                       {
@@ -55,30 +54,7 @@
                         "type": "popup"
                       }
                     ],
-                    "eventUpdate": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to update Servico",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.updateServico",
-                        "parameters": [
-                          {
-                            "name": "index_servicos",
-                            "value": "${event.index_servicos}"
-                          },
-                          {
-                            "name": "Servico",
-                            "value": "${event}"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "eventUpdate": []
                   }
                 }
               ]
@@ -89,19 +65,7 @@
     }
   ],
   "events": {
-    "load": [
-      {
-        "type": "invoke",
-        "name": "ProjetoNew.getServicos",
-        "then": [
-          {
-            "type": "set",
-            "name": "getServicosResult",
-            "value": "${result.value}"
-          }
-        ]
-      }
-    ]
+    "load": []
   },
   "layout": "Main",
   "access": [

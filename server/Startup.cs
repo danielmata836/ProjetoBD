@@ -163,33 +163,9 @@ namespace ProjetoNew
 
           var oDataBuilder = new ODataConventionModelBuilder(provider);
 
-          oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Equipamento>("Equipamentos");
-
-          var estaAtribuidoEntitySet = oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.EstaAtribuido>("EstaAtribuidos");
-          estaAtribuidoEntitySet.EntityType.HasKey(entity => new {
-            entity.index_Recurso, entity.index_servicos
-          });
-          oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Gt>("Gts");
-          oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Instituicao>("Instituicaos");
-
-          var pedeEntitySet = oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Pede>("Pedes");
-          pedeEntitySet.EntityType.HasKey(entity => new {
-            entity.id_Pessoa, entity.index_servicos
-          });
-
-          var pertenceUiEntitySet = oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.PertenceUi>("PertenceUis");
-          pertenceUiEntitySet.EntityType.HasKey(entity => new {
-            entity.id_UI, entity.id_Pessoa
-          });
-
-          var pertencerEntitySet = oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Pertencer>("Pertencers");
-          pertencerEntitySet.EntityType.HasKey(entity => new {
-            entity.Num_Inst, entity.no_regis_produto
-          });
-          oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Pessoa>("Pessoas");
+          oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Formacao>("Formacaos");
+          oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Produto>("Produtos");
           oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Recurso>("Recursos");
-          oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Servico>("Servicos");
-          oDataBuilder.EntitySet<ProjetoNew.Models.ProjetoNew.Ui>("Uis");
 
           this.OnConfigureOData(oDataBuilder);
 

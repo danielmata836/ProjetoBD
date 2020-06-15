@@ -48,7 +48,6 @@ export class EditEquipamentoGenerated implements AfterViewInit, OnInit, OnDestro
   projetoNew: ProjetoNewService;
 
   security: SecurityService;
-  equipamento: any;
   getRecursosResult: any;
   parameters: any;
 
@@ -98,13 +97,6 @@ export class EditEquipamentoGenerated implements AfterViewInit, OnInit, OnDestro
 
 
   load() {
-    this.projetoNew.getEquipamentoBynoRegisProduto(null, this.parameters.no_regis_produto)
-    .subscribe((result: any) => {
-      this.equipamento = result;
-    }, (result: any) => {
-
-    });
-
     this.projetoNew.getRecursos(null, null, null, null, null, null, null, null)
     .subscribe((result: any) => {
       this.getRecursosResult = result.value;
@@ -119,18 +111,5 @@ export class EditEquipamentoGenerated implements AfterViewInit, OnInit, OnDestro
     } else {
       this._location.back();
     }
-  }
-
-  form0Submit(event: any) {
-    this.projetoNew.updateEquipamento(null, this.parameters.no_regis_produto, event)
-    .subscribe((result: any) => {
-      if (this.dialogRef) {
-        this.dialogRef.close();
-      } else {
-        this._location.back();
-      }
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to update Equipamento` });
-    });
   }
 }

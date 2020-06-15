@@ -12,42 +12,13 @@
               "class": "col-md-12",
               "components": [
                 {
-                  "data": "${servico}",
                   "events": {
                     "cancel": [
                       {
                         "type": "back"
                       }
                     ],
-                    "submit": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to update Servico",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.updateServico",
-                        "parameters": [
-                          {
-                            "name": "index_servicos",
-                            "value": "${parameters.index_servicos}"
-                          },
-                          {
-                            "name": "Servico",
-                            "value": "${event}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "type": "back"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "submit": []
                   },
                   "fields": [
                     {
@@ -109,7 +80,6 @@
                       "requiredText": "is required"
                     },
                     {
-                      "data": "${getGtsResult}",
                       "property": "id_GT",
                       "required": true,
                       "textProperty": "sigla",
@@ -146,38 +116,7 @@
     }
   ],
   "events": {
-    "load": [
-      {
-        "name": "ProjetoNew.getServicoByindex_servicos",
-        "parameters": [
-          {
-            "name": "index_servicos",
-            "value": "${parameters.index_servicos}"
-          }
-        ],
-        "then": [
-          {
-            "name": "servico",
-            "type": "set",
-            "value": "${result}"
-          }
-        ],
-        "error": [],
-        "type": "invoke"
-      },
-      {
-        "name": "ProjetoNew.getGts",
-        "parameters": [],
-        "then": [
-          {
-            "name": "getGtsResult",
-            "type": "set",
-            "value": "${result.value}"
-          }
-        ],
-        "type": "invoke"
-      }
-    ]
+    "load": []
   },
   "name": "Edit Servico",
   "layout": "Main",

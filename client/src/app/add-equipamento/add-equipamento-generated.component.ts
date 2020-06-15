@@ -112,17 +112,4 @@ export class AddEquipamentoGenerated implements AfterViewInit, OnInit, OnDestroy
       this._location.back();
     }
   }
-
-  form0Submit(event: any) {
-    this.projetoNew.createEquipamento(null, event)
-    .subscribe((result: any) => {
-      if (this.dialogRef) {
-        this.dialogRef.close();
-      } else {
-        this._location.back();
-      }
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to create new Equipamento!` });
-    });
-  }
 }

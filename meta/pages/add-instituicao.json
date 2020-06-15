@@ -19,31 +19,7 @@
                         "type": "back"
                       }
                     ],
-                    "submit": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to create new Instituicao!",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.createInstituicao",
-                        "parameters": [
-                          {
-                            "name": "Instituicao",
-                            "value": "${event}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "type": "back"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "submit": []
                   },
                   "fields": [
                     {

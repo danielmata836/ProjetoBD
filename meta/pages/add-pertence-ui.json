@@ -19,35 +19,10 @@
                         "type": "back"
                       }
                     ],
-                    "submit": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to create new PertenceUi!",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.createPertenceUi",
-                        "parameters": [
-                          {
-                            "name": "PertenceUi",
-                            "value": "${event}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "type": "back"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "submit": []
                   },
                   "fields": [
                     {
-                      "data": "${getUisResult}",
                       "property": "id_UI",
                       "required": true,
                       "textProperty": "nome_UI",
@@ -58,7 +33,6 @@
                       "requiredText": "is required"
                     },
                     {
-                      "data": "${getPessoasResult}",
                       "property": "id_Pessoa",
                       "required": true,
                       "textProperty": "email_pessoa",
@@ -80,32 +54,7 @@
     }
   ],
   "events": {
-    "load": [
-      {
-        "name": "ProjetoNew.getUis",
-        "parameters": [],
-        "then": [
-          {
-            "name": "getUisResult",
-            "type": "set",
-            "value": "${result.value}"
-          }
-        ],
-        "type": "invoke"
-      },
-      {
-        "name": "ProjetoNew.getPessoas",
-        "parameters": [],
-        "then": [
-          {
-            "name": "getPessoasResult",
-            "type": "set",
-            "value": "${result.value}"
-          }
-        ],
-        "type": "invoke"
-      }
-    ]
+    "load": []
   },
   "name": "Add Pertence Ui",
   "layout": "Main",

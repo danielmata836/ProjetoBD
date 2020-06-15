@@ -19,35 +19,10 @@
                         "type": "back"
                       }
                     ],
-                    "submit": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to create new Pertencer!",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.createPertencer",
-                        "parameters": [
-                          {
-                            "name": "Pertencer",
-                            "value": "${event}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "type": "back"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "submit": []
                   },
                   "fields": [
                     {
-                      "data": "${getInstituicaosResult}",
                       "property": "Num_Inst",
                       "required": true,
                       "textProperty": "Tipo_Inst",
@@ -58,7 +33,6 @@
                       "requiredText": "is required"
                     },
                     {
-                      "data": "${getEquipamentosResult}",
                       "property": "no_regis_produto",
                       "required": true,
                       "textProperty": "nome_equi",
@@ -80,32 +54,7 @@
     }
   ],
   "events": {
-    "load": [
-      {
-        "name": "ProjetoNew.getInstituicaos",
-        "parameters": [],
-        "then": [
-          {
-            "name": "getInstituicaosResult",
-            "type": "set",
-            "value": "${result.value}"
-          }
-        ],
-        "type": "invoke"
-      },
-      {
-        "name": "ProjetoNew.getEquipamentos",
-        "parameters": [],
-        "then": [
-          {
-            "name": "getEquipamentosResult",
-            "type": "set",
-            "value": "${result.value}"
-          }
-        ],
-        "type": "invoke"
-      }
-    ]
+    "load": []
   },
   "name": "Add Pertencer",
   "layout": "Main",

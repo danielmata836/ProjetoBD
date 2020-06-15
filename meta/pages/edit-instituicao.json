@@ -12,42 +12,13 @@
               "class": "col-md-12",
               "components": [
                 {
-                  "data": "${instituicao}",
                   "events": {
                     "cancel": [
                       {
                         "type": "back"
                       }
                     ],
-                    "submit": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to update Instituicao",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.updateInstituicao",
-                        "parameters": [
-                          {
-                            "name": "Num_Inst",
-                            "value": "${parameters.Num_Inst}"
-                          },
-                          {
-                            "name": "Instituicao",
-                            "value": "${event}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "type": "back"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "submit": []
                   },
                   "fields": [
                     {
@@ -120,26 +91,7 @@
     }
   ],
   "events": {
-    "load": [
-      {
-        "name": "ProjetoNew.getInstituicaoByNum_Inst",
-        "parameters": [
-          {
-            "name": "Num_Inst",
-            "value": "${parameters.Num_Inst}"
-          }
-        ],
-        "then": [
-          {
-            "name": "instituicao",
-            "type": "set",
-            "value": "${result}"
-          }
-        ],
-        "error": [],
-        "type": "invoke"
-      }
-    ]
+    "load": []
   },
   "name": "Edit Instituicao",
   "layout": "Main",

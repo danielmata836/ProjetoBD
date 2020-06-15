@@ -15,7 +15,6 @@ import { FormComponent } from '@radzen/angular/dist/form';
 
 import { ConfigService } from '../config.service';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class EditServicoGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -45,11 +44,7 @@ export class EditServicoGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
-  servico: any;
-  getGtsResult: any;
   parameters: any;
 
   constructor(private injector: Injector) {
@@ -76,7 +71,6 @@ export class EditServicoGenerated implements AfterViewInit, OnInit, OnDestroy {
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -98,19 +92,7 @@ export class EditServicoGenerated implements AfterViewInit, OnInit, OnDestroy {
 
 
   load() {
-    this.projetoNew.getServicoByindexServicos(null, this.parameters.index_servicos)
-    .subscribe((result: any) => {
-      this.servico = result;
-    }, (result: any) => {
 
-    });
-
-    this.projetoNew.getGts(null, null, null, null, null, null, null, null)
-    .subscribe((result: any) => {
-      this.getGtsResult = result.value;
-    }, (result: any) => {
-
-    });
   }
 
   form0Cancel(event: any) {
@@ -119,18 +101,5 @@ export class EditServicoGenerated implements AfterViewInit, OnInit, OnDestroy {
     } else {
       this._location.back();
     }
-  }
-
-  form0Submit(event: any) {
-    this.projetoNew.updateServico(null, this.parameters.index_servicos, event)
-    .subscribe((result: any) => {
-      if (this.dialogRef) {
-        this.dialogRef.close();
-      } else {
-        this._location.back();
-      }
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to update Servico` });
-    });
   }
 }

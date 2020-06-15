@@ -26,89 +26,9 @@
                   "allowMultiSorting": false,
                   "allowPaging": true,
                   "allowSorting": true,
-                  "count": "${getPessoasCount}",
-                  "data": "${getPessoasResult}",
                   "events": {
-                    "loadData": [
-                      {
-                        "name": "ProjetoNew.getPessoas",
-                        "parameters": [
-                          {
-                            "name": "$top",
-                            "value": "event.top"
-                          },
-                          {
-                            "name": "$skip",
-                            "value": "event.skip"
-                          },
-                          {
-                            "name": "$count",
-                            "value": "event.top != null && event.skip != null"
-                          },
-                          {
-                            "name": "$filter",
-                            "value": "${event.filter}"
-                          },
-                          {
-                            "name": "$orderby",
-                            "value": "${event.orderby}"
-                          },
-                          {
-                            "name": "$expand",
-                            "value": "Servico,Instituicao,Gt"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "name": "getPessoasResult",
-                            "type": "set",
-                            "value": "${result.value}"
-                          },
-                          {
-                            "name": "getPessoasCount",
-                            "type": "set",
-                            "value": "event.top != null && event.skip != null ? result['@odata.count'] : ${result.value.length}"
-                          }
-                        ],
-                        "type": "invoke",
-                        "error": [
-                          {
-                            "detail": "Unable to load Pessoas",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ]
-                      }
-                    ],
-                    "delete": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to delete Pessoa",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.deletePessoa",
-                        "parameters": [
-                          {
-                            "name": "id_Pessoa",
-                            "value": "${event.id_Pessoa}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "detail": "Pessoa deleted!",
-                            "severity": "success",
-                            "summary": "Success",
-                            "type": "notify"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ],
+                    "loadData": [],
+                    "delete": [],
                     "add": [
                       {
                         "path": "add-pessoa",

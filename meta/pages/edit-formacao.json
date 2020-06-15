@@ -1,0 +1,148 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "data": "${formacao}",
+                  "events": {
+                    "cancel": [
+                      {
+                        "type": "back"
+                      }
+                    ],
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Formacao",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "ProjetoNew.updateFormacao",
+                        "parameters": [
+                          {
+                            "name": "index_formacao",
+                            "value": "${parameters.index_formacao}"
+                          },
+                          {
+                            "name": "Formacao",
+                            "value": "${event}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "back"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "fields": [
+                    {
+                      "property": "tipo_formacao",
+                      "required": true,
+                      "title": "Tipo Formacao",
+                      "type": "string",
+                      "maxLength": 100,
+                      "requiredText": "is required"
+                    },
+                    {
+                      "property": "descricao_Formacao",
+                      "required": true,
+                      "title": "Descricao Formacao",
+                      "type": "string",
+                      "maxLength": 200,
+                      "requiredText": "is required"
+                    },
+                    {
+                      "data": "${getRecursosResult}",
+                      "property": "index_Recurso",
+                      "required": true,
+                      "textProperty": "obs",
+                      "title": "Recurso",
+                      "type": "lookup",
+                      "valueProperty": "index_Recurso",
+                      "placeholder": "Choose Recurso",
+                      "requiredText": "is required"
+                    },
+                    {
+                      "property": "tipo_Ensino",
+                      "required": false,
+                      "title": "Tipo Ensino",
+                      "type": "string",
+                      "maxLength": 100,
+                      "requiredText": "is required"
+                    },
+                    {
+                      "property": "index_formacao",
+                      "required": true,
+                      "title": "Index Formacao",
+                      "type": "integer",
+                      "requiredText": "is required",
+                      "minText": "cannot be less than",
+                      "maxText": "cannot be more than"
+                    }
+                  ],
+                  "name": "form0",
+                  "type": "form",
+                  "visible": "formacao"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "ProjetoNew.getFormacaoByindex_formacao",
+        "parameters": [
+          {
+            "name": "index_formacao",
+            "value": "${parameters.index_formacao}"
+          }
+        ],
+        "then": [
+          {
+            "name": "formacao",
+            "type": "set",
+            "value": "${result}"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "ProjetoNew.getRecursos",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getRecursosResult",
+            "type": "set",
+            "value": "${result.value}"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Formacao",
+  "access": [
+    "Authenticated"
+  ],
+  "layout": "Main"
+}

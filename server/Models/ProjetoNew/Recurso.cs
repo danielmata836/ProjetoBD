@@ -46,9 +46,9 @@ namespace ProjetoNew.Models.ProjetoNew
     }
 
 
-    public ICollection<Equipamento> Equipamentos { get; set; }
+    public ICollection<Produto> Produtos { get; set; }
 
-    public ICollection<EstaAtribuido> EstaAtribuidos { get; set; }
+    public ICollection<Formacao> Formacaos { get; set; }
     public string Dado
     {
       get;

@@ -15,7 +15,6 @@ import { FormComponent } from '@radzen/angular/dist/form';
 
 import { ConfigService } from '../config.service';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class EditPertenceUiGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -45,12 +44,7 @@ export class EditPertenceUiGenerated implements AfterViewInit, OnInit, OnDestroy
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
-  pertenceui: any;
-  getUisResult: any;
-  getPessoasResult: any;
   parameters: any;
 
   constructor(private injector: Injector) {
@@ -77,7 +71,6 @@ export class EditPertenceUiGenerated implements AfterViewInit, OnInit, OnDestroy
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -99,26 +92,7 @@ export class EditPertenceUiGenerated implements AfterViewInit, OnInit, OnDestroy
 
 
   load() {
-    this.projetoNew.getPertenceUiByIdUiAndIdPessoa(this.parameters.id_UI, this.parameters.id_Pessoa, null)
-    .subscribe((result: any) => {
-      this.pertenceui = result;
-    }, (result: any) => {
 
-    });
-
-    this.projetoNew.getUis(null, null, null, null, null, null, null, null)
-    .subscribe((result: any) => {
-      this.getUisResult = result.value;
-    }, (result: any) => {
-
-    });
-
-    this.projetoNew.getPessoas(null, null, null, null, null, null, null, null)
-    .subscribe((result: any) => {
-      this.getPessoasResult = result.value;
-    }, (result: any) => {
-
-    });
   }
 
   form0Cancel(event: any) {
@@ -127,18 +101,5 @@ export class EditPertenceUiGenerated implements AfterViewInit, OnInit, OnDestroy
     } else {
       this._location.back();
     }
-  }
-
-  form0Submit(event: any) {
-    this.projetoNew.updatePertenceUi(this.parameters.id_UI, this.parameters.id_Pessoa, null, event)
-    .subscribe((result: any) => {
-      if (this.dialogRef) {
-        this.dialogRef.close();
-      } else {
-        this._location.back();
-      }
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to update PertenceUi` });
-    });
   }
 }

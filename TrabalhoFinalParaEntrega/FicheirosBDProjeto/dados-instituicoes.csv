@@ -1,0 +1,22 @@
+Num_Inst,Nome_Inst, acronimo,  Morada_Inst, Parceiro, Tipo_Inst, Formacao
+1,Associação RAEGE Açores, A-RAEGE-Az, Açores,S, Público,N
+2,C4G - Collaboratory for Geosciences,C4G, Covilhã,S, Público,N
+3,Direção Geral do Território,DGT, Lisboa,S, Público,N
+4,Faculdade de Ciências da Universidade de Coimbra, FCUC, Coimbra,S, Público,N
+5,Faculdade de Ciências da Universidade de Lisboa,FCUL, Lisboa,S, Público,S
+6,Faculdade de Ciências da Universidade do Porto,FCUP, Porto,S, Público,S
+7,Faculdade de Engenharia do Porto,FEUP, Porto,S, Público,N
+8,Instituto Politécnico de Castelo Branco, Castelo Branco, IPCB,S, Público,N
+9,Instituto Politécnico de Portalegre,IPP, Portalegre,S, Público,N
+10,Instituto Português do Mar e da Atmosfera,IPMA, Lisboa,S, Público,S
+11,Instituto Superior Técnico-Universidade Lisboa,IST-UL, Lisboa,S, Público,S
+12,Instituto Superior de Engenharia de Lisboa,ISEL, Lisboa,S, Público,N
+13,Instituto Superior de Engenharia do Porto,ISEP, Porto,S, Público,N
+14,Instituto de Engenharia de Sistemas e Computadores Tecnologia e Ciência,INESC TEC, Porto,S, Público,N
+15,Instituto de Geografia e Ordenamento do Território,IGOT-UL, Lisboa,S, Público,S
+16,Laboratório Nacional de Energia e Geologia,LNEG, Lisboa,S, Público,S
+17,Universidade da Beira Interior,UBI, Covilhã,S, Público,S
+18,Universidade de Aveiro,UA, Aveiro,S, Público,S
+19,Universidade de Coimbra,UC, Coimra,S, Público,N
+20,Universidade de Évora,UE, évora,S, Público,S
+21,Universidade do Algarve,UALG, Algarve,S, Público,N

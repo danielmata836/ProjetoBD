@@ -1,0 +1,18 @@
+<rz-content #content1 container="main">
+  <div class="row">
+    <div class="col-md-12">
+      <rz-form #form0 (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
+        <rz-integer-form-field property="niv_produtos" [required]="false" title="Niv Produtos" requiredText="is required" minText="cannot be less than" maxText="cannot be more than" type="integer">
+        </rz-integer-form-field>
+        <rz-string-form-field property="tipo_produtos" [required]="false" title="Tipo Produtos" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-string-form-field property="descricaoProduto" [required]="true" title="Descricao Produto" [maxLength]="100" requiredText="is required" type="string">
+        </rz-string-form-field>
+        <rz-lookup-form-field [data]="getRecursosResult" property="index_Recurso" [required]="true" textProperty="obs" title="Recurso" valueProperty="index_Recurso" placeholder="Choose Recurso" requiredText="is required" type="lookup">
+        </rz-lookup-form-field>
+        <rz-integer-form-field property="index_produtos" [required]="true" title="Index Produtos" requiredText="is required" minText="cannot be less than" maxText="cannot be more than" type="integer">
+        </rz-integer-form-field>
+      </rz-form>
+    </div>
+  </div>
+</rz-content>

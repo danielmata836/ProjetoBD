@@ -19,31 +19,7 @@
                         "type": "back"
                       }
                     ],
-                    "submit": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to create new Pessoa!",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.createPessoa",
-                        "parameters": [
-                          {
-                            "name": "Pessoa",
-                            "value": "${event}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "type": "back"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "submit": []
                   },
                   "fields": [
                     {
@@ -96,7 +72,6 @@
                       "maxText": "cannot be more than"
                     },
                     {
-                      "data": "${getServicosResult}",
                       "property": "index_servicos",
                       "required": true,
                       "textProperty": "designa_pt_servicos",
@@ -107,7 +82,6 @@
                       "requiredText": "is required"
                     },
                     {
-                      "data": "${getInstituicaosResult}",
                       "property": "Num_Inst",
                       "required": true,
                       "textProperty": "Tipo_Inst",
@@ -118,7 +92,6 @@
                       "requiredText": "is required"
                     },
                     {
-                      "data": "${getGtsResult}",
                       "property": "id_GT",
                       "required": true,
                       "textProperty": "sigla",
@@ -148,44 +121,7 @@
     }
   ],
   "events": {
-    "load": [
-      {
-        "name": "ProjetoNew.getServicos",
-        "parameters": [],
-        "then": [
-          {
-            "name": "getServicosResult",
-            "type": "set",
-            "value": "${result.value}"
-          }
-        ],
-        "type": "invoke"
-      },
-      {
-        "name": "ProjetoNew.getInstituicaos",
-        "parameters": [],
-        "then": [
-          {
-            "name": "getInstituicaosResult",
-            "type": "set",
-            "value": "${result.value}"
-          }
-        ],
-        "type": "invoke"
-      },
-      {
-        "name": "ProjetoNew.getGts",
-        "parameters": [],
-        "then": [
-          {
-            "name": "getGtsResult",
-            "type": "set",
-            "value": "${result.value}"
-          }
-        ],
-        "type": "invoke"
-      }
-    ]
+    "load": []
   },
   "name": "Add Pessoa",
   "layout": "Main",

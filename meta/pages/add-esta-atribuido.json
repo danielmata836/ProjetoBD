@@ -19,31 +19,7 @@
                         "type": "back"
                       }
                     ],
-                    "submit": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to create new EstaAtribuido!",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.createEstaAtribuido",
-                        "parameters": [
-                          {
-                            "name": "EstaAtribuido",
-                            "value": "${event}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "type": "back"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "submit": []
                   },
                   "fields": [
                     {
@@ -58,7 +34,6 @@
                       "requiredText": "is required"
                     },
                     {
-                      "data": "${getServicosResult}",
                       "property": "index_servicos",
                       "required": true,
                       "textProperty": "designa_pt_servicos",
@@ -87,18 +62,6 @@
         "then": [
           {
             "name": "getRecursosResult",
-            "type": "set",
-            "value": "${result.value}"
-          }
-        ],
-        "type": "invoke"
-      },
-      {
-        "name": "ProjetoNew.getServicos",
-        "parameters": [],
-        "then": [
-          {
-            "name": "getServicosResult",
             "type": "set",
             "value": "${result.value}"
           }

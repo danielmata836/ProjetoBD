@@ -1,10 +1,10 @@
 <rz-content #content1 container="main">
   <div class="row">
     <div class="col-md-12">
-      <rz-form #form0 [data]="pede" *ngIf="pede" (cancel)="form0Cancel($event)" (submit)="form0Submit($event)">
-        <rz-lookup-form-field [data]="getPessoasResult" property="id_Pessoa" [required]="true" textProperty="email_pessoa" title="Pessoa" valueProperty="id_Pessoa" placeholder="Choose Pessoa" requiredText="is required" type="lookup">
+      <rz-form #form0 *ngIf="pede" (cancel)="form0Cancel($event)">
+        <rz-lookup-form-field property="id_Pessoa" [required]="true" textProperty="email_pessoa" title="Pessoa" valueProperty="id_Pessoa" placeholder="Choose Pessoa" requiredText="is required" type="lookup">
         </rz-lookup-form-field>
-        <rz-lookup-form-field [data]="getServicosResult" property="index_servicos" [required]="true" textProperty="designa_pt_servicos" title="Servico" valueProperty="index_servicos" placeholder="Choose Servico" requiredText="is required" type="lookup">
+        <rz-lookup-form-field property="index_servicos" [required]="true" textProperty="designa_pt_servicos" title="Servico" valueProperty="index_servicos" placeholder="Choose Servico" requiredText="is required" type="lookup">
         </rz-lookup-form-field>
       </rz-form>
     </div>

@@ -48,9 +48,7 @@ export class EditEstaAtribuidoGenerated implements AfterViewInit, OnInit, OnDest
   projetoNew: ProjetoNewService;
 
   security: SecurityService;
-  estaatribuido: any;
   getRecursosResult: any;
-  getServicosResult: any;
   parameters: any;
 
   constructor(private injector: Injector) {
@@ -99,23 +97,9 @@ export class EditEstaAtribuidoGenerated implements AfterViewInit, OnInit, OnDest
 
 
   load() {
-    this.projetoNew.getEstaAtribuidoByIndexRecursoAndIndexServicos(this.parameters.index_Recurso, this.parameters.index_servicos, null)
-    .subscribe((result: any) => {
-      this.estaatribuido = result;
-    }, (result: any) => {
-
-    });
-
     this.projetoNew.getRecursos(null, null, null, null, null, null, null, null)
     .subscribe((result: any) => {
       this.getRecursosResult = result.value;
-    }, (result: any) => {
-
-    });
-
-    this.projetoNew.getServicos(null, null, null, null, null, null, null, null)
-    .subscribe((result: any) => {
-      this.getServicosResult = result.value;
     }, (result: any) => {
 
     });
@@ -127,18 +111,5 @@ export class EditEstaAtribuidoGenerated implements AfterViewInit, OnInit, OnDest
     } else {
       this._location.back();
     }
-  }
-
-  form0Submit(event: any) {
-    this.projetoNew.updateEstaAtribuido(this.parameters.index_Recurso, this.parameters.index_servicos, null, event)
-    .subscribe((result: any) => {
-      if (this.dialogRef) {
-        this.dialogRef.close();
-      } else {
-        this._location.back();
-      }
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to update EstaAtribuido` });
-    });
   }
 }

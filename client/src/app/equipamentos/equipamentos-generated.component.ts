@@ -18,7 +18,6 @@ import { ConfigService } from '../config.service';
 import { AddEquipamentoComponent } from '../add-equipamento/add-equipamento.component';
 import { EditEquipamentoComponent } from '../edit-equipamento/edit-equipamento.component';
 
-import { ProjetoNewService } from '../projeto-new.service';
 import { SecurityService } from '../security.service';
 
 export class EquipamentosGenerated implements AfterViewInit, OnInit, OnDestroy {
@@ -49,12 +48,8 @@ export class EquipamentosGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   _subscription: Subscription;
 
-  projetoNew: ProjetoNewService;
-
   security: SecurityService;
   parameters: any;
-  getEquipamentosResult: any;
-  getEquipamentosCount: any;
 
   constructor(private injector: Injector) {
   }
@@ -80,7 +75,6 @@ export class EquipamentosGenerated implements AfterViewInit, OnInit, OnDestroy {
 
     this.httpClient = this.injector.get(HttpClient);
 
-    this.projetoNew = this.injector.get(ProjetoNewService);
     this.security = this.injector.get(SecurityService);
   }
 
@@ -103,26 +97,6 @@ export class EquipamentosGenerated implements AfterViewInit, OnInit, OnDestroy {
 
   load() {
     this.grid0.load();
-  }
-
-  grid0LoadData(event: any) {
-    this.projetoNew.getEquipamentos(`${event.filter}`, event.top, event.skip, `${event.orderby}`, event.top != null && event.skip != null, `Recurso`, null, null)
-    .subscribe((result: any) => {
-      this.getEquipamentosResult = result.value;
-
-      this.getEquipamentosCount = event.top != null && event.skip != null ? result['@odata.count'] : result.value.length;
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to load Equipamentos` });
-    });
-  }
-
-  grid0Delete(event: any) {
-    this.projetoNew.deleteEquipamento(event.no_regis_produto)
-    .subscribe((result: any) => {
-      this.notificationService.notify({ severity: "success", summary: `Success`, detail: `Equipamento deleted!` });
-    }, (result: any) => {
-      this.notificationService.notify({ severity: "error", summary: `Error`, detail: `Unable to delete Equipamento` });
-    });
   }
 
   grid0Add(event: any) {

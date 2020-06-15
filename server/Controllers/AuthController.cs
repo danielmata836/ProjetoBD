@@ -99,6 +99,18 @@ namespace ProjetoNew.Controllers
                 return Error("Invalid user name or password.");
             }
 
+            if (env.EnvironmentName == "Development" && username.ToObject<string>() == "admin" && password.ToObject<string>() == "admin")
+            {
+                var claims = new List<Claim>() {
+                        new Claim(ClaimTypes.Name, "admin"),
+                        new Claim(ClaimTypes.Email, "admin")
+                      };
+
+                this.roleManager.Roles.ToList().ForEach(r => claims.Add(new Claim(ClaimTypes.Role, r.Name)));
+
+                return Jwt(claims);
+            }
+
             var user = await userManager.FindByNameAsync(username.ToObject<string>());
 
             if (user == null)

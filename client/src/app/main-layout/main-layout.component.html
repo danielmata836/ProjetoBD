@@ -34,7 +34,7 @@
     </rz-panelmenu-item>
     <rz-panelmenu-item text="Formações" path="formações" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
-    <rz-panelmenu-item text="Grupos de Trabalho" path="grupos-de-trabalho" *ngIf="security?.isInRole(['Staff'])">
+    <rz-panelmenu-item text="Grupos de Trabalho" path="grupos-de-trabalho" *ngIf="security?.isInRole(['Staff', 'Member'])">
     </rz-panelmenu-item>
     <rz-panelmenu-item text="Instituições" path="instituições" *ngIf="security?.isInRole(['Staff'])">
     </rz-panelmenu-item>
@@ -55,6 +55,8 @@
     <rz-panelmenu-item text="Application Roles" path="application-roles" *ngIf="security?.isInRole(['Admin'])">
     </rz-panelmenu-item>
     <rz-panelmenu-item text="Login" path="login" *ngIf="security?.isInRole(['Everybody'])">
+    </rz-panelmenu-item>
+    <rz-panelmenu-item text="Formacaos" path="formacaos" *ngIf="security?.isInRole(['Authenticated'])">
     </rz-panelmenu-item>
   </rz-panelmenu>
 </rz-sidebar>

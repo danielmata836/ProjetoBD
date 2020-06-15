@@ -70,8 +70,8 @@ namespace ProjetoNew.Controllers.ProjetoNew
 
             var item = this.context.Recursos
                 .Where(i => i.index_Recurso == key)
-                .Include(i => i.Equipamentos)
-                .Include(i => i.EstaAtribuidos)
+                .Include(i => i.Produtos)
+                .Include(i => i.Formacaos)
                 .FirstOrDefault();
 
             if (item == null)

@@ -12,42 +12,13 @@
               "class": "col-md-12",
               "components": [
                 {
-                  "data": "${equipamento}",
                   "events": {
                     "cancel": [
                       {
                         "type": "back"
                       }
                     ],
-                    "submit": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to update Equipamento",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.updateEquipamento",
-                        "parameters": [
-                          {
-                            "name": "no_regis_produto",
-                            "value": "${parameters.no_regis_produto}"
-                          },
-                          {
-                            "name": "Equipamento",
-                            "value": "${event}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "type": "back"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "submit": []
                   },
                   "fields": [
                     {
@@ -115,24 +86,6 @@
   ],
   "events": {
     "load": [
-      {
-        "name": "ProjetoNew.getEquipamentoByno_regis_produto",
-        "parameters": [
-          {
-            "name": "no_regis_produto",
-            "value": "${parameters.no_regis_produto}"
-          }
-        ],
-        "then": [
-          {
-            "name": "equipamento",
-            "type": "set",
-            "value": "${result}"
-          }
-        ],
-        "error": [],
-        "type": "invoke"
-      },
       {
         "name": "ProjetoNew.getRecursos",
         "parameters": [],

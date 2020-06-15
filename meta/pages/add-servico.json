@@ -18,31 +18,7 @@
                         "type": "back"
                       }
                     ],
-                    "submit": [
-                      {
-                        "error": [
-                          {
-                            "detail": "Unable to create new Servico!",
-                            "severity": "error",
-                            "summary": "Error",
-                            "type": "notify"
-                          }
-                        ],
-                        "name": "ProjetoNew.createServico",
-                        "parameters": [
-                          {
-                            "name": "Servico",
-                            "value": "${event}"
-                          }
-                        ],
-                        "then": [
-                          {
-                            "type": "back"
-                          }
-                        ],
-                        "type": "invoke"
-                      }
-                    ]
+                    "submit": []
                   },
                   "fields": [
                     {
@@ -104,7 +80,6 @@
                       "type": "string"
                     },
                     {
-                      "data": "${getGtsResult}",
                       "placeholder": "Choose Gt",
                       "property": "id_GT",
                       "required": true,
@@ -144,20 +119,7 @@
     }
   ],
   "events": {
-    "load": [
-      {
-        "name": "ProjetoNew.getGts",
-        "parameters": [],
-        "then": [
-          {
-            "name": "getGtsResult",
-            "type": "set",
-            "value": "${result.value}"
-          }
-        ],
-        "type": "invoke"
-      }
-    ]
+    "load": []
   },
   "layout": "Main",
   "name": "Add Servico"
